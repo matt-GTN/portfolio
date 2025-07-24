@@ -13,14 +13,14 @@ export default function Navbar() {
 
     return (
       <div
-        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 p-3 flex gap-4 items-center"
+        className="fixed left-1/2 bottom-30 -translate-x-1/2 z-50 p-3 flex gap-4 items-center"
       >
         {/* Utilisez plusieurs instances de NavbarItem */}
-        <NavbarItem text="Home" icon="" onClick={() => handleItemClick('Home')} />
-        <NavbarItem text="Projects" icon="" onClick={() => handleItemClick('Projects')} />
-        <NavbarItem text="Skills" icon="" onClick={() => handleItemClick('Skills')} />
-        <NavbarItem text="Contact" icon="" onClick={() => handleItemClick('Contact')} />
-        {/* Vous pouvez ajouter d'autres items ici */}
+        <NavbarItem text="Me" icon="" href="#me" /> {/* Ajoutez des icônes pour chaque item */}
+        <NavbarItem text="Projects" icon="" href="#projects" />
+        <NavbarItem text="Skills" icon="" href="#skills" />
+        <NavbarItem text="Contact" icon="" href="#contact" />
       </div>
+
   );
 }
