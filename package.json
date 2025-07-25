@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "daisyui": "^5.0.46",
+    "lucide-react": "^0.525.0",
     "motion": "^12.23.7",
     "next": "15.4.3",
+    "p5": "^2.0.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "three": "0.128.0",
+    "three": "^0.125.2",
     "vanta": "^0.5.24"
   },
   "devDependencies": {

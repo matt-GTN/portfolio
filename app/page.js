@@ -1,7 +1,7 @@
 // src/app/page.js
 "use client";
 import React from 'react';
-import VantaRingsBackground from '@/components/VantaRingsBackground';
+import VantaBackground from '@/components/VantaBackground'; // Updated import name
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
@@ -9,14 +9,21 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-base-200 relative overflow-hidden">
 
-      {/* VantaRingsBackground will occupy 100vh with the animation */}
-      <VantaRingsBackground
+      <VantaBackground
+        effectType="BIRDS" // Change this to "DOTS", "GLOBE", "BIRDS", etc.
         options={{
-          color: 0x3b004a, // Rings color
-          backgroundColor: 0xffffff, // Background color within Vanta
-          amplitudeFactor: 2.0,
-          ringWidth: 1.8,
-          shininess: 40.00,
+          backgroundColor: 0x0, // Fond noir
+          color: 0xff3f81,       // Couleur principale des lignes/points (un rose vif)
+          color2: 0xff334b,      // Deuxième couleur pour le dégradé (un rouge-orange)
+          // Autres options génériques (ou spécifiques si vous en avez besoin)
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          mouseDamping: 0.2,
         }}
       >
         {/* This div holds content ON TOP of the Vanta background */}
@@ -24,16 +31,18 @@ export default function Home() {
           <Navbar />
 
           {/* Main content for the hero section */}
-
-
-          {/* No Footer here, as per your requirement (footer after background) */}
+          <div className="flex flex-grow items-center justify-center p-8 text-center text-white">
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-lg">
+              Welcome to My Portfolio
+            </h1>
+          </div>
         </div>
-      </VantaRingsBackground>
+      </VantaBackground>
 
       {/* This div holds content that appears AFTER the 100vh Vanta section */}
       <div className="w-full relative z-10">
         {/* Placeholder content below the Vanta section */}
-        <div className="p-8 text-center text-white" style={{ backgroundColor: 'rgba(0,0,0,0.5)', minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="p-8 text-center text-black" style={{ backgroundColor: 'rgba(255,255,255,0.9)', minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <h2 className="text-3xl font-bold">Scroll down for more!</h2>
         </div>
 
