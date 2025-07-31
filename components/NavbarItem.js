@@ -34,8 +34,8 @@ const NavbarItem = ({
     <Link href={href}>
       <motion.div
         className="flex flex-col items-center gap-2 px-4 py-2 rounded-4xl cursor-pointer whitespace-nowrap
-                   bg-white/10 backdrop-blur-lg shadow-lg shadow-black/30 border border-white/30
-                   justify-center transition-colors duration-200 hover:text-gray-800 min-h-32 min-w-32"
+                   bg-white/10 backdrop-blur-xs shadow-lg shadow-black/30 border border-white/30
+                   justify-center transition-colors duration-200 hover:text-gray-800 min-h-32 min-w-32 z-10"
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
