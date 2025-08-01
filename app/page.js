@@ -109,9 +109,7 @@ export default function Home() {
               Hey, I'm Mathis 👋, I'm a
             </p>
 
-            {/* A single H1 wrapper for the main, dynamic title.
-                We set the font size and weight here. */}
-            <h1 className="text-4xl md:text-7xl font-medium mt-2">
+            <h1 className="text-7xl font-medium mt-2">
               <Typewriter 
                 words={roles} 
                 // The className now ONLY handles the gradient, not font size.
