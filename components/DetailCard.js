@@ -28,7 +28,7 @@ const DetailCard = ({ title, children, onClose }) => {
       </motion.button>
       
       {/* The title remains at the top of the scrollable area. */}
-      <h2 className="text-4xl font-bold mb-4 text-center">{title}</h2>
+      <h2 className="text-4xl font-bold mb-10">{title}</h2>
       
       {/* MODIFIED: Renders the children passed to the component. */}
       <div className="text-lg text-black/80">

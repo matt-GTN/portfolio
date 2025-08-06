@@ -10,6 +10,7 @@ import Typewriter from "@/components/Typewriter";
 
 // NEW: Import the content for the skills card
 import SkillsContent from "@/components/SkillsContent";
+import ProjectsContent from "@/components/ProjectsContent"; // Assuming you have a ProjectsContent component
 
 // MODIFIED: The content for each card now uses a 'content' property.
 const cardContent = {
@@ -19,7 +20,7 @@ const cardContent = {
   },
   Projects: {
     title: "My Projects",
-    content: "Here you can see a collection of my work, ranging from small personal projects to large-scale enterprise applications. Each project was a unique challenge and a great learning experience.",
+    content: <ProjectsContent />,
   },
   Skills: {
     title: "Skills & Expertise",
