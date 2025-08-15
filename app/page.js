@@ -3,46 +3,75 @@
 
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import VantaBackground from '@/components/VantaBackground';
+import { User, Briefcase, Zap, Sparkles, Mail } from 'lucide-react';
+import VantaBackground from '@/components/vanta/VantaBackground';
 import Navbar from "@/components/Navbar";
-import DetailCard from "@/components/DetailCard"; 
+import DetailCard from "@/components/DetailCard";
 import Typewriter from "@/components/Typewriter";
+import GitHubButton from "@/components/GitHubButton";
+import CallToActionButton from "@/components/CallToActionButton";
 
-// NEW: Import the content for the skills card
-import SkillsContent from "@/components/SkillsContent";
-import ProjectsContent from "@/components/ProjectsContent"; // Assuming you have a ProjectsContent component
+// NEW: Import the content components from the content folder
+import MeContent from "@/components/content/MeContent";
+import SkillsContent from "@/components/content/SkillsContent";
+import ProjectsContent from "@/components/content/ProjectsContent";
+import BeyondCodeContent from "@/components/content/BeyondCodeContent";
+import ContactContent from "@/components/content/ContactContent";
 
-// MODIFIED: The content for each card now uses a 'content' property.
+// MODIFIED: The content for each card now uses a 'content' property with icons.
 const cardContent = {
   Me: {
-    title: "About Me",
-    content: "I am a passionate developer with a love for creating beautiful and functional user interfaces. My journey in tech started with a simple 'Hello World' and has grown into a full-fledged career.",
+    title: (
+      <div className="flex items-center gap-3">
+        <User size={32} color="#3b82f6" />
+        About Me
+      </div>
+    ),
+    content: <MeContent />,
   },
   Projects: {
-    title: "My Projects",
+    title: (
+      <div className="flex items-center gap-3">
+        <Briefcase size={32} color="#8b5cf6" />
+        My Projects
+      </div>
+    ),
     content: <ProjectsContent />,
   },
   Skills: {
-    title: "Skills & Expertise",
-    // MODIFIED: The content is now our new component
+    title: (
+      <div className="flex items-center gap-3">
+        <Zap size={32} color="#f59e0b" />
+        Skills & Expertise
+      </div>
+    ),
     content: <SkillsContent />,
   },
-  Fun: {
-    title: "Fun Stuff",
-    content: "When I'm not coding, I enjoy playing video games, exploring new music, and spending time with friends. I believe that a balanced life fuels creativity and innovation.",
+  BeyondCode: {
+    title: (
+      <div className="flex items-center gap-3">
+        <Sparkles size={32} color="#03d11eff" />
+        Beyond Code
+      </div>
+    ),
+    content: <BeyondCodeContent />,
   },
   Contact: {
-    title: "Get In Touch",
-    content: "Feel free to reach out via email or connect with me on social media. I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious team.",
+    title: (
+      <div className="flex items-center gap-3">
+        <Mail size={32} color="#ed5cebff" />
+        Get In Touch
+      </div>
+    ),
+    content: <ContactContent />,
   },
 };
 
 const roles = [
-    "Data Scientist",
-    "Team Player", 
-    "Agentic AI Developer",
-    "Learning Enthusiast",
-    "Web Developer",
+  "Data Scientist",
+  "Team Player",
+  "Agent Builder",
+  "Learning Enthusiast",
 ];
 
 
@@ -59,8 +88,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-base-200 relative overflow-hidden">
+      <GitHubButton username="matt-GTN" repository="portfolio" isCardActive={!!activeCard} />
       <Navbar onItemClick={handleItemClick} isCardActive={!!activeCard} />
-      
+
       <AnimatePresence>
         {activeCard && (
           // MODIFIED: DetailCard now accepts the content as a child element.
@@ -72,7 +102,7 @@ export default function Home() {
           </DetailCard>
         )}
       </AnimatePresence>
-      
+
       <VantaBackground
         effectType="BIRDS"
         options={{
@@ -93,22 +123,29 @@ export default function Home() {
           separation: 15.00,
           alignment: 25.00,
           cohesion: 50.00,
-          quantity: 4.00,  
+          quantity: 4.00,
         }}
       >
         <div className="relative z-10 w-full h-full flex flex-col">
           <div className="p-8 text-left max-w-4xl w-full mt-20">
-          
+
             <p className="text-xl text-gray-800 drop-shadow-sm">
               Hey, I'm Mathis 👋, I'm a
             </p>
 
-            <h1 className="text-7xl font-medium mt-2">
-              <Typewriter 
-                words={roles} 
+            <h1 className="text-8xl font-medium mt-2 min-w-xl whitespace-nowrap">
+              <Typewriter
+                words={roles}
                 className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
               />
             </h1>
+
+            {/* Call to Action Button under typewriter */}
+            <div className="mt-8">
+              <CallToActionButton 
+                onContactClick={handleItemClick}
+              />
+            </div>
           </div>
         </div>
       </VantaBackground>

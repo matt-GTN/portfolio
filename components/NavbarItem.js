@@ -2,9 +2,9 @@
 "use client";
 
 import { motion } from "motion/react"; // Changed from "motion/react" for consistency with Navbar
-import { Briefcase, Mail, User, Zap, Dices } from 'lucide-react';
+import { Briefcase, Mail, User, Zap, Dices, Sparkles } from 'lucide-react';
 
-const lucideIconMap = { Briefcase, Mail, User, Zap, Dices };
+const lucideIconMap = { Briefcase, Mail, User, Zap, Dices, Sparkles };
 
 const NavbarItem = ({
   text,
@@ -27,7 +27,7 @@ const NavbarItem = ({
       initial={{ scale: 1 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      transition={{ type: "spring", stiffness: 100, damping: 10 }}
     >
       {/* CHANGED: Pass the iconColor prop to the icon component */}
       {IconComponent && <IconComponent size={iconSize} color={iconColor} />}
