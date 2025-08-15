@@ -80,6 +80,7 @@ const ProjectsContent = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
+            whileHover={{ x: 5 }}
           >
             {/* Project Card and Pills Container */}
             <div className="flex flex-col lg:flex-row gap-6 items-start">
@@ -132,7 +133,7 @@ const ProjectsContent = () => {
             <div className="mt-4 px-1">
               <div className="text-black/80 mb-4 leading-relaxed">
                 {project.description.split('. ').map((sentence, idx) => (
-                  <p key={idx} className={`${idx === 0 ? 'text-base font-medium mb-2' : 'text-sm mb-1'}`}>
+                  <p key={idx} className={`${idx === 0 ? 'text-base font-bold mb-2' : 'text-sm mb-1'}`}>
                     {sentence}{idx < project.description.split('. ').length - 1 ? '.' : ''}
                   </p>
                 ))}

@@ -11,7 +11,7 @@ const DetailCard = ({ title, children, onClose }) => {
       key="detail-card"
       // MODIFIED: Added overflow-y-auto and adjusted flex alignment for scrolling.
       className="fixed m-auto flex flex-col justify-start items-stretch 
-                 max-w-2xl p-8 z-40 rounded-3xl
+                 max-w-3xl p-8 z-40 rounded-4xl
                  bg-white/20 backdrop-blur-xs shadow-xl shadow-black/30 
                  border border-white/30 text-black right-8 top-4 bottom-8 overflow-y-auto"
       initial={{ x: "100%", opacity: 0 }}

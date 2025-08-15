@@ -39,7 +39,7 @@ const valuesData = [
   {
     icon: <Users size={24} className="text-blue-500" />,
     title: "Leadership & Collaboration",
-    description: "5 years of experience in team management and project leadership, and working in IT environnements. I've managed a team of 8 people and restructured company culture to re-engage employees.",
+    description: "5 years of experience in creative collaboration, project leadership, and working in IT environnements. I've managed a team of 8 people and restructured company culture to re-engage employees.",
   },
   {
     icon: <Lightbulb size={24} className="text-violet-500" />,
@@ -116,6 +116,8 @@ const MeContent = () => {
       <motion.div
         className="p-6 rounded-2xl bg-black/90 border border-white/10"
         variants={itemVariants}
+        whileHover={{ x: 5 }}
+        transition={{ duration: 0.5}}
       >
         <div className="flex items-center gap-6">
           <motion.div
@@ -147,6 +149,8 @@ const MeContent = () => {
       <motion.div
         className="p-6 rounded-2xl bg-black/90 border border-white/10"
         variants={itemVariants}
+        whileHover={{ x: 5 }}
+        transition={{ duration: 0.5}}
       >
         <h3 className="text-3xl font-bold mb-6 text-white">Core Values</h3>
         <div className="flex flex-col gap-6">
@@ -179,6 +183,8 @@ const MeContent = () => {
       <motion.div
         className="p-6 rounded-2xl bg-black/90 border border-white/10"
         variants={itemVariants}
+        whileHover={{ x: 5 }}
+        transition={{ duration: 0.5}}
       >
         <h3 className="text-3xl font-bold mb-6 text-white">About</h3>
 
@@ -209,6 +215,8 @@ const MeContent = () => {
       <motion.div
         className="p-6 rounded-2xl bg-black/90 border border-white/10"
         variants={itemVariants}
+        whileHover={{ x: 5 }}
+        transition={{ duration: 0.5}}
       >
         <h3 className="text-3xl font-bold mb-6 text-white">Let's Connect</h3>
         <div className="flex flex-col sm:flex-row gap-4">

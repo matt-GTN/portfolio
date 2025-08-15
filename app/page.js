@@ -51,7 +51,7 @@ const cardContent = {
     title: (
       <div className="flex items-center gap-3">
         <Sparkles size={32} color="#03d11eff" />
-        Beyond Code
+        Beyond Coding
       </div>
     ),
     content: <BeyondCodeContent />,
@@ -70,7 +70,7 @@ const cardContent = {
 const roles = [
   "Data Scientist",
   "Team Player",
-  "Agent Builder",
+  "Agentic AI Builder",
   "Learning Enthusiast",
 ];
 
@@ -141,7 +141,7 @@ export default function Home() {
             </h1>
 
             {/* Call to Action Button under typewriter */}
-            <div className="mt-8">
+            <div className="mt-16">
               <CallToActionButton 
                 onContactClick={handleItemClick}
               />

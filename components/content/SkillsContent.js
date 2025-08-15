@@ -60,6 +60,7 @@ const SkillsContent = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
+            whileHover={{ x: 5 }}
             key={section.category}
             className="p-6 rounded-2xl bg-black/90 border border-white/10"
           >

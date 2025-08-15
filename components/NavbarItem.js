@@ -21,8 +21,8 @@ const NavbarItem = ({
   return (
     <motion.div
       onClick={onClick}
-      className="flex flex-col items-center gap-2 px-4 py-2 rounded-2xl cursor-pointer 
-                 bg-white/10 backdrop-blur-lg shadow-md shadow-black/30 border border-black/20
+      className="flex flex-col items-center gap-2 px-4 py-2 rounded-4xl cursor-pointer 
+                 bg-white/10 backdrop-blur-xs shadow-md shadow-black/30 border border-black/20
                  justify-center min-h-24 min-w-36 z-10" // REMOVED: text-black-500
       initial={{ scale: 1 }}
       whileHover={{ scale: 1.05 }}

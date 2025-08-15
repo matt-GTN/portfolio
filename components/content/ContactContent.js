@@ -124,6 +124,8 @@ const ContactContent = () => {
       <motion.div
         className="p-6 rounded-2xl bg-black/90 border border-white/10"
         variants={itemVariants}
+        whileHover={{ x: 5 }}
+        transition={{ duration: 0.5}}
       >
         <h3 className="text-3xl font-bold mb-4 text-white">Let's Work Together 👋</h3>
         <p className="text-white/70 mb-6">
@@ -147,6 +149,8 @@ const ContactContent = () => {
       <motion.div
         className="p-6 rounded-2xl bg-black/90 border border-white/10"
         variants={itemVariants}
+        whileHover={{ x: 5 }}
+        transition={{ duration: 0.5}}
       >
         <h3 className="text-3xl font-bold mb-6 text-white">Get In Touch</h3>
         <div className="flex flex-col gap-6">
@@ -204,6 +208,8 @@ const ContactContent = () => {
       <motion.div
         className="p-6 rounded-2xl bg-black/90 border border-white/10"
         variants={itemVariants}
+        whileHover={{ x: 5 }}
+        transition={{ duration: 0.5}}
       >
         <h3 className="text-3xl font-bold mb-6 text-white">Connect With Me</h3>
         <div className="flex flex-wrap gap-4">
