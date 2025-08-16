@@ -121,7 +121,7 @@ const BeyondCodeContent = () => {
     >
       {/* --- SECTION 1: INTRODUCTION --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -134,7 +134,7 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 2: MAIN HOBBIES --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -172,7 +172,7 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 3: CURRENT ACTIVITIES --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -192,7 +192,7 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 4: TRAVEL & EXPLORATION --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -210,9 +210,9 @@ const BeyondCodeContent = () => {
           </div>
       </motion.div>
 
-      {/* --- SECTION 5: PHILOSOPHY --- */}
+      {/* --- SECTION 5: ACHIEVEMENT --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 rounded-2xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -220,10 +220,12 @@ const BeyondCodeContent = () => {
         
         <div className="space-y-4">
 
-            <h3 className="text-3xl font-bold mb-4 text-black">Craziest achievement</h3>
+            <h3 className="text-3xl font-bold mb-4 text-black">🔥 Craziest achievement</h3>
             <p className="text-black/80 mb-8">
-            I embarked myself on a cross-country duo hitchhiking challenge from Nantes to Sevilla. While we didn't win, this uniquely demanding experience significantly built my resilience and taught me invaluable lessons in learning from persistent rejection and navigating unforeseen challenges. 
-            This was truly the craziest experience in my life !
+            I embarked myself on a cross-country duo hitchhiking challenge from Nantes to Sevilla. While we didn't win, this experience built my resilience and taught me a lesson in learning from rejection and navigating challenges. 
+            </p>
+            <p className="text-black/80 mb-8">
+            This was truly the craziest experience of my life !
             </p>
             
             <div className="carousel rounded-box">

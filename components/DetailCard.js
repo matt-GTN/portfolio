@@ -9,7 +9,6 @@ const DetailCard = ({ title, children, onClose }) => {
   return (
     <motion.div
       key="detail-card"
-      // MODIFIED: Added overflow-y-auto and adjusted flex alignment for scrolling.
       className="fixed m-auto flex flex-col justify-start items-stretch 
                  max-w-3xl p-8 z-40 rounded-4xl
                  bg-white/20 backdrop-blur-xs shadow-xl shadow-black/30 
@@ -24,11 +23,11 @@ const DetailCard = ({ title, children, onClose }) => {
         onClick={onClose}
         whileHover={{ scale: 1.2, rotate: 90 }}
       >
-        <X size={28} />
+        <X size={24} />
       </motion.button>
       
       {/* The title remains at the top of the scrollable area. */}
-      <h2 className="text-4xl font-bold mb-10">{title}</h2>
+      <h2 className="text-4xl font-bold mb-16">{title}</h2>
       
       {/* MODIFIED: Renders the children passed to the component. */}
       <div className="text-lg text-black/80">

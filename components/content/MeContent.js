@@ -137,7 +137,7 @@ const MeContent = () => {
     >
       {/* --- SECTION 1: INTRODUCTION & AVATAR --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -170,7 +170,7 @@ const MeContent = () => {
 
       {/* --- SECTION 2: CORE VALUES --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -205,7 +205,7 @@ const MeContent = () => {
 
       {/* --- SECTION 3: PERSONAL INFO --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -237,7 +237,7 @@ const MeContent = () => {
 
       {/* --- SECTION 4: CALLS TO ACTION --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}

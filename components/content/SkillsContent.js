@@ -94,7 +94,7 @@ const SkillsContent = () => {
             viewport={{ once: true }}
             custom={index}
             key={section.category}
-            className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+            className="p-6 rounded-2xl border border-white/10"
           >
             <h3 className="flex items-center gap-3 text-xl font-bold mb-6 text-black">
               {section.icon}
