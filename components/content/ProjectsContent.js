@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Github } from 'lucide-react';
+
 import Zenyth from '@/components/svg/Zenyth';
 import Birds from '@/components/svg/Birds';
 import GitHubButton from '@/components/GitHubButton';
@@ -95,16 +95,7 @@ const ProjectsContent = () => {
   return (
     <div className="w-full flex flex-col gap-12 -mt-4">
       {projectsData.map((project, index) => (
-        <div key={`project-container-${index}`}>
-          {index > 0 && (
-            <div className="flex items-center justify-center mb-12">
-              <div className="flex-1 h-px bg-black"></div>
-              <div className="px-4">
-                <div className="w-2 h-2 bg-black rounded-full"></div>
-              </div>
-              <div className="flex-1 h-px bg-black"></div>
-            </div>
-          )}
+        <div key={`project-container-${index}`} className={index > 0 ? "mt-12" : ""}>
           <motion.div
             key={project.title}
             variants={projectVariants}

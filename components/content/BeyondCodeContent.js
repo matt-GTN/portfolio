@@ -114,7 +114,7 @@ const BeyondCodeContent = () => {
 
   return (
     <motion.div
-      className="w-full flex flex-col gap-8"
+      className="w-full flex flex-col gap-6"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -128,7 +128,7 @@ const BeyondCodeContent = () => {
       >
         <h3 className="text-3xl font-bold mb-4 text-black">🚀 Life Beyond the Screen</h3>
         <p className="text-black/70 mb-4">
-          While I love crafting code and building AI solutions, I believe the best developers are well-rounded individuals. 
+          While I love crafting code and building AI solutions, I believe the best developers are well-rounded individuals.
         </p>
       </motion.div>
 
@@ -197,74 +197,62 @@ const BeyondCodeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-          <h3 className="text-3xl font-bold mb-6 text-black">Wanderlust </h3>
-          <p className="text-black/70 mb-4">
-            I believe travel broadens the mind and provides fresh perspectives. Here are some places on my bucket list:
-          </p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {travelWishlist.map((destination, index) => (
-              <ActivityPill key={index} color={destination.color}>
-                {destination.text}
-              </ActivityPill>
-            ))}
-          </div>
+        <h3 className="text-3xl font-bold mb-6 text-black">Wanderlust </h3>
+        <p className="text-black/70 mb-4">
+          I believe travel broadens the mind and provides fresh perspectives. Here are some places on my bucket list:
+        </p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {travelWishlist.map((destination, index) => (
+            <ActivityPill key={index} color={destination.color}>
+              {destination.text}
+            </ActivityPill>
+          ))}
+        </div>
       </motion.div>
 
       {/* --- SECTION 5: ACHIEVEMENT --- */}
       <motion.div
-        className="p-6 rounded-2xs border border-white/10"
+        className="p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        
-        <div className="space-y-4">
+        <h3 className="text-3xl font-bold mb-6 text-black">🔥 Craziest achievement</h3>
 
-            <h3 className="text-3xl font-bold mb-4 text-black">🔥 Craziest achievement</h3>
-            <p className="text-black/80 mb-8">
-            I embarked myself on a cross-country duo hitchhiking challenge from Nantes to Sevilla. While we didn't win, this experience built my resilience and taught me a lesson in learning from rejection and navigating challenges. 
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          {/* Vertical Carousel on the left */}
+            <motion.div
+              whileHover={{scale:1.05}}
+              className="carousel carousel-vertical rounded-xl p-3 h-80 w-64">
+              <div className="carousel-item h-80">
+                <img
+                  src="/sevilla_1.jpg"
+                  alt="Hitchhiking adventure to Sevilla - Photo 1"
+                  className="w-full object-cover rounded-lg shadow-md" />
+              </div>
+              <div className="carousel-item h-80">
+                <img
+                  src="/sevilla_2.jpg"
+                  alt="Hitchhiking adventure to Sevilla - Photo 2"
+                  className="w-full object-cover rounded-lg shadow-md" />
+              </div>
+              <div className="carousel-item h-80">
+                <img
+                  src="/sevilla_3.jpg"
+                  alt="Hitchhiking adventure to Sevilla - Photo 3"
+                  className="w-full object-cover rounded-lg shadow-md" />
+              </div>
+            </motion.div>
+
+          {/* Description on the right */}
+          <div className="flex-1 space-y-4">
+            <p className="text-black/80 text-lg leading-relaxed">
+              I embarked myself on a cross-country duo hitchhiking challenge from Nantes to Sevilla. While we didn't win, this experience built my resilience and taught me a lesson in learning from rejection and navigating challenges.
             </p>
-            <p className="text-black/80 mb-8">
-            This was truly the craziest experience of my life !
+            <p className="text-black/80 text-lg leading-relaxed font-medium">
+              This was truly the craziest experience of my life!
             </p>
-            
-            <div className="carousel rounded-box">
-              <div className="carousel-item">
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
-                  alt="Burger" />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
-                  alt="Burger" />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
-                  alt="Burger" />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
-                  alt="Burger" />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
-                  alt="Burger" />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
-                  alt="Burger" />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
-                  alt="Burger" />
-              </div>
-            </div>
+          </div>
         </div>
       </motion.div>
     </motion.div>

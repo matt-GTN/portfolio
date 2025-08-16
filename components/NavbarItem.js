@@ -18,7 +18,6 @@ const NavbarItem = ({
 }) => {
   const IconComponent = lucideIconMap[iconName];
 
-  if (isInline) {
     // Inline layout for pill-style navbar
     return (
       <div className="flex items-center gap-2 pointer-events-none">
@@ -28,26 +27,6 @@ const NavbarItem = ({
         </span>
       </div>
     );
-  }
-
-  // Original layout (kept for backward compatibility)
-  return (
-    <motion.div
-      onClick={onClick}
-      className="flex flex-col items-center gap-2 px-4 py-2 rounded-4xl cursor-pointer 
-                 bg-white/10 backdrop-blur-xs shadow-md shadow-black/30 border border-black/0
-                 justify-center min-h-20 min-w-36 z-10"
-      initial={{ scale: 1 }}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 100, damping: 10 }}
-    >
-      {IconComponent && <IconComponent size={iconSize} color={iconColor} />}
-      <span className={textSizeClass} style={{ color: textColor }}>
-        {text}
-      </span>
-    </motion.div>
-  );
 };
 
 export default NavbarItem;

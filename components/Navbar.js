@@ -43,9 +43,9 @@ export default function Navbar({ onItemClick, isCardActive }) {
           }}
           whileHover={{
             scale: 1.05,
-            x: -5
+            x: -5,
+            transition: hoverTransition
           }}
-          transition={hoverTransition}
           onClick={() => onItemClick(item.text)}
           className="cursor-pointer"
         >

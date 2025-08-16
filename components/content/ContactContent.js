@@ -163,13 +163,13 @@ const ContactContent = () => {
 
   return (
     <motion.div
-      className="w-full flex flex-col gap-8"
+      className="w-full flex flex-col gap-6"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -194,7 +194,7 @@ const ContactContent = () => {
         </motion.div>
       </motion.div>
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
@@ -254,7 +254,7 @@ const ContactContent = () => {
 
       {/* --- SECTION 2: SOCIAL LINKS --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
+        className="p-6 border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
