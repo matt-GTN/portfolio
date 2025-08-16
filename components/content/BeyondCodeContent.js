@@ -49,16 +49,30 @@ const travelWishlist = [
 ];
 
 // Activity pill component
-const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700' }) => (
-  <motion.div
-    whileHover={{ scale: 1.03, y: -2 }}
-    className={`text-white text-sm font-normal px-3 py-1.5 rounded-full transition-colors duration-300 ${color}`}
-  >
-    {children}
-  </motion.div>
-);
+const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700' }) => {
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03, y: -2 }}
+      transition={hoverTransition}
+      className={`text-white text-sm font-normal px-3 py-1.5 rounded-full transition-colors duration-300 ${color}`}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 const BeyondCodeContent = () => {
+  // Animation configuration for different animation types
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -81,6 +95,23 @@ const BeyondCodeContent = () => {
     },
   };
 
+  // Variants for nested items with hover
+  const nestedItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.1,
+      },
+    }),
+    hover: {
+      x: 5,
+      transition: hoverTransition,
+    },
+  };
+
   return (
     <motion.div
       className="w-full flex flex-col gap-8"
@@ -90,34 +121,35 @@ const BeyondCodeContent = () => {
     >
       {/* --- SECTION 1: INTRODUCTION --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-4 text-white">🚀 Life Beyond the Screen</h3>
-        <p className="text-white/70 mb-4">
+        <h3 className="text-3xl font-bold mb-4 text-black">🚀 Life Beyond the Screen</h3>
+        <p className="text-black/70 mb-4">
           While I love crafting code and building AI solutions, I believe the best developers are well-rounded individuals. 
         </p>
       </motion.div>
 
       {/* --- SECTION 2: MAIN HOBBIES --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-white">Passions & Hobbies </h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">Passions & Hobbies </h3>
         <div className="flex flex-col gap-6">
           {hobbiesData.map((hobby, index) => (
             <motion.div
               key={hobby.title}
               className="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ x: 5 }}
+              variants={nestedItemVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              custom={index}
             >
               <motion.div
                 className="flex-shrink-0 mt-1"
@@ -128,10 +160,10 @@ const BeyondCodeContent = () => {
               </motion.div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
-                  <h4 className="text-lg font-semibold text-white">{hobby.title}</h4>
+                  <h4 className="text-lg font-semibold text-black">{hobby.title}</h4>
                   <span className="text-xl">{hobby.emoji}</span>
                 </div>
-                <p className="text-md text-white/70">{hobby.description}</p>
+                <p className="text-md text-black/70">{hobby.description}</p>
               </div>
             </motion.div>
           ))}
@@ -140,13 +172,13 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 3: CURRENT ACTIVITIES --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-white">Currently Into</h3>
-        <p className="text-white/70 mb-4">
+        <h3 className="text-3xl font-bold mb-6 text-black">Currently Into</h3>
+        <p className="text-black/70 mb-4">
           Things I'm actively pursuing or recently discovered:
         </p>
         <div className="flex flex-wrap gap-2">
@@ -160,13 +192,13 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 4: TRAVEL & EXPLORATION --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-          <h3 className="text-3xl font-bold mb-6 text-white">Wanderlust </h3>
-          <p className="text-white/70 mb-4">
+          <h3 className="text-3xl font-bold mb-6 text-black">Wanderlust </h3>
+          <p className="text-black/70 mb-4">
             I believe travel broadens the mind and provides fresh perspectives. Here are some places on my bucket list:
           </p>
           <div className="flex flex-wrap gap-2 mb-4">
@@ -180,19 +212,20 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 5: PHILOSOPHY --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
         
         <div className="space-y-4">
 
-            <h3 className="text-3xl font-bold mb-4 text-white">Craziest achievement</h3>
-            <p className="text-white/80 mb-8">
+            <h3 className="text-3xl font-bold mb-4 text-black">Craziest achievement</h3>
+            <p className="text-black/80 mb-8">
             I embarked myself on a cross-country duo hitchhiking challenge from Nantes to Sevilla. While we didn't win, this uniquely demanding experience significantly built my resilience and taught me invaluable lessons in learning from persistent rejection and navigating unforeseen challenges. 
             This was truly the craziest experience in my life !
             </p>
+            
             <div className="carousel rounded-box">
               <div className="carousel-item">
                 <img

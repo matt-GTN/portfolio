@@ -8,14 +8,22 @@ import Birds from '@/components/svg/Birds';
 import GitHubButton from '@/components/GitHubButton';
 
 // A small component for the technology "pills" matching the skills section
-const TechPill = ({ children }) => (
-  <motion.div
-    whileHover={{ scale: 1.03, y: -2 }}
-    className="text-white text-xs px-2.5 py-1 badge badge-lg badge-neutral font-bold"
-  >
-    {children}
-  </motion.div>
-);
+const TechPill = ({ children }) => {
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03, y: -2 }}
+      transition={hoverTransition}
+      className="text-white text-xs px-2.5 py-1 badge badge-lg badge-neutral font-bold"
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 // --- EDIT YOUR PROJECTS HERE ---
 const projectsData = [
@@ -61,6 +69,29 @@ const projectsData = [
 ];
 
 const ProjectsContent = () => {
+  // Animation configuration for different animation types
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
+
+  // Variants for project containers with hover
+  const projectVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: (index + 1) * 0.1,
+      },
+    }),
+    hover: {
+      x: 5,
+      transition: hoverTransition,
+    },
+  };
+
   return (
     <div className="w-full flex flex-col gap-12 -mt-4">
       {projectsData.map((project, index) => (
@@ -76,11 +107,12 @@ const ProjectsContent = () => {
           )}
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={projectVariants}
+            initial="hidden"
+            whileInView="visible"
+            whileHover="hover"
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
-            whileHover={{ x: 5 }}
+            custom={index}
           >
             {/* Project Card and Pills Container */}
             <div className="flex flex-col lg:flex-row gap-6 items-start">
@@ -94,7 +126,7 @@ const ProjectsContent = () => {
                 >
                   <motion.div
                     whileHover={{ scale: 1.03, y: -5 }}
-                    transition={{ duration: 0.3 }}
+                    transition={hoverTransition}
                     className={`relative w-full h-64 rounded-2xl p-6 flex flex-col justify-start text-white overflow-hidden shadow-xl cursor-pointer ${project.bgColor}`}
                   >
                     <div className="relative z-10">

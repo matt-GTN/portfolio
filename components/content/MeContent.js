@@ -83,6 +83,12 @@ const MeContent = () => {
   // Get dynamic about data with calculated age
   const aboutData = getAboutData();
 
+  // Animation configuration for different animation types
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
+
   // Animation variants for staggering children
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -105,6 +111,23 @@ const MeContent = () => {
     },
   };
 
+  // Variants for nested items with hover
+  const nestedItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.1,
+      },
+    }),
+    hover: {
+      x: 5,
+      transition: hoverTransition,
+    },
+  };
+
   return (
     <motion.div
       className="w-full flex flex-col gap-8"
@@ -114,10 +137,10 @@ const MeContent = () => {
     >
       {/* --- SECTION 1: INTRODUCTION & AVATAR --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
         <div className="flex items-center gap-6">
           <motion.div
@@ -134,11 +157,11 @@ const MeContent = () => {
               priority // Good for LCP if this card is opened first
             />
           </motion.div>
-          <div className="text-white/90">
+          <div className="text-black/90">
             <p className="text-2xl mb-2 font-bold">
               From managing humans to training machines 🦾
             </p>
-            <p className="text-base text-white/70">
+            <p className="text-base text-black/70">
               5 years turning creative ideas into code, I'm now teaching AI to be smarter than me
             </p>
           </div>
@@ -147,21 +170,22 @@ const MeContent = () => {
 
       {/* --- SECTION 2: CORE VALUES --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-white">Core Values</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">Core Values</h3>
         <div className="flex flex-col gap-6">
           {valuesData.map((value, index) => (
             <motion.div
               key={value.title}
               className="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ x: 5 }}
+              variants={nestedItemVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              custom={index}
             >
               <motion.div
                 className="flex-shrink-0 mt-1"
@@ -171,8 +195,8 @@ const MeContent = () => {
                 {value.icon}
               </motion.div>
               <div>
-                <h4 className="text-lg font-semibold text-white">{value.title}</h4>
-                <p className="text-md text-white/70 mt-1">{value.description}</p>
+                <h4 className="text-lg font-semibold text-black">{value.title}</h4>
+                <p className="text-md text-black/70 mt-1">{value.description}</p>
               </div>
             </motion.div>
           ))}
@@ -181,15 +205,15 @@ const MeContent = () => {
 
       {/* --- SECTION 3: PERSONAL INFO --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-white">About</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">About</h3>
 
         <div className="mb-6">
-          <h4 className="text-lg font-semibold text-white mb-3">Profile</h4>
+          <h4 className="text-lg font-semibold text-black mb-3">Profile</h4>
           <div className="flex flex-wrap gap-2">
             {aboutData.profile.map((item, index) => (
               <InfoPill key={index} color={item.color}>
@@ -200,7 +224,7 @@ const MeContent = () => {
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-white mb-3">Languages</h4>
+          <h4 className="text-lg font-semibold text-black mb-3">Languages</h4>
           <div className="flex flex-wrap gap-2">
             {aboutData.languages.map((language, index) => (
               <InfoPill key={index} color={language.color}>
@@ -213,12 +237,12 @@ const MeContent = () => {
 
       {/* --- SECTION 4: CALLS TO ACTION --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-white">Let's Connect</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">Let's Connect</h3>
         <div className="flex flex-col sm:flex-row gap-4">
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
@@ -229,7 +253,7 @@ const MeContent = () => {
               // --- CUSTOMIZE: Link to your resume PDF ---
               href="https://drive.usercontent.google.com/download?id=1dXmO2WGj3kjiB9lwjSc6cpa_rcqGCj3D&export=download&authuser=0&confirm=t"
               target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-white/90 transition-colors duration-300 w-full"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/90 transition-colors duration-300 w-full"
             >
               <Download size={18} />
               Download Resume
@@ -244,7 +268,7 @@ const MeContent = () => {
               // --- CUSTOMIZE: Link to your LinkedIn profile ---
               href="https://www.linkedin.com/in/mathis-genthon-9908102b6/"
               target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/30 text-white rounded-lg font-medium hover:bg-white/10 transition-colors duration-300 w-full"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-black/30 text-black rounded-lg font-medium hover:bg-black/10 transition-colors duration-300 w-full"
             >
               <Linkedin size={18} />
               LinkedIn

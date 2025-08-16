@@ -35,7 +35,7 @@ const VantaBackground = ({ effectType, options, children }) => {
         height: '100vh', // This container defines the full viewport height for the background
         position: 'relative', // Important for positioning child content
         overflow: 'hidden',
-        zIndex: 1, // Ensure it stays in the background
+        zIndex: 0, // Ensure it stays in the background
       }}
     >
       {/* Pass effectType and options to VantaClient */}

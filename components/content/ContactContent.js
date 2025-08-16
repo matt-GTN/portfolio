@@ -56,12 +56,18 @@ const socialLinks = [
 
 // Contact pill component
 const ContactPill = ({ children, color, href, onClick, disabled = false }) => {
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
+
   const Component = href ? Link : 'button';
   const props = href ? { href, target: '_blank', rel: 'noopener noreferrer' } : { onClick, disabled };
 
   return (
     <motion.div
       whileHover={!disabled ? { scale: 1.03, y: -2 } : {}}
+      transition={hoverTransition}
       className="inline-block"
     >
       <Component
@@ -77,6 +83,12 @@ const ContactPill = ({ children, color, href, onClick, disabled = false }) => {
 const ContactContent = () => {
   // State for copy feedback
   const [copiedItems, setCopiedItems] = useState({});
+
+  // Animation configuration for different animation types
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
 
   // Animation variants
   const containerVariants = {
@@ -97,6 +109,41 @@ const ContactContent = () => {
       transition: {
         duration: 0.5,
       },
+    },
+  };
+
+  // Variants for nested items with hover
+  const nestedItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.1,
+      },
+    }),
+    hover: {
+      x: 5,
+      transition: hoverTransition,
+    },
+  };
+
+  // Variants for social links
+  const socialVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.1,
+      },
+    }),
+    hover: {
+      scale: 1.05,
+      y: -2,
+      transition: hoverTransition,
     },
   };
 
@@ -122,24 +169,24 @@ const ContactContent = () => {
       animate="visible"
     >
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-4 text-white">Let's Work Together 👋</h3>
-        <p className="text-white/70 mb-6">
+        <h3 className="text-3xl font-bold mb-4 text-black">Let's Work Together 👋</h3>
+        <p className="text-black/70 mb-6">
           I'm always interested in new opportunities and exciting projects. Whether you have a question,
           want to collaborate, or just want to say hi, feel free to reach out!
         </p>
         <motion.div
           whileHover={{ scaleX: 1.05, y: -2, scaleY: 1.05 }}
-          transition={{ duration: 0.3 }}
+          transition={hoverTransition}
           style={{ transformOrigin: 'left center' }}
         >
           <Link
             href={`mailto:${contactData.email}?subject=Let's work together!`}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-white/90 transition-colors duration-300"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/90 transition-colors duration-300"
           >
             <Send size={18} />
             Send Message
@@ -147,21 +194,22 @@ const ContactContent = () => {
         </motion.div>
       </motion.div>
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-white">Get In Touch</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">Get In Touch</h3>
         <div className="flex flex-col gap-6">
           {contactMethods.map((method, index) => (
             <motion.div
               key={method.title}
               className="flex flex-col sm:flex-row sm:items-center gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ x: 5 }}
+              variants={nestedItemVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              custom={index}
             >
               <div className="flex items-center gap-4 flex-1 min-w-0">
                 <motion.div
@@ -172,8 +220,8 @@ const ContactContent = () => {
                   {method.icon}
                 </motion.div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-lg font-semibold text-white">{method.title}</h4>
-                  <p className="text-white/70 truncate">{method.value}</p>
+                  <h4 className="text-lg font-semibold text-black">{method.title}</h4>
+                  <p className="text-black/70 truncate">{method.value}</p>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 sm:flex-shrink-0">
@@ -206,20 +254,21 @@ const ContactContent = () => {
 
       {/* --- SECTION 2: SOCIAL LINKS --- */}
       <motion.div
-        className="p-6 rounded-2xl bg-black/90 border border-white/10"
+        className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
-        transition={{ duration: 0.5}}
+        transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-white">Connect With Me</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">Connect With Me</h3>
         <div className="flex flex-wrap gap-4">
           {socialLinks.map((social, index) => (
             <motion.div
               key={social.name}
-              whileHover={{ scale: 1.05, y: -2 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              variants={socialVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+              custom={index}
             >
               <Link
                 href={social.href}

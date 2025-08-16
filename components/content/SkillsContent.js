@@ -38,17 +38,48 @@ const skillsData = [
 ];
 
 // Colored skill pill component
-const SkillPill = ({ children, pillColor }) => (
-  <motion.div 
-    whileHover={{ scale: 1.03, y: -2 }} 
-    className={`text-white text-sm font-bold px-3 py-1.5 rounded-full transition-colors duration-300 ${pillColor}`}
-  >
-    {children}
-  </motion.div>
-);
+const SkillPill = ({ children, pillColor }) => {
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
+
+  return (
+    <motion.div 
+      whileHover={{ scale: 1.03, y: -2 }}
+      transition={hoverTransition}
+      className={`text-white text-sm font-bold px-3 py-1.5 rounded-full transition-colors duration-300 ${pillColor}`}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 // The main content component for the skills card
 const SkillsContent = () => {
+  // Animation configuration for different animation types
+  const hoverTransition = {
+    duration: 0.2,
+    ease: "easeOut"
+  };
+
+  // Variants for skill sections with hover
+  const skillSectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: (index + 1) * 0.1,
+      },
+    }),
+    hover: {
+      x: 5,
+      transition: hoverTransition,
+    },
+  };
+
   return (
     <div className="w-full">
 
@@ -56,18 +87,19 @@ const SkillsContent = () => {
       <div className="flex flex-col gap-y-8">
         {skillsData.map((section, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={skillSectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            whileHover="hover"
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
-            whileHover={{ x: 5 }}
+            custom={index}
             key={section.category}
-            className="p-6 rounded-2xl bg-black/90 border border-white/10"
+            className="p-6 rounded-2xl bg-white/20 backdrop-blur-xs border border-white/10"
           >
-            <h3 className="flex items-center gap-3 text-xl font-bold mb-6 text-white">
+            <h3 className="flex items-center gap-3 text-xl font-bold mb-6 text-black">
               {section.icon}
               <span>{section.category}</span>
-              <span className="text-sm font-normal text-white/60 ml-auto">
+              <span className="text-sm font-normal text-black/60 ml-auto">
                 {section.skills.length} skills
               </span>
             </h3>

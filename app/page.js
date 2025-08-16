@@ -87,7 +87,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-base-200 relative overflow-hidden">
+    <main className="min-h-screen bg-white relative overflow-hidden">
       <GitHubButton username="matt-GTN" repository="portfolio" isCardActive={!!activeCard} />
       <Navbar onItemClick={handleItemClick} isCardActive={!!activeCard} />
 
@@ -103,37 +103,16 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <VantaBackground
-        effectType="BIRDS"
-        options={{
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          backgroundColor: 0xffffff,
-          color1: 0x10027a,
-          color2: 0xff0086,
-          colorMode: "varianceGradient",
-          birdSize: 1.00,
-          wingSpan: 20.00,
-          speedLimit: 5.00,
-          separation: 15.00,
-          alignment: 25.00,
-          cohesion: 50.00,
-          quantity: 4.00,
-        }}
-      >
-        <div className="relative z-10 w-full h-full flex flex-col">
+      {/* Main layout with left content and right Vanta background */}
+      <div className="flex min-h-screen flex-col lg:flex-row">
+        {/* Left side - Content area (2/3 of screen on desktop, full width on mobile) */}
+        <div className="w-full lg:w-2/3 relative z-10 flex flex-col">
           <div className="p-8 text-left max-w-4xl w-full mt-20">
-
             <p className="text-xl text-gray-800 drop-shadow-sm">
               Hey, I'm Mathis 👋, I'm a
             </p>
 
-            <h1 className="text-8xl font-medium mt-2 min-w-xl whitespace-nowrap">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-medium mt-2 min-w-xl whitespace-nowrap">
               <Typewriter
                 words={roles}
                 className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
@@ -148,7 +127,55 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </VantaBackground>
+
+        {/* Right side - Vanta background (1/3 of screen on desktop, hidden on mobile) */}
+        <div className="hidden lg:block lg:w-1/3 relative">
+          {/* Vanta background container */}
+          <div className="absolute inset-0">
+            <VantaBackground
+              effectType="BIRDS"
+              options={{
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                backgroundColor: 0xffffff,
+                color1: 0x10027a,
+                color2: 0xff0086,
+                colorMode: "varianceGradient",
+                birdSize: 1.00,
+                wingSpan: 20.00,
+                speedLimit: 5.00,
+                separation: 15.00,
+                alignment: 25.00,
+                cohesion: 50.00,
+                quantity: 4.00,
+              }}
+            />
+          </div>
+          
+          {/* Blur overlay edges */}
+          <div className="absolute inset-0 pointer-events-none">
+            {/* Top blur */}
+            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white via-white/80 to-transparent z-10"></div>
+            {/* Bottom blur */}
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white via-white/80 to-transparent z-10"></div>
+            {/* Left blur */}
+            <div className="absolute top-0 bottom-0 left-0 w-16 bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
+            {/* Right blur */}
+            <div className="absolute top-0 bottom-0 right-0 w-16 bg-gradient-to-l from-white via-white/80 to-transparent z-10"></div>
+            
+            {/* Corner blurs for smoother transitions */}
+            <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-white via-white/60 to-transparent z-10"></div>
+            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-white via-white/60 to-transparent z-10"></div>
+            <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-white via-white/60 to-transparent z-10"></div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-white via-white/60 to-transparent z-10"></div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
