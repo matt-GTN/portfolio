@@ -1,16 +1,17 @@
 # Modern Portfolio Website
 
-A stunning personal portfolio website built with Next.js 15, featuring interactive 3D backgrounds, glassmorphic design, and smooth animations. This portfolio showcases projects, skills, and professional background through an engaging modal-based navigation system.
+A stunning personal portfolio website built with Next.js 15, featuring interactive 3D backgrounds, glassmorphic design, and smooth animations. This portfolio showcases projects, skills, and professional background through an engaging modal-based navigation system with immersive visual effects.
 
 ## ✨ Features
 
-- **Interactive 3D Background**: Vanta.js bird simulation with customizable parameters
-- **Glassmorphic UI**: Modern design with backdrop blur effects and transparency
-- **Smooth Animations**: Framer Motion for page transitions and micro-interactions
-- **Typewriter Effect**: Dynamic role descriptions with typing animation
-- **Modal Navigation**: Detailed content cards for each portfolio section
-- **Responsive Design**: Optimized for all screen sizes and devices
-- **Modern Tech Stack**: Built with Next.js 15, React 19, and Tailwind CSS
+- **Interactive 3D Background**: Vanta.js bird simulation with customizable parameters and real-time interaction
+- **Glassmorphic UI**: Modern design with backdrop blur effects and transparency layers
+- **Smooth Animations**: Motion library (Framer Motion successor) for page transitions and micro-interactions
+- **Typewriter Effect**: Dynamic role descriptions with realistic typing animation
+- **Modal Navigation**: Floating navbar with detailed content cards for each portfolio section
+- **Responsive Design**: Mobile-first approach optimized for all screen sizes and devices
+- **Modern Tech Stack**: Built with Next.js 15, React 19, Tailwind CSS 4, and Motion 12
+- **Personal Storytelling**: Beyond Code section with travel photos and personal achievements
 
 ## 🚀 Quick Start
 
@@ -49,24 +50,24 @@ pnpm dev
 ## 🛠️ Technology Stack
 
 ### Core Framework
-- **Next.js 15.4.3** - React framework with App Router
-- **React 19.1.0** - Latest React with concurrent features
-- **Node.js** - JavaScript runtime
+- **Next.js 15.4.3** - React framework with App Router and latest features
+- **React 19.1.0** - Latest React with concurrent features and improved performance
+- **Node.js** - JavaScript runtime environment
 
 ### Styling & UI
-- **Tailwind CSS 4.1.11** - Utility-first CSS framework
-- **DaisyUI 5.0.46** - Component library for Tailwind
-- **Geist Font** - Modern typography (Sans & Mono)
+- **Tailwind CSS 4.1.11** - Utility-first CSS framework with PostCSS integration
+- **DaisyUI 5.0.46** - Component library for Tailwind with carousel, badges, and more
+- **Geist Font** - Modern typography (Sans & Mono variants)
 
 ### Animation & Effects
-- **Framer Motion 12.23.7** - Advanced animation library
-- **Vanta.js 0.5.24** - 3D background effects
-- **Three.js 0.125.2** - 3D graphics engine
-- **p5.js 2.0.3** - Creative coding library
+- **Motion 12.23.7** - Advanced animation library (Framer Motion successor)
+- **Vanta.js 0.5.24** - 3D background effects with bird simulation
+- **Three.js 0.125.2** - 3D graphics engine (Vanta dependency)
+- **p5.js 2.0.3** - Creative coding library for additional effects
 
 ### Icons & Utilities
-- **Lucide React 0.525.0** - Beautiful icon library
-- **tailwind-merge 3.3.1** - Utility class merging
+- **Lucide React 0.525.0** - Beautiful, customizable icon library
+- **tailwind-merge 3.3.1** - Utility for merging Tailwind classes efficiently
 
 ## 📁 Project Structure
 
@@ -75,31 +76,39 @@ portfolio/
 ├── app/                    # Next.js App Router
 │   ├── layout.js          # Root layout with fonts and metadata
 │   ├── page.js            # Main homepage component
-│   ├── globals.css        # Global styles with Tailwind
+│   ├── globals.css        # Global styles with Tailwind imports
 │   └── favicon.ico        # Site favicon
 ├── components/            # React components
-│   ├── content/          # Content components for each section
-│   │   ├── MeContent.js         # About me section
-│   │   ├── ProjectsContent.js   # Projects showcase
-│   │   ├── SkillsContent.js     # Skills and expertise
-│   │   └── ContactContent.js    # Contact information
-│   ├── svg/              # Custom SVG components
-│   │   ├── Stella.js            # Project logo/icon
-│   │   └── Zenyth.js            # Project logo/icon
-│   ├── DetailCard.js     # Modal card component
-│   ├── Navbar.js         # Navigation bar
-│   ├── NavbarItem.js     # Individual nav items
-│   ├── Typewriter.js     # Typewriter animation
-│   ├── VantaBackground.js # 3D background wrapper
-│   └── _VantaClient.js   # Vanta.js client component
+│   ├── content/          # Content components for each portfolio section
+│   │   ├── MeContent.js         # About me section with values and background
+│   │   ├── ProjectsContent.js   # Projects showcase with GitHub integration
+│   │   ├── SkillsContent.js     # Skills and expertise by category
+│   │   ├── BeyondCodeContent.js # Personal interests and achievements
+│   │   └── ContactContent.js    # Contact information with copy functionality
+│   ├── svg/              # Custom SVG components and graphics
+│   │   ├── Birds.js             # Bird animation SVG for portfolio project
+│   │   └── Zenyth.js            # Zenyth project logo/icon
+│   ├── vanta/            # Vanta.js 3D background components
+│   │   ├── VantaBackground.js   # Background wrapper component
+│   │   └── _VantaClient.js      # Client-side Vanta component
+│   ├── DetailCard.js     # Modal card component with animations
+│   ├── Navbar.js         # Floating navigation bar with hover effects
+│   ├── NavbarItem.js     # Individual navigation items
+│   ├── Typewriter.js     # Typewriter animation effect
+│   ├── GitHubButton.js   # GitHub repository link button
+│   └── CallToActionButton.js # Reusable CTA button component
 ├── public/               # Static assets
-│   ├── avatar.png        # Profile avatar
-│   ├── avatar_stella.svg # Alternative avatar
-│   └── *.svg            # Various graphics
-├── .kiro/               # AI assistant configuration
-│   ├── hooks/           # Automated workflows
-│   └── steering/        # AI guidance documents
-└── config files         # Next.js, Tailwind, ESLint configs
+│   ├── avatar.png        # Main profile avatar
+│   ├── avatar_stella.png # Stella project avatar
+│   ├── birds.svg         # Bird graphics for animations
+│   ├── sevilla_1.jpg     # Travel photos for Beyond Code carousel
+│   ├── sevilla_2.jpg     # Travel photos for Beyond Code carousel
+│   └── sevilla_3.jpg     # Travel photos for Beyond Code carousel
+├── .kiro/               # Kiro AI assistant configuration
+│   ├── hooks/           # Automated workflows and triggers
+│   ├── specs/           # Feature specifications and documentation
+│   └── steering/        # AI guidance documents (tech, structure, product)
+└── config files         # Next.js, Tailwind, ESLint, PostCSS configs
 ```
 
 ## 🎨 Key Components
@@ -117,18 +126,20 @@ portfolio/
 - **ContactContent**: Contact information with copy-to-clipboard
 
 ### Interactive Elements
-- **VantaBackground**: 3D bird simulation background
-- **Typewriter**: Animated text with typing effect
-- **DetailCard**: Modal cards with smooth transitions
-- **Navbar**: Floating navigation with hover effects
+- **VantaBackground**: 3D bird simulation background with real-time interaction
+- **Typewriter**: Animated text with realistic typing effect and cursor
+- **DetailCard**: Modal cards with smooth transitions and glassmorphic design
+- **Navbar**: Floating navigation with hover effects and spring animations
+- **Image Carousel**: Vertical photo carousel in Beyond Code section
+- **Copy-to-Clipboard**: Interactive contact information copying
 
 ## 🎯 Portfolio Sections
 
-1. **About Me** - Personal background, core values, and professional journey
-2. **Projects** - Featured projects with live demos and GitHub links
-3. **Skills** - Technical expertise categorized by domain
-4. **Fun Stuff** - Personal interests and hobbies
-5. **Contact** - Multiple ways to get in touch
+1. **Me** - Personal background, core values, professional journey, and what drives me as a developer
+2. **Projects** - Featured projects including Stella (AI financial assistant), Zenyth (YouTube summarizer), and this portfolio
+3. **Skills** - Technical expertise organized by categories: Languages, Frameworks, Tools, and Databases
+4. **Beyond Code** - Personal interests, hobbies, travel experiences, and the craziest achievement (hitchhiking to Sevilla)
+5. **Contact** - Multiple contact methods with copy-to-clipboard functionality and social links
 
 ## 🚀 Available Scripts
 
@@ -149,8 +160,9 @@ npm run lint     # Run ESLint
 
 ### Styling
 - Customize colors in Tailwind config
-- Modify glassmorphic effects in component classes
-- Update animations in Framer Motion variants
+- Modify glassmorphic effects in component classes (`bg-white/20 backdrop-blur-xs`)
+- Update animations in Motion variants and transitions
+- Adjust DaisyUI component themes and styles
 
 ### Background Effects
 - Adjust Vanta.js parameters in `app/page.js`
@@ -159,10 +171,12 @@ npm run lint     # Run ESLint
 
 ## 🤖 AI Integration
 
-This project includes Kiro AI assistant integration:
-- **Auto-README Updates**: Automatically updates documentation
-- **Code Analysis**: AI-powered code review and suggestions
-- **Project Guidance**: Steering documents for consistent development
+This project includes Kiro AI assistant integration for enhanced development workflow:
+- **Steering Documents**: AI guidance for technology stack, project structure, and product vision
+- **Automated Workflows**: Hooks for testing, documentation updates, and code quality
+- **Specifications**: Detailed feature specs for complex implementations
+- **Code Analysis**: AI-powered code review and optimization suggestions
+- **Documentation Sync**: Automatic updates to README and steering files based on project changes
 
 ## 📱 Responsive Design
 
@@ -173,11 +187,13 @@ This project includes Kiro AI assistant integration:
 
 ## 🔧 Development Notes
 
-- Uses Next.js App Router for modern routing
-- Client components marked with `"use client"` directive
-- Dynamic imports for heavy libraries (Vanta.js)
-- Optimized fonts with Next.js font system
-- ESLint configuration for code quality
+- **Next.js App Router**: Modern routing with server and client components
+- **Client Components**: Interactive components marked with `"use client"` directive
+- **Dynamic Imports**: Heavy libraries (Vanta.js) loaded with `ssr: false` for performance
+- **Font Optimization**: Geist fonts loaded via Next.js font system
+- **Animation Consistency**: Standardized hover transitions (`duration: 0.2, ease: "easeOut"`)
+- **Code Quality**: ESLint 9 configuration with Next.js rules
+- **Asset Organization**: Strategic placement of images and SVGs for optimal loading
 
 ## 📄 License
 
