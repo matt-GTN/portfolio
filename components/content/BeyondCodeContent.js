@@ -1,51 +1,34 @@
 // components/content/BeyondCodeContent.js
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Languages, Book, Dumbbell, Dices } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-// Hobbies and interests data
-const hobbiesData = [
+// Hobbies and interests data with icons
+const getHobbiesData = (t) => [
   {
     icon: <Dumbbell size={24} className="text-blue-500" />,
-    title: "Sports",
-    description: "Mens sana in corpore sano. I love to discover new sports and go to the gym everyday, it helps me feeling well and balanced.",
+    title: t('content.beyondCode.hobbies.items.0.title'),
+    description: t('content.beyondCode.hobbies.items.0.description'),
     emoji: ""
   },
   {
     icon: <Dices size={24} className="text-green-500" />,
-    title: "Board games",
-    description: "Abstract games and thematic titles are my favorites. As a former Game Designer, I appreciate good game design and the problem-solving aspects of complex gameplay.",
+    title: t('content.beyondCode.hobbies.items.1.title'),
+    description: t('content.beyondCode.hobbies.items.1.description'),
     emoji: ""
   },
   {
     icon: <Book size={24} className="text-amber-500" />,
-    title: "Reading",
-    description: "Fantasy novels, tech blogs, and philosophy books. Reading broadens perspectives and often sparks in me new project ideas.",
+    title: t('content.beyondCode.hobbies.items.2.title'),
+    description: t('content.beyondCode.hobbies.items.2.description'),
     emoji: ""
   },
   {
     icon: <Languages size={24} className="text-pink-500" />,
-    title: "Languages",
-    description: "I've always been passionated about discovering new cultures and ways to speak, as it unlocks new ways to think.",
+    title: t('content.beyondCode.hobbies.items.3.title'),
+    description: t('content.beyondCode.hobbies.items.3.description'),
     emoji: ""
   },
-];
-
-// Current interests/activities
-const currentActivities = [
-  { text: '🎾 Padel', color: 'bg-red-500 hover:bg-red-600' },
-  { text: '🗡️ The Witcher', color: 'bg-amber-600 hover:bg-amber-700' },
-  { text: '🐼 Panda Spin', color: 'bg-purple-600 hover:bg-purple-700' },
-  { text: '🌱 Learning Darija', color: 'bg-green-600 hover:bg-green-700' },
-  { text: '👻 Kiro Code', color: 'bg-blue-600 hover:bg-blue-700' },
-  { text: '🍪 Pasticiotti', color: 'bg-orange-600 hover:bg-orange-700' }
-];
-
-// Travel wishlist
-const travelWishlist = [
-  { text: '🇯🇵 Japan', color: 'bg-pink-500 hover:bg-pink-600' },
-  { text: '🇮🇸 Iceland', color: 'bg-cyan-500 hover:bg-cyan-600' },
-  { text: '🇳🇿 New Zealand', color: 'bg-emerald-500 hover:bg-emerald-600' },
-  { text: '🇨🇦 Canada', color: 'bg-red-500 hover:bg-red-600' }
 ];
 
 // Activity pill component
@@ -67,6 +50,11 @@ const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700' }) => 
 };
 
 const BeyondCodeContent = () => {
+  const { t } = useLanguage();
+  const hobbiesData = getHobbiesData(t);
+  const currentActivities = t('content.beyondCode.currentActivities.items');
+  const travelWishlist = t('content.beyondCode.travel.wishlist');
+
   // Animation configuration for different animation types
   const hoverTransition = {
     duration: 0.2,
@@ -126,9 +114,9 @@ const BeyondCodeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-4 text-black">🚀 Life Beyond the Screen</h3>
+        <h3 className="text-3xl font-bold mb-4 text-black">{t('content.beyondCode.introduction.title')}</h3>
         <p className="text-black/70 mb-4">
-          While I love crafting code and building AI solutions, I believe the best developers are well-rounded individuals.
+          {t('content.beyondCode.introduction.content')}
         </p>
       </motion.div>
 
@@ -139,7 +127,7 @@ const BeyondCodeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">Passions & Hobbies </h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.beyondCode.hobbies.title')}</h3>
         <div className="flex flex-col gap-6">
           {hobbiesData.map((hobby, index) => (
             <motion.div
@@ -177,9 +165,9 @@ const BeyondCodeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">Currently Into</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.beyondCode.currentActivities.title')}</h3>
         <p className="text-black/70 mb-4">
-          Things I'm actively pursuing or recently discovered:
+          {t('content.beyondCode.currentActivities.subtitle')}
         </p>
         <div className="flex flex-wrap gap-2">
           {currentActivities.map((activity, index) => (
@@ -197,9 +185,9 @@ const BeyondCodeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">Wanderlust </h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.beyondCode.travel.title')}</h3>
         <p className="text-black/70 mb-4">
-          I believe travel broadens the mind and provides fresh perspectives. Here are some places on my bucket list:
+          {t('content.beyondCode.travel.subtitle')}
         </p>
         <div className="flex flex-wrap gap-2 mb-4">
           {travelWishlist.map((destination, index) => (
@@ -217,7 +205,7 @@ const BeyondCodeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">🔥 Craziest achievement</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.beyondCode.achievement.title')}</h3>
 
         <div className="flex flex-col lg:flex-row gap-6 items-start">
           {/* Vertical Carousel on the left */}
@@ -247,10 +235,10 @@ const BeyondCodeContent = () => {
           {/* Description on the right */}
           <div className="flex-1 space-y-4">
             <p className="text-black/80 text-lg leading-relaxed">
-              I embarked myself on a cross-country duo hitchhiking challenge from Nantes to Sevilla. While we didn't win, this experience built my resilience and taught me a lesson in learning from rejection and navigating challenges.
+              {t('content.beyondCode.achievement.description1')}
             </p>
             <p className="text-black/80 text-lg leading-relaxed font-medium">
-              This was truly the craziest experience of my life!
+              {t('content.beyondCode.achievement.description2')}
             </p>
           </div>
         </div>

@@ -1,19 +1,23 @@
 // components/Navbar.jsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import NavbarItem from './NavbarItem';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Navigation items with colors matching the content sections
-const navItems = [
-  { text: "Me", displayText: "Me", iconName: "User", iconColor: "#3b82f6", bgColor: "#3b82f6" }, // Blue
-  { text: "Projects", displayText: "Projects", iconName: "Briefcase", iconColor: "#8b5cf6", bgColor: "#8b5cf6" }, // Violet
-  { text: "Skills", displayText: "Skills", iconName: "Zap", iconColor: "#f59e0b", bgColor: "#f59e0b" }, // Amber
-  { text: "BeyondCode", displayText: "Beyond Code", iconName: "Sparkles", iconColor: "#10b981", bgColor: "#10b981" }, // Green
-  { text: "Contact", displayText: "Contact", iconName: "Mail", iconColor: "#ef4444", bgColor: "#ef4444" }, // Red
+const getNavItems = (t) => [
+  { text: "Me", displayText: t('navigation.me'), iconName: "User", iconColor: "#3b82f6", bgColor: "#3b82f6" }, // Blue
+  { text: "Projects", displayText: t('navigation.projects'), iconName: "Briefcase", iconColor: "#8b5cf6", bgColor: "#8b5cf6" }, // Violet
+  { text: "Skills", displayText: t('navigation.skills'), iconName: "Zap", iconColor: "#f59e0b", bgColor: "#f59e0b" }, // Amber
+  { text: "BeyondCode", displayText: t('navigation.beyondCode'), iconName: "Sparkles", iconColor: "#10b981", bgColor: "#10b981" }, // Green
+  { text: "Contact", displayText: t('navigation.contact'), iconName: "Mail", iconColor: "#ef4444", bgColor: "#ef4444" }, // Red
 ];
 
 export default function Navbar({ onItemClick, isCardActive }) {
+  const { t } = useLanguage();
+  const navItems = getNavItems(t);
+
   // Animation configuration for consistent hover timing
   const hoverTransition = {
     duration: 0.2,

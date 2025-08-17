@@ -3,11 +3,13 @@
 
 import { motion } from 'motion/react';
 import { MessageCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CallToActionButton = ({
   onContactClick,
   className = ''
 }) => {
+  const { t } = useLanguage();
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -40,7 +42,7 @@ const CallToActionButton = ({
 
         {/* Text content */}
         <div className="flex flex-col items-start">
-          <span className="text-sm font-semibold">Let's work together!</span>
+          <span className="text-sm font-semibold">{t('common.cta')}</span>
         </div>
       </motion.button>
     </motion.div>

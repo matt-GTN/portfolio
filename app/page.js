@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import { User, Briefcase, Zap, Sparkles, Mail } from 'lucide-react';
 import VantaBackground from '@/components/vanta/VantaBackground';
 import Navbar from "@/components/Navbar";
@@ -10,6 +10,8 @@ import DetailCard from "@/components/DetailCard";
 import Typewriter from "@/components/Typewriter";
 import GitHubButton from "@/components/GitHubButton";
 import CallToActionButton from "@/components/CallToActionButton";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // NEW: Import the content components from the content folder
 import MeContent from "@/components/content/MeContent";
@@ -19,12 +21,12 @@ import BeyondCodeContent from "@/components/content/BeyondCodeContent";
 import ContactContent from "@/components/content/ContactContent";
 
 // MODIFIED: The content for each card now uses a 'content' property with icons.
-const cardContent = {
+const getCardContent = (t) => ({
   Me: {
     title: (
       <div className="flex items-center gap-3">
         <User size={32} color="#3b82f6" />
-        About Me
+        {t('navigation.me')}
       </div>
     ),
     content: <MeContent />,
@@ -33,7 +35,7 @@ const cardContent = {
     title: (
       <div className="flex items-center gap-3">
         <Briefcase size={32} color="#8b5cf6" />
-        My Projects
+        {t('content.projects.title')}
       </div>
     ),
     content: <ProjectsContent />,
@@ -42,7 +44,7 @@ const cardContent = {
     title: (
       <div className="flex items-center gap-3">
         <Zap size={32} color="#f59e0b" />
-        Skills & Expertise
+        {t('content.skills.title')}
       </div>
     ),
     content: <SkillsContent />,
@@ -51,7 +53,7 @@ const cardContent = {
     title: (
       <div className="flex items-center gap-3">
         <Sparkles size={32} color="#03d11eff" />
-        Beyond Coding
+        {t('content.beyondCode.title')}
       </div>
     ),
     content: <BeyondCodeContent />,
@@ -60,22 +62,20 @@ const cardContent = {
     title: (
       <div className="flex items-center gap-3">
         <Mail size={32} color="#ed5cebff" />
-        Get In Touch
+        {t('content.contact.title')}
       </div>
     ),
     content: <ContactContent />,
   },
-};
+});
 
-const roles = [
-  "Data Scientist",
-  "Team Player",
-  "Agentic AI Dev",
-  "Learning Enthusiast",
-];
+const getRoles = (t) => t('homepage.roles');
 
 
 export default function Home() {
+  const { t } = useLanguage();
+  const cardContent = getCardContent(t);
+  const roles = getRoles(t);
   const [activeCard, setActiveCard] = useState(null);
 
   const handleItemClick = (itemName) => {
@@ -89,6 +89,7 @@ export default function Home() {
   return (
     <main className="h-screen bg-white relative overflow-hidden">
       <GitHubButton username="matt-GTN" repository="portfolio" isCardActive={!!activeCard} />
+      <LanguageToggle />
       <Navbar onItemClick={handleItemClick} isCardActive={!!activeCard} />
 
       <AnimatePresence>
@@ -155,7 +156,7 @@ export default function Home() {
       <div className="relative z-20 min-h-screen">
         <div className="p-8 text-left max-w-4xl w-full mt-20">
           <p className="text-xl text-gray-800 drop-shadow-sm">
-            Hey, I'm Mathis 👋, I'm a
+            {t('homepage.greeting')}
           </p>
 
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-medium mt-2 min-w-xl whitespace-nowrap">

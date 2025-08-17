@@ -1,7 +1,7 @@
 // components/DetailCard.jsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { X } from "lucide-react";
 
 // MODIFIED: Accepts a `children` prop for flexible content.

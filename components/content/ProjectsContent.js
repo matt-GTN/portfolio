@@ -1,11 +1,12 @@
 // components/ProjectsContent.js
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 
 import Zenyth from '@/components/svg/Zenyth';
 import Birds from '@/components/svg/Birds';
 import GitHubButton from '@/components/GitHubButton';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // A small component for the technology "pills" matching the skills section
 const TechPill = ({ children }) => {
@@ -25,12 +26,12 @@ const TechPill = ({ children }) => {
   );
 };
 
-// --- EDIT YOUR PROJECTS HERE ---
-const projectsData = [
+// --- PROJECT DATA WITH STATIC ELEMENTS ---
+const getProjectsData = (t) => [
   {
-    title: 'Stella',
-    category: 'Agentic Financial Assistant',
-    description: 'Intelligent financial analyst agent powered by LangGraph and Streamlit. Features 12 specialized tools for stock analysis, risk assessment, and market research. Built as a Data Science capstone project to deliver new research on fundamental financial analysis to non-technical users.',
+    title: t('content.projects.items.0.title'),
+    category: t('content.projects.items.0.category'),
+    description: t('content.projects.items.0.description'),
     technologies: ['Python', 'LangGraph', 'Streamlit', 'Groq', 'Docker', 'Pandas', 'Plotly', 'Scikit-learn'],
     imageSrc: '/avatar_stella.png',
     bgColor: 'bg-black/90',
@@ -41,9 +42,9 @@ const projectsData = [
     }
   },
   {
-    title: 'Zenyth',
-    category: 'AI-Powered YouTube Summarizer',
-    description: 'AI-powered application that extracts, transcribes, summarizes and translates YouTube video content. Features multi-level summarization, multilingual translation, and real-time progress tracking with a modern web interface built on LangGraph workflow orchestration.',
+    title: t('content.projects.items.1.title'),
+    category: t('content.projects.items.1.category'),
+    description: t('content.projects.items.1.description'),
     technologies: ['LangGraph', 'FastAPI', 'Next.js', 'Docker', 'Groq', 'Python', 'Nginx'],
     imageSrc: <Zenyth />,
     bgColor: 'bg-black/90',
@@ -54,9 +55,9 @@ const projectsData = [
     }
   },
   {
-    title: 'Portfolio',
-    category: 'Interactive Developer Showcase',
-    description: 'Modern personal portfolio featuring interactive 3D backgrounds with Vanta.js bird simulation, glassmorphic UI design, and smooth animations. Built with Next.js App Router, showcasing projects through modal-based navigation with typewriter effects and responsive design.',
+    title: t('content.projects.items.2.title'),
+    category: t('content.projects.items.2.category'),
+    description: t('content.projects.items.2.description'),
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'Vanta.js', 'DaisyUI', 'Three.js'],
     imageSrc: <Birds />,
     bgColor: 'bg-black/90',
@@ -69,6 +70,9 @@ const projectsData = [
 ];
 
 const ProjectsContent = () => {
+  const { t } = useLanguage();
+  const projectsData = getProjectsData(t);
+
   // Animation configuration for different animation types
   const hoverTransition = {
     duration: 0.2,
@@ -143,7 +147,7 @@ const ProjectsContent = () => {
 
               {/* Technology Pills - Right Side */}
               <div className="flex flex-col gap-3 lg:w-48 flex-shrink-0">
-                <h4 className="text-sm font-semibold text-black/60 uppercase tracking-wide">Technologies</h4>
+                <h4 className="text-sm font-semibold text-black/60 uppercase tracking-wide">{t('content.projects.technologies')}</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {project.technologies.map((tech) => (
                     <TechPill key={tech}>{tech}</TechPill>

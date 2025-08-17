@@ -1,8 +1,9 @@
 // components/MeContent.js
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Lightbulb, Code, Users, Download, Linkedin, User } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Function to calculate age with months as decimal
 const calculateAge = (birthDate) => {
@@ -34,39 +35,35 @@ const calculateAge = (birthDate) => {
 // Your birth date (25/12/1997)
 const BIRTH_DATE = '1997-12-25';
 
-// --- Core values based on CV information ---
-const valuesData = [
+// --- Core values with icons ---
+const getValuesData = (t) => [
   {
     icon: <Users size={24} className="text-blue-500" />,
-    title: "Leadership & Collaboration",
-    description: "5 years of experience in creative collaboration, project leadership, and working in IT environnements. I've managed a team of 8 people and restructured company culture to re-engage employees.",
+    title: t('content.me.values.0.title'),
+    description: t('content.me.values.0.description'),
   },
   {
     icon: <Lightbulb size={24} className="text-violet-500" />,
-    title: "Innovation & AI",
-    description: "Specialized in emerging technologies: LangChain, LangGraph, LLM APIs. I design innovative solutions combining AI and data analysis.",
+    title: t('content.me.values.1.title'),
+    description: t('content.me.values.1.description'),
   },
   {
     icon: <Code size={24} className="text-amber-500" />,
-    title: "Technical Expertise",
-    description: "Complete mastery of the Data Science stack: Python, Machine Learning, Data Viz, Agentic AI and modern web development (Next.js, FastAPI).",
+    title: t('content.me.values.2.title'),
+    description: t('content.me.values.2.description'),
   },
 ];
 
 // --- About data for pill layout with emojis and colors ---
-const getAboutData = () => ({
+const getAboutData = (t) => ({
   profile: [
-    { text: '📍 Nantes, France', color: 'bg-red-400 hover:bg-red-500' },
-    { text: `🎂 ${calculateAge(BIRTH_DATE)}`, color: 'bg-purple-600 hover:bg-purple-700' },
-    { text: '🎓 Data Scientist', color: 'bg-green-600 hover:bg-green-700' },
-    { text: '💼 5 years experience', color: 'bg-orange-600 hover:bg-orange-700' },
-    { text: '🚗 Driving License', color: 'bg-blue-600 hover:bg-blue-700' }
+    ...t('content.me.profile').map(item => ({
+      text: item.text,
+      color: item.color
+    })),
+    { text: `🎂 ${calculateAge(BIRTH_DATE)}`, color: 'bg-purple-600 hover:bg-purple-700' }
   ],
-  languages: [
-    { text: '🇬🇧 English - C2', color: 'bg-indigo-600 hover:bg-indigo-700' },
-    { text: '🇮🇹 Italian - B2', color: 'bg-indigo-600 hover:bg-indigo-700' },
-    { text: '🇫🇷 French - Native', color: 'bg-indigo-600 hover:bg-indigo-700' }
-  ]
+  languages: t('content.me.languages')
 });
 
 // Info pill component
@@ -80,8 +77,11 @@ const InfoPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700' }) => (
 );
 
 const MeContent = () => {
+  const { t } = useLanguage();
+  
   // Get dynamic about data with calculated age
-  const aboutData = getAboutData();
+  const aboutData = getAboutData(t);
+  const valuesData = getValuesData(t);
 
   // Animation configuration for different animation types
   const hoverTransition = {
@@ -159,10 +159,10 @@ const MeContent = () => {
           </motion.div>
           <div className="text-black/90">
             <p className="text-2xl mb-2 font-bold">
-              From managing humans to training machines 🦾
+              {t('content.me.introduction.title')}
             </p>
             <p className="text-base text-black/70">
-              5 years turning creative ideas into code, I'm now teaching AI to be smarter than me
+              {t('content.me.introduction.subtitle')}
             </p>
           </div>
         </div>
@@ -175,7 +175,7 @@ const MeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">Core Values</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.me.sections.coreValues')}</h3>
         <div className="flex flex-col gap-6">
           {valuesData.map((value, index) => (
             <motion.div
@@ -210,10 +210,10 @@ const MeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">About</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.me.sections.about')}</h3>
 
         <div className="mb-6">
-          <h4 className="text-lg font-semibold text-black mb-3">Profile</h4>
+          <h4 className="text-lg font-semibold text-black mb-3">{t('content.me.sections.profile')}</h4>
           <div className="flex flex-wrap gap-2">
             {aboutData.profile.map((item, index) => (
               <InfoPill key={index} color={item.color}>
@@ -224,7 +224,7 @@ const MeContent = () => {
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-black mb-3">Languages</h4>
+          <h4 className="text-lg font-semibold text-black mb-3">{t('content.me.sections.languages')}</h4>
           <div className="flex flex-wrap gap-2">
             {aboutData.languages.map((language, index) => (
               <InfoPill key={index} color={language.color}>
@@ -242,7 +242,7 @@ const MeContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">Let's Connect</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.me.sections.connect')}</h3>
         <div className="flex flex-col sm:flex-row gap-4">
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
@@ -256,7 +256,7 @@ const MeContent = () => {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/90 transition-colors duration-300 w-full"
             >
               <Download size={18} />
-              Download Resume
+              {t('content.me.cta.resume')}
             </Link>
           </motion.div>
           <motion.div
@@ -271,7 +271,7 @@ const MeContent = () => {
               className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-black/30 text-black rounded-lg font-medium hover:bg-black/10 transition-colors duration-300 w-full"
             >
               <Linkedin size={18} />
-              LinkedIn
+              {t('content.me.cta.linkedin')}
             </Link>
           </motion.div>
         </div>

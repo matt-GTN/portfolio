@@ -1,8 +1,9 @@
 // components/ContactContent.js
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, Send, Copy, Check } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Contact information data
 const contactData = {
@@ -14,19 +15,19 @@ const contactData = {
 };
 
 // Contact methods with icons and colors
-const contactMethods = [
+const getContactMethods = (t) => [
   {
     icon: <Mail size={24} className="text-blue-500" />,
-    title: "Email",
-    value: contactData.email,
-    href: `mailto:${contactData.email}`,
+    title: t('content.contact.methods.0.label'),
+    value: t('content.contact.methods.0.value'),
+    href: `mailto:${t('content.contact.methods.0.value')}`,
     color: 'bg-blue-600 hover:bg-blue-700'
   },
   {
     icon: <Phone size={24} className="text-green-500" />,
-    title: "Phone",
-    value: contactData.phone,
-    href: `tel:${contactData.phone}`,
+    title: t('content.contact.methods.3.label'),
+    value: t('content.contact.methods.3.value'),
+    href: `tel:${t('content.contact.methods.3.value')}`,
     color: 'bg-green-600 hover:bg-green-700'
   },
   {
@@ -39,17 +40,17 @@ const contactMethods = [
 ];
 
 // Social links
-const socialLinks = [
+const getSocialLinks = (t) => [
   {
     icon: <Github size={20} />,
-    name: 'GitHub',
-    href: contactData.github,
+    name: t('content.contact.methods.2.label'),
+    href: `https://github.com/${t('content.contact.methods.2.value')}`,
     color: 'bg-gray-700 hover:bg-gray-800'
   },
   {
     icon: <Linkedin size={20} />,
-    name: 'LinkedIn',
-    href: contactData.linkedin,
+    name: t('content.contact.methods.1.label'),
+    href: `https://www.linkedin.com/in/${t('content.contact.methods.1.value')}`,
     color: 'bg-blue-600 hover:bg-blue-700'
   }
 ];
@@ -81,6 +82,10 @@ const ContactPill = ({ children, color, href, onClick, disabled = false }) => {
 };
 
 const ContactContent = () => {
+  const { t } = useLanguage();
+  const contactMethods = getContactMethods(t);
+  const socialLinks = getSocialLinks(t);
+
   // State for copy feedback
   const [copiedItems, setCopiedItems] = useState({});
 
@@ -174,10 +179,9 @@ const ContactContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-4 text-black">Let's Work Together 👋</h3>
+        <h3 className="text-3xl font-bold mb-4 text-black">{t('content.contact.work_together')}</h3>
         <p className="text-black/70 mb-6">
-          I'm always interested in new opportunities and exciting projects. Whether you have a question,
-          want to collaborate, or just want to say hi, feel free to reach out!
+          {t('content.contact.subtitle')}
         </p>
         <motion.div
           whileHover={{ scaleX: 1.05, y: -2, scaleY: 1.05 }}
@@ -189,7 +193,7 @@ const ContactContent = () => {
             className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/90 transition-colors duration-300"
           >
             <Send size={18} />
-            Send Message
+            {t('content.contact.message')}
           </Link>
         </motion.div>
       </motion.div>
@@ -199,7 +203,7 @@ const ContactContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">Get In Touch</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.contact.infos')}</h3>
         <div className="flex flex-col gap-6">
           {contactMethods.map((method, index) => (
             <motion.div
@@ -228,7 +232,7 @@ const ContactContent = () => {
                 {method.href && (
                   <ContactPill color={method.color} href={method.href}>
                     <Send size={16} />
-                    <span className="hidden sm:inline">Contact</span>
+                    <span className="hidden sm:inline">{t('navigation.contact')}</span>
                   </ContactPill>
                 )}
                 <ContactPill
@@ -244,7 +248,7 @@ const ContactContent = () => {
                   >
                     {copiedItems[method.title] ? <Check size={16} /> : <Copy size={16} />}
                   </motion.div>
-                  {copiedItems[method.title] ? 'Copied!' : 'Copy'}
+                  {copiedItems[method.title] ? t('content.contact.copySuccess') : 'Copy'}
                 </ContactPill>
               </div>
             </motion.div>
@@ -259,7 +263,7 @@ const ContactContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">Connect With Me</h3>
+        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.me.sections.connect')}</h3>
         <div className="flex flex-wrap gap-4">
           {socialLinks.map((social, index) => (
             <motion.div

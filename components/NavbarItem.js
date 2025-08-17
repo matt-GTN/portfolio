@@ -1,7 +1,6 @@
 // components/NavbarItem.jsx
 "use client";
 
-import { motion } from "motion/react"; // Changed from "motion/react" for consistency with Navbar
 import { Briefcase, Mail, User, Zap, Dices, Sparkles } from 'lucide-react';
 
 const lucideIconMap = { Briefcase, Mail, User, Zap, Dices, Sparkles };

@@ -2,38 +2,39 @@
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Code2, Database, Bot, ChartLine, NotebookPen, Zap } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-// Data for the skills section
-const skillsData = [
+// Data for the skills section with icons
+const getSkillsData = (t) => [
   {
-    category: 'Data Science & Analytics',
+    category: Object.keys(t('content.skills.categories'))[0],
     icon: <ChartLine size={22} className="text-purple-600" />,
     pillColor: 'bg-purple-600 hover:bg-purple-700',
-    skills: ['Pandas', 'Numpy', 'Jupyter', 'Plotly', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Keras', 'XGBoost', 'SciPy.stats', 'Statsmodels', 'SHAP', 'OpenCV', 'NLTK', 'Recommender Systems', 'Imblearn', 'Prophet', 'TPOT'],
+    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[0]],
   },
   {
-    category: 'Agentic AI & Automation',
+    category: Object.keys(t('content.skills.categories'))[1],
     icon: <Bot size={22} className="text-orange-600" />,
     pillColor: 'bg-orange-600 hover:bg-orange-700',
-    skills: ['LLMs', 'RAG', 'MCP', 'OpenRouter', 'Groq', 'LangChain', 'LangGraph', 'LangSmith', 'Context Engineering'],
+    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[1]],
   },
   {
-    category: 'Backend & Systems',
+    category: Object.keys(t('content.skills.categories'))[2],
     icon: <Database size={22} className="text-yellow-600" />,
     pillColor: 'bg-yellow-600 hover:bg-yellow-700',
-    skills: ['SQL', 'Unix', 'C++', 'Python', 'Git', 'GitHub', 'Docker', 'FastAPI', 'Nginx', 'MLFlow', 'MongoDB', 'SQLAlchemy', 'IoT'],
+    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[2]],
   },
   {
-    category: 'Frontend & Prototyping',
+    category: Object.keys(t('content.skills.categories'))[3],
     icon: <Code2 size={22} className="text-cyan-600" />,
     pillColor: 'bg-cyan-600 hover:bg-cyan-700',
-    skills: ['HTML', 'CSS', 'JavaScript', 'Next.js', 'React', 'Streamlit', 'Tailwind CSS', 'DaisyUI', 'Framer Motion'],
+    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[3]],
   },
   {
-    category: 'Currently Learning',
+    category: Object.keys(t('content.skills.categories'))[4],
     icon: <NotebookPen size={22} className="text-green-600" />,
     pillColor: 'bg-green-600 hover:bg-green-700',
-    skills: ['AWS Cloud', 'PySpark', 'Unit Tests', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Vector Databases'],
+    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[4]],
   },
 ];
 
@@ -57,6 +58,9 @@ const SkillPill = ({ children, pillColor }) => {
 
 // The main content component for the skills card
 const SkillsContent = () => {
+  const { t } = useLanguage();
+  const skillsData = getSkillsData(t);
+
   // Animation configuration for different animation types
   const hoverTransition = {
     duration: 0.2,
