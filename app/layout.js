@@ -17,6 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Mathis' Portfolio",
   description: "Portfolio of Data Scientist Mathis GENTHON",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({ children }) {

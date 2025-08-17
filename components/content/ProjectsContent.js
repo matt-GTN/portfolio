@@ -123,7 +123,7 @@ const ProjectsContent = () => {
             {/* Project Card and Pills Container */}
             <div className="flex flex-col lg:flex-row gap-6 items-start">
               {/* Project Card - Left Side */}
-              <div className="flex-1">
+              <div className="flex-1 w-full">
                 <Link
                   href={project.link}
                   target="_blank"

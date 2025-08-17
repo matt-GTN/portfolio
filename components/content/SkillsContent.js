@@ -58,8 +58,9 @@ const SkillPill = ({ children, pillColor, searchable = true, searchTerms }) => {
     >
       <motion.div 
         whileHover={{ scale: 1.03, y: -2 }}
+        whileTap={{ scale: 0.97 }}
         transition={hoverTransition}
-        className={`text-white text-sm font-bold px-3 py-1.5 rounded-full transition-colors duration-300 ${pillColor}`}
+        className={`text-white text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-1.5 rounded-full transition-colors duration-300 min-h-[32px] flex items-center justify-center ${pillColor}`}
       >
         {children}
       </motion.div>
@@ -99,7 +100,7 @@ const SkillsContent = () => {
     <div className="w-full">
 
       {/* Skills Categories */}
-      <div className="flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-6 sm:gap-y-8">
         {skillsData.map((section, index) => (
           <motion.div
             variants={skillSectionVariants}
@@ -109,16 +110,16 @@ const SkillsContent = () => {
             viewport={{ once: true }}
             custom={index}
             key={section.category}
-            className="p-6 rounded-2xl border border-white/10"
+            className="p-4 sm:p-6 rounded-2xl border border-white/10"
           >
-            <h3 className="flex items-center gap-3 text-xl font-bold mb-6 text-black">
-              {section.icon}
-              <span>{section.category}</span>
-              <span className="text-sm font-normal text-black/60 ml-auto">
+            <h3 className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-black">
+              <span className="flex-shrink-0">{section.icon}</span>
+              <span className="flex-1 min-w-0 text-sm lg:text-xl">{section.category}</span>
+              <span className="text-xs sm:text-sm font-normal text-black/60 flex-shrink-0">
                 {section.skills.length} skills
               </span>
             </h3>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {section.skills.map((skill) => (
                 <SkillPill key={skill} pillColor={section.pillColor}>{skill}</SkillPill>
               ))}

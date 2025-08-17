@@ -42,10 +42,10 @@ const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searc
   // Determine search context based on pill type
   const getSearchContext = () => {
     const textContent = typeof children === 'string' ? children : '';
-    
+
     // Check if it's a travel destination
     const destinations = ['japon', 'corée', 'islande', 'norvège', 'canada', 'nouvelle-zélande', 'patagonie'];
-    const isDestination = destinations.some(dest => 
+    const isDestination = destinations.some(dest =>
       textContent.toLowerCase().includes(dest) || pillType === 'destination'
     );
 
@@ -65,8 +65,9 @@ const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searc
     >
       <motion.div
         whileHover={{ scale: 1.03, y: -2 }}
+        whileTap={{ scale: 0.97 }}
         transition={hoverTransition}
-        className={`text-white text-sm font-normal px-3 py-1.5 rounded-full transition-colors duration-300 ${color}`}
+        className={`text-white text-xs sm:text-sm font-normal px-2.5 sm:px-3 py-1.5 rounded-full transition-colors duration-300 min-h-[32px] flex items-center justify-center ${color}`}
       >
         {children}
       </motion.div>
@@ -134,30 +135,30 @@ const BeyondCodeContent = () => {
     >
       {/* --- SECTION 1: INTRODUCTION --- */}
       <motion.div
-        className="p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-4 text-black">{t('content.beyondCode.introduction.title')}</h3>
-        <p className="text-black/70 mb-4">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-black">{t('content.beyondCode.introduction.title')}</h3>
+        <p className="text-sm sm:text-base text-black/70 mb-3 sm:mb-4">
           {t('content.beyondCode.introduction.content')}
         </p>
       </motion.div>
 
       {/* --- SECTION 2: MAIN HOBBIES --- */}
       <motion.div
-        className="p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.beyondCode.hobbies.title')}</h3>
-        <div className="flex flex-col gap-6">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.beyondCode.hobbies.title')}</h3>
+        <div className="flex flex-col gap-4 sm:gap-6">
           {hobbiesData.map((hobby, index) => (
             <motion.div
               key={hobby.title}
-              className="flex items-start gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors duration-300"
+              className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-white/5 transition-colors duration-300"
               variants={nestedItemVariants}
               initial="hidden"
               animate="visible"
@@ -172,11 +173,11 @@ const BeyondCodeContent = () => {
                 {hobby.icon}
               </motion.div>
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <h4 className="text-lg font-semibold text-black">{hobby.title}</h4>
-                  <span className="text-xl">{hobby.emoji}</span>
+                <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                  <h4 className="text-base sm:text-lg font-semibold text-black">{hobby.title}</h4>
+                  <span className="text-lg sm:text-xl">{hobby.emoji}</span>
                 </div>
-                <p className="text-md text-black/70">{hobby.description}</p>
+                <p className="text-sm sm:text-md text-black/70">{hobby.description}</p>
               </div>
             </motion.div>
           ))}
@@ -185,16 +186,16 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 3: CURRENT ACTIVITIES --- */}
       <motion.div
-        className="p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.beyondCode.currentActivities.title')}</h3>
-        <p className="text-black/70 mb-4">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.beyondCode.currentActivities.title')}</h3>
+        <p className="text-sm sm:text-base text-black/70 mb-3 sm:mb-4">
           {t('content.beyondCode.currentActivities.subtitle')}
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {currentActivities.map((activity, index) => (
             <ActivityPill key={index} color={activity.color} pillType="activity">
               {activity.text}
@@ -205,16 +206,16 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 4: TRAVEL & EXPLORATION --- */}
       <motion.div
-        className="p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.beyondCode.travel.title')}</h3>
-        <p className="text-black/70 mb-4">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.beyondCode.travel.title')}</h3>
+        <p className="text-sm sm:text-base text-black/70 mb-3 sm:mb-4">
           {t('content.beyondCode.travel.subtitle')}
         </p>
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
           {travelWishlist.map((destination, index) => (
             <ActivityPill key={index} color={destination.color} pillType="destination">
               {destination.text}
@@ -225,44 +226,44 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 5: ACHIEVEMENT --- */}
       <motion.div
-        className="p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.beyondCode.achievement.title')}</h3>
+        <h3 className="text-xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.beyondCode.achievement.title')}</h3>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
-          {/* Vertical Carousel on the left */}
-            <motion.div
-              whileHover={{scale:1.05}}
-              className="carousel carousel-vertical rounded-xl p-3 h-80 w-64">
-              <div className="carousel-item h-80">
-                <img
-                  src="/sevilla_1.jpg"
-                  alt="Hitchhiking adventure to Sevilla - Photo 1"
-                  className="w-full object-cover rounded-lg shadow-md" />
-              </div>
-              <div className="carousel-item h-80">
-                <img
-                  src="/sevilla_2.jpg"
-                  alt="Hitchhiking adventure to Sevilla - Photo 2"
-                  className="w-full object-cover rounded-lg shadow-md" />
-              </div>
-              <div className="carousel-item h-80">
-                <img
-                  src="/sevilla_3.jpg"
-                  alt="Hitchhiking adventure to Sevilla - Photo 3"
-                  className="w-full object-cover rounded-lg shadow-md" />
-              </div>
-            </motion.div>
+        <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row items-start">
+          {/* Vertical Carousel - responsive sizing */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="carousel carousel-vertical rounded-xl p-2 sm:p-3 h-64 sm:h-80 w-full sm:w-64 mx-auto lg:mx-0">
+            <div className="carousel-item h-64 sm:h-80">
+              <img
+                src="/sevilla_1.jpg"
+                alt="Hitchhiking adventure to Sevilla - Photo 1"
+                className="w-full object-cover rounded-lg shadow-md" />
+            </div>
+            <div className="carousel-item h-64 sm:h-80">
+              <img
+                src="/sevilla_2.jpg"
+                alt="Hitchhiking adventure to Sevilla - Photo 2"
+                className="w-full object-cover rounded-lg shadow-md" />
+            </div>
+            <div className="carousel-item h-64 sm:h-80">
+              <img
+                src="/sevilla_3.jpg"
+                alt="Hitchhiking adventure to Sevilla - Photo 3"
+                className="w-full object-cover rounded-lg shadow-md" />
+            </div>
+          </motion.div>
 
-          {/* Description on the right */}
-          <div className="flex-1 space-y-4">
-            <p className="text-black/80 text-lg leading-relaxed">
+          {/* Description - responsive text */}
+          <div className="flex-1 space-y-3 sm:space-y-4 w-full">
+            <p className="text-black/80 text-sm sm:text-lg leading-relaxed">
               {t('content.beyondCode.achievement.description1')}
             </p>
-            <p className="text-black/80 text-lg leading-relaxed font-medium">
+            <p className="text-black/80 text-sm sm:text-lg leading-relaxed font-medium">
               {t('content.beyondCode.achievement.description2')}
             </p>
           </div>

@@ -1,8 +1,8 @@
 // app/page.jsx
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { User, Briefcase, Zap, Sparkles, Mail } from 'lucide-react';
 import VantaBackground from '@/components/vanta/VantaBackground';
 import Navbar from "@/components/Navbar";
@@ -12,6 +12,7 @@ import GitHubButton from "@/components/GitHubButton";
 import CallToActionButton from "@/components/CallToActionButton";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
+import usePerformanceMonitor from "@/hooks/usePerformanceMonitor";
 
 // NEW: Import the content components from the content folder
 import MeContent from "@/components/content/MeContent";
@@ -77,6 +78,28 @@ export default function Home() {
   const cardContent = getCardContent(t);
   const roles = getRoles(t);
   const [activeCard, setActiveCard] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Performance monitoring
+  const performanceMetrics = usePerformanceMonitor();
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Log performance warnings in development
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development' && performanceMetrics.suggestions.length > 0) {
+      console.warn('Performance suggestions:', performanceMetrics.suggestions);
+    }
+  }, [performanceMetrics.suggestions]);
 
   const handleItemClick = (itemName) => {
     setActiveCard(itemName);
@@ -87,9 +110,9 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen bg-white relative overflow-hidden">
+    <main className="h-screen bg-white relative overflow-hidden overscroll-y-contain">
       <GitHubButton username="matt-GTN" repository="portfolio" isCardActive={!!activeCard} />
-      <LanguageToggle />
+      <LanguageToggle isCardActive={!!activeCard} />
       <Navbar onItemClick={handleItemClick} isCardActive={!!activeCard} />
 
       <AnimatePresence>
@@ -104,8 +127,8 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Vanta background - absolute positioned from middle to right edge */}
-      <div className="lg:block fixed top-0 right-0 w-1/2 h-full z-0">
+      {/* Vanta background - full screen on mobile, right half on desktop */}
+      <div className="fixed top-0 left-0 w-full h-full lg:right-0 lg:left-auto lg:w-1/2 z-0">
         {/* Vanta background container */}
         <div className="absolute inset-0">
           <VantaBackground
@@ -122,19 +145,36 @@ export default function Home() {
               color1: 0x10027a,
               color2: 0xff0086,
               colorMode: "varianceGradient",
-              birdSize: 1.00,
-              wingSpan: 20.00,
-              speedLimit: 5.00,
-              separation: 15.00,
-              alignment: 25.00,
-              cohesion: 50.00,
-              quantity: 4.00,
+              wingSpan: isMobile ? 15.0 : 20.0,
+              speedLimit: 5.0,
+              separation: 15.0,
+              alignment: 25.0,
+              cohesion: 50.0,
+              quantity: isMobile ? 2.0 : 4.0,
             }}
           />
         </div>
 
-        {/* Blur overlay on all 4 sides */}
-        <div className="absolute inset-0 pointer-events-none z-10">
+        {/* Mobile blur overlay on all 4 sides */}
+        <div className="lg:hidden absolute inset-0 pointer-events-none z-10">
+          {/* Top blur */}
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/60 to-transparent"></div>
+          {/* Bottom blur */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/60 to-transparent"></div>
+          {/* Left blur */}
+          <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white via-white/60 to-transparent"></div>
+          {/* Right blur */}
+          <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white via-white/60 to-transparent"></div>
+
+          {/* Corner blurs for smoother transitions */}
+          <div className="absolute top-0 left-0 w-8 h-8 bg-gradient-to-br from-white via-white/80 to-transparent"></div>
+          <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-white via-white/80 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-8 h-8 bg-gradient-to-tr from-white via-white/80 to-transparent"></div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-tl from-white via-white/80 to-transparent"></div>
+        </div>
+
+        {/* Desktop blur overlay on all 4 sides */}
+        <div className="hidden lg:block absolute inset-0 pointer-events-none z-10">
           {/* Top blur */}
           <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-white via-white/80 to-transparent"></div>
           {/* Bottom blur */}
@@ -153,13 +193,13 @@ export default function Home() {
       </div>
 
       {/* Main content area - full width with proper z-index */}
-      <div className="relative z-20 min-h-screen">
-        <div className="p-8 text-left max-w-4xl w-full mt-20">
+      <div className="relative z-20 h-screen flex flex-col">
+        <div className="p-8 text-left max-w-4xl w-full mt-20 flex-shrink-0">
           <p className="text-xl text-gray-800 drop-shadow-sm">
             {t('homepage.greeting')}
           </p>
 
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-medium mt-2 min-w-xl whitespace-nowrap">
+          <h1 className="text-4xl lg:text-8xl font-medium mt-2 min-w-xl whitespace-nowrap">
             <Typewriter
               words={roles}
               className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
@@ -167,13 +207,15 @@ export default function Home() {
           </h1>
 
           {/* Call to Action Button under typewriter */}
-          <div className="mt-16">
+          <div className="lg:mt-16 mt-10">
             <CallToActionButton
               onContactClick={handleItemClick}
             />
           </div>
         </div>
       </div>
+      
+
     </main>
   );
 }

@@ -155,14 +155,14 @@ const MeContent = () => {
     >
       {/* --- SECTION 1: INTRODUCTION & AVATAR --- */}
       <motion.div
-        className="p-6 border border-white/10"
+        className="p-4 sm:p-6 border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <div className="flex items-center gap-6">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
           <motion.div
-            className="relative w-24 h-24 flex-shrink-0"
+            className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0"
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ duration: 0.3 }}
           >
@@ -175,11 +175,11 @@ const MeContent = () => {
               priority // Good for LCP if this card is opened first
             />
           </motion.div>
-          <div className="text-black/90">
-            <p className="text-2xl mb-2 font-bold">
+          <div className="text-black/90 text-center sm:text-left">
+            <p className="text-xl sm:text-2xl mb-2 font-bold">
               {t('content.me.introduction.title')}
             </p>
-            <p className="text-base text-black/70">
+            <p className="text-sm sm:text-base text-black/70">
               {t('content.me.introduction.subtitle')}
             </p>
           </div>
@@ -188,17 +188,17 @@ const MeContent = () => {
 
       {/* --- SECTION 2: CORE VALUES --- */}
       <motion.div
-        className="p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.me.sections.coreValues')}</h3>
-        <div className="flex flex-col gap-6">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.me.sections.coreValues')}</h3>
+        <div className="flex flex-col gap-4 sm:gap-6">
           {valuesData.map((value, index) => (
             <motion.div
               key={value.title}
-              className="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors duration-300"
+              className="flex items-start gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg hover:bg-white/5 transition-colors duration-300"
               variants={nestedItemVariants}
               initial="hidden"
               animate="visible"
@@ -213,8 +213,8 @@ const MeContent = () => {
                 {value.icon}
               </motion.div>
               <div>
-                <h4 className="text-lg font-semibold text-black">{value.title}</h4>
-                <p className="text-md text-black/70 mt-1">{value.description}</p>
+                <h4 className="text-base sm:text-lg font-semibold text-black">{value.title}</h4>
+                <p className="text-sm sm:text-md text-black/70 mt-1">{value.description}</p>
               </div>
             </motion.div>
           ))}
@@ -223,16 +223,16 @@ const MeContent = () => {
 
       {/* --- SECTION 3: PERSONAL INFO --- */}
       <motion.div
-        className="p-6 border border-white/10"
+        className="p-4 sm:p-6 border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.me.sections.about')}</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.me.sections.about')}</h3>
 
-        <div className="mb-6">
-          <h4 className="text-lg font-semibold text-black mb-3">{t('content.me.sections.profile')}</h4>
-          <div className="flex flex-wrap gap-2">
+        <div className="mb-4 sm:mb-6">
+          <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3">{t('content.me.sections.profile')}</h4>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {aboutData.profile.map((item, index) => (
               <InfoPill key={index} color={item.color}>
                 {item.text}
@@ -242,8 +242,8 @@ const MeContent = () => {
         </div>
 
         <div>
-          <h4 className="text-lg font-semibold text-black mb-3">{t('content.me.sections.languages')}</h4>
-          <div className="flex flex-wrap gap-2">
+          <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3">{t('content.me.sections.languages')}</h4>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {aboutData.languages.map((language, index) => (
               <InfoPill key={index} color={language.color}>
                 {language.text}
@@ -255,13 +255,13 @@ const MeContent = () => {
 
       {/* --- SECTION 4: CALLS TO ACTION --- */}
       <motion.div
-        className="p-6 border border-white/10"
+        className="p-4 sm:p-6 border border-white/10"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-3xl font-bold mb-6 text-black">{t('content.me.sections.connect')}</h3>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.me.sections.connect')}</h3>
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
             transition={{ duration: 0.3 }}
@@ -271,7 +271,7 @@ const MeContent = () => {
               // --- CUSTOMIZE: Link to your resume PDF ---
               href="https://drive.usercontent.google.com/download?id=1dXmO2WGj3kjiB9lwjSc6cpa_rcqGCj3D&export=download&authuser=0&confirm=t"
               target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/90 transition-colors duration-300 w-full"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/90 transition-colors duration-300 w-full min-h-[44px]"
             >
               <Download size={18} />
               {t('content.me.cta.resume')}
@@ -286,7 +286,7 @@ const MeContent = () => {
               // --- CUSTOMIZE: Link to your LinkedIn profile ---
               href="https://www.linkedin.com/in/mathis-genthon-9908102b6/"
               target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-black/30 text-black rounded-lg font-medium hover:bg-black/10 transition-colors duration-300 w-full"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 border border-black/30 text-black rounded-lg font-medium hover:bg-black/10 transition-colors duration-300 w-full min-h-[44px]"
             >
               <Linkedin size={18} />
               {t('content.me.cta.linkedin')}

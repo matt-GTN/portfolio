@@ -12,7 +12,7 @@ const DetailCard = ({ title, children, onClose }) => {
       className="fixed m-auto flex flex-col justify-start items-stretch 
                  max-w-3xl p-8 z-40 rounded-4xl
                  bg-white/20 backdrop-blur-lg shadow-xl shadow-black/30 
-                 border border-white/30 text-black right-8 top-4 bottom-8 overflow-y-auto"
+                 border border-white/30 text-black lg:right-6 lg:top-8 lg:bottom-8 lg:left-auto inset-4 lg overflow-y-auto"
       initial={{ x: "100%", opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: "100%", opacity: 0 }}
@@ -27,7 +27,7 @@ const DetailCard = ({ title, children, onClose }) => {
       </motion.button>
       
       {/* The title remains at the top of the scrollable area. */}
-      <h2 className="text-4xl font-bold mb-16">{title}</h2>
+      <h2 className="lg:text-4xl text-lg font-bold mb-8">{title}</h2>
       
       {/* MODIFIED: Renders the children passed to the component. */}
       <div className="text-lg text-black/80">

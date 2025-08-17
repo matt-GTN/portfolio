@@ -1,10 +1,23 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const LanguageToggle = ({ className = "" }) => {
+const LanguageToggle = ({ className = "", isCardActive = false }) => {
   const { language, setLanguage } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const hoverTransition = {
     duration: 0.2,
@@ -26,10 +39,13 @@ const LanguageToggle = ({ className = "" }) => {
   return (
     <motion.div
       className={`fixed bottom-8 left-8 z-50 ${className}`}
-      initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ 
+        opacity: isCardActive && isMobile ? 0 : 1, 
+        y: isCardActive && isMobile ? 40 : 0 
+      }}
       transition={{
-        duration: 0.5,
+        duration: 0.3,
         type: "spring",
         stiffness: 300,
         damping: 30

@@ -126,7 +126,7 @@ export const translations = {
             { text: '🐼 Panda Spin', color: 'bg-purple-600 hover:bg-purple-700' },
             { text: '🌱 Apprendre le Darija', color: 'bg-green-600 hover:bg-green-700' },
             { text: '👻 Kiro Code', color: 'bg-blue-600 hover:bg-blue-700' },
-            { text: '🍪 Pasticiotto pistacchio', color: 'bg-orange-600 hover:bg-orange-700' }
+            { text: '🍪 Pasticiotto al pistacchio', color: 'bg-orange-600 hover:bg-orange-700' }
           ]
         },
         travel: {
@@ -313,7 +313,7 @@ export const translations = {
             { text: '🐼 Panda Spin', color: 'bg-purple-600 hover:bg-purple-700' },
             { text: '🌱 Learning Darija', color: 'bg-green-600 hover:bg-green-700' },
             { text: '👻 Kiro Code', color: 'bg-blue-600 hover:bg-blue-700' },
-            { text: '🍪 Pasticiotto pistacchio', color: 'bg-orange-600 hover:bg-orange-700' }
+            { text: '🍪 Pasticiotto al pistacchio', color: 'bg-orange-600 hover:bg-orange-700' }
           ]
         },
         travel: {
