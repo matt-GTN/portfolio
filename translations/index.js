@@ -1,5 +1,3 @@
-import { Heading1 } from "lucide-react";
-
 export const translations = {
   fr: {
     navigation: {
@@ -370,7 +368,7 @@ export const translations = {
       loading: "Loading...",
       error: "An error occurred",
       close: "Close",
-      cta: "Let's Work Together !",
+      cta: "Let's work together !",
     }
   }
 };

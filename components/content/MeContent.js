@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Lightbulb, Code, Users, Download, Linkedin, User } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import InteractivePill from '@/components/InteractivePill';
 
 // Function to calculate age with months as decimal
 const calculateAge = (birthDate) => {
@@ -66,15 +67,32 @@ const getAboutData = (t) => ({
   languages: t('content.me.languages')
 });
 
-// Info pill component
-const InfoPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700' }) => (
-  <motion.div
-    whileHover={{ scale: 1.03, y: -2 }}
-    className={`text-white text-sm font-normal px-3 py-1.5 rounded-full transition-colors duration-300 ${color}`}
-  >
-    {children}
-  </motion.div>
-);
+// Info pill component with search functionality
+const InfoPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searchable = true, searchTerms }) => {
+  // Determine if this pill should be searchable based on content
+  const textContent = typeof children === 'string' ? children : '';
+  const isAge = /^🎂\s*v\d+\.\d+$/.test(textContent);
+  const shouldBeSearchable = searchable && !isAge;
+
+  return (
+    <InteractivePill
+      searchable={shouldBeSearchable}
+      searchTerms={searchTerms}
+      searchContext={{
+        section: 'about',
+        originalText: textContent,
+        category: 'personal-info'
+      }}
+    >
+      <motion.div
+        whileHover={{ scale: 1.03, y: -2 }}
+        className={`text-white text-sm font-normal px-3 py-1.5 rounded-full transition-colors duration-300 ${color}`}
+      >
+        {children}
+      </motion.div>
+    </InteractivePill>
+  );
+};
 
 const MeContent = () => {
   const { t } = useLanguage();

@@ -6,23 +6,34 @@ import Link from 'next/link';
 import Zenyth from '@/components/svg/Zenyth';
 import Birds from '@/components/svg/Birds';
 import GitHubButton from '@/components/GitHubButton';
+import InteractivePill from '@/components/InteractivePill';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// A small component for the technology "pills" matching the skills section
-const TechPill = ({ children }) => {
+// A small component for the technology "pills" matching the skills section with search functionality
+const TechPill = ({ children, searchable = true, searchTerms }) => {
   const hoverTransition = {
     duration: 0.2,
     ease: "easeOut"
   };
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.03, y: -2 }}
-      transition={hoverTransition}
-      className="text-white text-xs px-2.5 py-1 badge badge-lg badge-neutral font-bold"
+    <InteractivePill
+      searchable={searchable}
+      searchTerms={searchTerms}
+      searchContext={{
+        section: 'projects',
+        originalText: children,
+        category: 'technology'
+      }}
     >
-      {children}
-    </motion.div>
+      <motion.div
+        whileHover={{ scale: 1.03, y: -2 }}
+        transition={hoverTransition}
+        className="text-white text-xs px-2.5 py-1 badge badge-lg badge-neutral font-bold"
+      >
+        {children}
+      </motion.div>
+    </InteractivePill>
   );
 };
 

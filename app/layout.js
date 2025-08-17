@@ -1,6 +1,7 @@
 // src/app/layout.js - Updated version using Next.js Script
 import { Geist, Geist_Mono } from "next/font/google";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { SearchProvider } from "@/contexts/SearchContext";
 import "@/app/globals.css";
 
 const geistSans = Geist({
@@ -25,7 +26,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <LanguageProvider>
-          {children}
+          <SearchProvider>
+            {children}
+          </SearchProvider>
         </LanguageProvider>
       </body>
     </html>

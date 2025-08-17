@@ -1,12 +1,14 @@
 # Modern Portfolio Website
 
-A stunning personal portfolio website built with Next.js 15, featuring interactive 3D backgrounds, glassmorphic design, and smooth animations. This portfolio showcases projects, skills, and professional background through an engaging modal-based navigation system with immersive visual effects.
+My personal portfolio website built with Next.js 15, featuring interactive 3D backgrounds, glassmorphic design, smooth animations, and intelligent search functionality !
 
 ## ✨ Features
 
 - **Interactive 3D Background**: Vanta.js bird simulation with customizable parameters and real-time interaction
 - **Glassmorphic UI**: Modern design with backdrop blur effects and transparency layers
 - **Smooth Animations**: Motion library (Framer Motion successor) for page transitions and micro-interactions
+- **Intelligent Search**: Interactive pills with smart search functionality for skills, activities, and destinations
+- **Multilingual Support**: Complete French/English translation system with language detection
 - **Typewriter Effect**: Dynamic role descriptions with realistic typing animation
 - **Modal Navigation**: Floating navbar with detailed content cards for each portfolio section
 - **Responsive Design**: Mobile-first approach optimized for all screen sizes and devices
@@ -69,6 +71,11 @@ pnpm dev
 - **Lucide React 0.525.0** - Beautiful, customizable icon library
 - **tailwind-merge 3.3.1** - Utility for merging Tailwind classes efficiently
 
+### Internationalization & Search
+- **Custom Translation System** - Complete French/English support with context-aware translations
+- **Interactive Search** - Smart pill-based search functionality with Google and ChatGPT integration
+- **Language Detection** - Automatic browser language detection with manual toggle
+
 ## 📁 Project Structure
 
 ```
@@ -96,7 +103,16 @@ portfolio/
 │   ├── NavbarItem.js     # Individual navigation items
 │   ├── Typewriter.js     # Typewriter animation effect
 │   ├── GitHubButton.js   # GitHub repository link button
-│   └── CallToActionButton.js # Reusable CTA button component
+│   ├── CallToActionButton.js # Reusable CTA button component
+│   ├── InteractivePill.js # Smart searchable pill component
+│   └── LanguageToggle.js # Language switcher component
+├── contexts/             # React contexts
+│   ├── LanguageContext.js # Language state and translation management
+│   └── SearchContext.js  # Search functionality and engine selection
+├── translations/         # Internationalization
+│   └── index.js          # Complete French/English translations
+├── utils/               # Utility functions
+│   └── searchConfig.js   # Search configuration and pill intelligence
 ├── public/               # Static assets
 │   ├── avatar.png        # Main profile avatar
 │   ├── avatar_stella.png # Stella project avatar
@@ -104,10 +120,6 @@ portfolio/
 │   ├── sevilla_1.jpg     # Travel photos for Beyond Code carousel
 │   ├── sevilla_2.jpg     # Travel photos for Beyond Code carousel
 │   └── sevilla_3.jpg     # Travel photos for Beyond Code carousel
-├── .kiro/               # Kiro AI assistant configuration
-│   ├── hooks/           # Automated workflows and triggers
-│   ├── specs/           # Feature specifications and documentation
-│   └── steering/        # AI guidance documents (tech, structure, product)
 └── config files         # Next.js, Tailwind, ESLint, PostCSS configs
 ```
 
@@ -130,15 +142,22 @@ portfolio/
 - **Typewriter**: Animated text with realistic typing effect and cursor
 - **DetailCard**: Modal cards with smooth transitions and glassmorphic design
 - **Navbar**: Floating navigation with hover effects and spring animations
+- **InteractivePill**: Smart searchable pills with Google/ChatGPT integration (skills, projects, activities, destinations)
+- **LanguageToggle**: Smooth language switching with state persistence
 - **Image Carousel**: Vertical photo carousel in Beyond Code section
 - **Copy-to-Clipboard**: Interactive contact information copying
 
 ## 🎯 Portfolio Sections
 
-1. **Me** - Personal background, core values, professional journey, and what drives me as a developer
-2. **Projects** - Featured projects including Stella (AI financial assistant), Zenyth (YouTube summarizer), and this portfolio
-3. **Skills** - Technical expertise organized by categories: Languages, Frameworks, Tools, and Databases
-4. **Beyond Code** - Personal interests, hobbies, travel experiences, and the craziest achievement (hitchhiking to Sevilla)
+1. **Me** - Personal background, core values, professional journey with searchable profile information and language skills
+2. **Projects** - Featured projects including Stella (AI financial assistant), Zenyth (YouTube summarizer), and this portfolio with searchable technology badges
+3. **Skills** - Technical expertise organized by categories with searchable technology pills:
+   - Data Science & Analytics (Pandas, Numpy, Scikit-learn, etc.)
+   - Agentic AI & Automation (LangChain, LangGraph, RAG, etc.)
+   - Backend & Systems (Python, Docker, FastAPI, etc.)
+   - Frontend & Prototyping (React, Next.js, Tailwind CSS, etc.)
+   - Currently Learning (AWS Cloud, PyTorch, Vector Databases, etc.)
+4. **Beyond Code** - Personal interests, hobbies, travel wishlist with searchable activity and destination pills
 5. **Contact** - Multiple contact methods with copy-to-clipboard functionality and social links
 
 ## 🚀 Available Scripts
@@ -157,6 +176,8 @@ npm run lint     # Run ESLint
 - Update project data in `ProjectsContent.js`
 - Modify skills in `SkillsContent.js`
 - Change contact info in `ContactContent.js`
+- Update translations in `translations/index.js`
+- Configure search terms in `utils/searchConfig.js`
 
 ### Styling
 - Customize colors in Tailwind config
@@ -169,11 +190,33 @@ npm run lint     # Run ESLint
 - Change effect type (BIRDS, WAVES, etc.)
 - Customize colors and animation speed
 
+### Search & Internationalization
+- Add new searchable terms in `utils/searchConfig.js`
+- Configure search engines and behavior in `contexts/SearchContext.js`
+- Update translations in `translations/index.js`
+- Modify language detection logic in `contexts/LanguageContext.js`
+
+## 🔍 Search & Internationalization Features
+
+### Intelligent Search System
+- **Interactive Pills**: Click any skill, project technology, activity, or destination to search
+- **Smart Context**: Automatically generates relevant search terms based on content type and section
+- **Multi-Engine Support**: Choose between Google and ChatGPT for different search experiences
+- **Persistent Preferences**: Remembers your preferred search engine
+- **Mobile Optimized**: Touch-friendly interactions with responsive design
+
+### Multilingual Support
+- **Complete Translation**: Every text element available in French and English
+- **Automatic Detection**: Browser language detection with manual override
+- **Context-Aware**: Search terms and results adapt to selected language
+- **Smooth Transitions**: Language switching without page reload
+- **Persistent State**: Language preference saved across sessions
+
 ## 🤖 AI Integration
 
 This project includes Kiro AI assistant integration for enhanced development workflow:
 - **Steering Documents**: AI guidance for technology stack, project structure, and product vision
-- **Automated Workflows**: Hooks for testing, documentation updates, and code quality
+- **Automated Workflows**: Hooks for documentation updates and code quality
 - **Specifications**: Detailed feature specs for complex implementations
 - **Code Analysis**: AI-powered code review and optimization suggestions
 - **Documentation Sync**: Automatic updates to README and steering files based on project changes
@@ -194,6 +237,9 @@ This project includes Kiro AI assistant integration for enhanced development wor
 - **Animation Consistency**: Standardized hover transitions (`duration: 0.2, ease: "easeOut"`)
 - **Code Quality**: ESLint 9 configuration with Next.js rules
 - **Asset Organization**: Strategic placement of images and SVGs for optimal loading
+- **Context Architecture**: React contexts for language and search state management
+- **Search Intelligence**: Dynamic search term generation based on content analysis
+- **Performance Optimized**: Lightweight implementation without testing overhead
 
 ## 📄 License
 

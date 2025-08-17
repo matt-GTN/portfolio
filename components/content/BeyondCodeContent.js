@@ -2,6 +2,7 @@
 import { motion } from 'motion/react';
 import { Languages, Book, Dumbbell, Dices } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import InteractivePill from '@/components/InteractivePill';
 
 // Hobbies and interests data with icons
 const getHobbiesData = (t) => [
@@ -31,21 +32,45 @@ const getHobbiesData = (t) => [
   },
 ];
 
-// Activity pill component
-const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700' }) => {
+// Activity pill component with search functionality
+const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searchable = true, searchTerms, pillType = 'activity' }) => {
   const hoverTransition = {
     duration: 0.2,
     ease: "easeOut"
   };
 
+  // Determine search context based on pill type
+  const getSearchContext = () => {
+    const textContent = typeof children === 'string' ? children : '';
+    
+    // Check if it's a travel destination
+    const destinations = ['japon', 'corée', 'islande', 'norvège', 'canada', 'nouvelle-zélande', 'patagonie'];
+    const isDestination = destinations.some(dest => 
+      textContent.toLowerCase().includes(dest) || pillType === 'destination'
+    );
+
+    return {
+      section: 'beyond-code',
+      originalText: textContent,
+      category: isDestination ? 'destination' : 'activity',
+      searchType: isDestination ? 'destination' : 'activity'
+    };
+  };
+
   return (
-    <motion.div
-      whileHover={{ scale: 1.03, y: -2 }}
-      transition={hoverTransition}
-      className={`text-white text-sm font-normal px-3 py-1.5 rounded-full transition-colors duration-300 ${color}`}
+    <InteractivePill
+      searchable={searchable}
+      searchTerms={searchTerms}
+      searchContext={getSearchContext()}
     >
-      {children}
-    </motion.div>
+      <motion.div
+        whileHover={{ scale: 1.03, y: -2 }}
+        transition={hoverTransition}
+        className={`text-white text-sm font-normal px-3 py-1.5 rounded-full transition-colors duration-300 ${color}`}
+      >
+        {children}
+      </motion.div>
+    </InteractivePill>
   );
 };
 
@@ -171,7 +196,7 @@ const BeyondCodeContent = () => {
         </p>
         <div className="flex flex-wrap gap-2">
           {currentActivities.map((activity, index) => (
-            <ActivityPill key={index} color={activity.color}>
+            <ActivityPill key={index} color={activity.color} pillType="activity">
               {activity.text}
             </ActivityPill>
           ))}
@@ -191,7 +216,7 @@ const BeyondCodeContent = () => {
         </p>
         <div className="flex flex-wrap gap-2 mb-4">
           {travelWishlist.map((destination, index) => (
-            <ActivityPill key={index} color={destination.color}>
+            <ActivityPill key={index} color={destination.color} pillType="destination">
               {destination.text}
             </ActivityPill>
           ))}

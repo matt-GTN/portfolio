@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { motion } from 'motion/react';
 import { Code2, Database, Bot, ChartLine, NotebookPen, Zap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import InteractivePill from '@/components/InteractivePill';
 
 // Data for the skills section with icons
 const getSkillsData = (t) => [
@@ -38,21 +39,31 @@ const getSkillsData = (t) => [
   },
 ];
 
-// Colored skill pill component
-const SkillPill = ({ children, pillColor }) => {
+// Colored skill pill component with search functionality
+const SkillPill = ({ children, pillColor, searchable = true, searchTerms }) => {
   const hoverTransition = {
     duration: 0.2,
     ease: "easeOut"
   };
 
   return (
-    <motion.div 
-      whileHover={{ scale: 1.03, y: -2 }}
-      transition={hoverTransition}
-      className={`text-white text-sm font-bold px-3 py-1.5 rounded-full transition-colors duration-300 ${pillColor}`}
+    <InteractivePill
+      searchable={searchable}
+      searchTerms={searchTerms}
+      searchContext={{
+        section: 'skills',
+        originalText: children,
+        category: 'technology'
+      }}
     >
-      {children}
-    </motion.div>
+      <motion.div 
+        whileHover={{ scale: 1.03, y: -2 }}
+        transition={hoverTransition}
+        className={`text-white text-sm font-bold px-3 py-1.5 rounded-full transition-colors duration-300 ${pillColor}`}
+      >
+        {children}
+      </motion.div>
+    </InteractivePill>
   );
 };
 
