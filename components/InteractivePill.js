@@ -123,6 +123,7 @@ const InteractivePill = ({
   const getTextContent = (element) => {
     if (typeof element === 'string') return element;
     if (typeof element === 'number') return element.toString();
+    if (Array.isArray(element)) return element.map(getTextContent).join('');
     if (React.isValidElement(element) && element.props.children) {
       return getTextContent(element.props.children);
     }
