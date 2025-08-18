@@ -43,9 +43,9 @@ export const translations = {
           { text: '🚗 Permis de conduire', color: 'bg-blue-600 hover:bg-blue-700' }
         ],
         languages: [
-          { text: '🇬🇧 Anglais - C2', color: 'bg-indigo-600 hover:bg-indigo-700' },
-          { text: '🇮🇹 Italien - B2', color: 'bg-indigo-600 hover:bg-indigo-700' },
-          { text: '🇫🇷 Français - Natif', color: 'bg-indigo-600 hover:bg-indigo-700' }
+          { text: 'Anglais - C2', color: 'bg-indigo-600 hover:bg-indigo-700', countryCode: 'us' },
+          { text: 'Italien - B2', color: 'bg-indigo-600 hover:bg-indigo-700', countryCode: 'it' },
+          { text: 'Français - Natif', color: 'bg-indigo-600 hover:bg-indigo-700', countryCode: 'fr' }
         ],
         sections: {
           coreValues: "Valeurs",
@@ -87,7 +87,7 @@ export const translations = {
           "IA Agentique & Automation": ['LLMs', 'RAG', 'MCP', 'OpenRouter', 'Groq', 'LangChain', 'LangGraph', 'LangSmith', 'Context Engineering'],
           "Backend & Systèmes": ['SQL', 'Unix', 'C++', 'Python', 'Git', 'GitHub', 'Docker', 'FastAPI', 'Nginx', 'MLFlow', 'MongoDB', 'SQLAlchemy', 'IoT'],
           "Frontend & Prototypage": ['HTML', 'CSS', 'JavaScript', 'Next.js', 'React', 'Streamlit', 'Tailwind CSS', 'DaisyUI', 'Framer Motion'],
-          "En cours d'apprentissage": ['AWS Cloud', 'PySpark', 'Unit Tests', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Vector Databases']
+          "En cours d'apprentissage": ['AWS Cloud', 'PySpark', 'Tests unitaires', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Bases de données vectorielles']
         }
       },
       beyondCode: {
@@ -133,10 +133,10 @@ export const translations = {
           title: "Voyages",
           subtitle: "Des endroits qui me donnent envie de faire mes valises :",
           wishlist: [
-            { text: '🇯🇵 Japon', color: 'bg-pink-500 hover:bg-pink-600' },
-            { text: '🇮🇸 Islande', color: 'bg-cyan-500 hover:bg-cyan-600' },
-            { text: '🇳🇿 Nouvelle-Zélande', color: 'bg-emerald-500 hover:bg-emerald-600' },
-            { text: '🇨🇦 Canada', color: 'bg-red-500 hover:bg-red-600' }
+            { text: 'Japon', color: 'bg-pink-500 hover:bg-pink-600', countryCode: 'jp' },
+            { text: 'Islande', color: 'bg-cyan-500 hover:bg-cyan-600', countryCode: 'is' },
+            { text: 'Nouvelle-Zélande', color: 'bg-emerald-500 hover:bg-emerald-600', countryCode: 'nz' },
+            { text: 'Canada', color: 'bg-red-500 hover:bg-red-600', countryCode: 'ca' }
           ]
         },
         achievement: {
@@ -230,9 +230,9 @@ export const translations = {
           { text: '🚗 Driving License', color: 'bg-blue-600 hover:bg-blue-700' }
         ],
         languages: [
-          { text: '🇬🇧 English - C2', color: 'bg-indigo-600 hover:bg-indigo-700' },
-          { text: '🇮🇹 Italian - B2', color: 'bg-indigo-600 hover:bg-indigo-700' },
-          { text: '🇫🇷 French - Native', color: 'bg-indigo-600 hover:bg-indigo-700' }
+          { text: 'English - C2', color: 'bg-indigo-600 hover:bg-indigo-700', countryCode: 'us' },
+          { text: 'Italian - B2', color: 'bg-indigo-600 hover:bg-indigo-700', countryCode: 'it' },
+          { text: 'French - Native', color: 'bg-indigo-600 hover:bg-indigo-700', countryCode: 'fr' }
         ],
         sections: {
           coreValues: "Core Values",
@@ -320,10 +320,10 @@ export const translations = {
           title: "Travel",
           subtitle: "Places that make me want to pack my bags:",
           wishlist: [
-            { text: '🇯🇵 Japan', color: 'bg-pink-500 hover:bg-pink-600' },
-            { text: '🇮🇸 Iceland', color: 'bg-cyan-500 hover:bg-cyan-600' },
-            { text: '🇳🇿 New Zealand', color: 'bg-emerald-500 hover:bg-emerald-600' },
-            { text: '🇨🇦 Canada', color: 'bg-red-500 hover:bg-red-600' }
+            { text: 'Japan', color: 'bg-pink-500 hover:bg-pink-600', countryCode: 'jp' },
+            { text: 'Iceland', color: 'bg-cyan-500 hover:bg-cyan-600', countryCode: 'is' },
+            { text: 'New Zealand', color: 'bg-emerald-500 hover:bg-emerald-600', countryCode: 'nz' },
+            { text: 'Canada', color: 'bg-red-500 hover:bg-red-600', countryCode: 'ca' }
           ]
         },
         achievement: {

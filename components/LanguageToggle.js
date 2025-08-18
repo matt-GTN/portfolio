@@ -69,12 +69,12 @@ const LanguageToggle = ({ className = "", isCardActive = false }) => {
         
         {/* French flag - visible when language is 'fr' (checkbox unchecked) */}
         <div className="swap-off text-2xl">
-          🇫🇷
+          <img src="https://flagcdn.com/fr.svg" width="24" alt="France flag"></img>
         </div>
         
         {/* English flag - visible when language is 'en' (checkbox checked) */}
         <div className="swap-on text-2xl">
-          🇬🇧
+          <img src="https://flagcdn.com/us.svg" width="24" alt="France flag"></img>
         </div>
       </motion.label>
     </motion.div>

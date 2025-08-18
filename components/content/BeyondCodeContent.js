@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Languages, Book, Dumbbell, Dices } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import InteractivePill from '@/components/InteractivePill';
+import Flag from '../Flag';
 
 // Hobbies and interests data with icons
 const getHobbiesData = (t) => [
@@ -33,7 +34,7 @@ const getHobbiesData = (t) => [
 ];
 
 // Activity pill component with search functionality
-const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searchable = true, searchTerms, pillType = 'activity' }) => {
+const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searchable = true, searchTerms, pillType = 'activity', flag }) => {
   const hoverTransition = {
     duration: 0.2,
     ease: "easeOut"
@@ -69,6 +70,7 @@ const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searc
         transition={hoverTransition}
         className={`text-white text-xs sm:text-sm font-normal px-2.5 sm:px-3 py-1.5 rounded-full transition-colors duration-300 min-h-[32px] flex items-center justify-center ${color}`}
       >
+        {flag && <Flag countryCode={flag} className="mr-2" />}
         {children}
       </motion.div>
     </InteractivePill>
@@ -217,7 +219,7 @@ const BeyondCodeContent = () => {
         </p>
         <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
           {travelWishlist.map((destination, index) => (
-            <ActivityPill key={index} color={destination.color} pillType="destination">
+            <ActivityPill key={index} color={destination.color} pillType="destination" flag={destination.countryCode}>
               {destination.text}
             </ActivityPill>
           ))}

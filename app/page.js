@@ -185,7 +185,7 @@ export default function Home() {
       {/* Main content area - full width with proper z-index */}
       <div className="relative z-20 h-screen flex flex-col">
         <div className="p-8 text-left max-w-4xl w-full mt-20 flex-shrink-0">
-          <p className="text-xl text-gray-800 drop-shadow-sm">
+          <p className="text-md sm:text-xl text-gray-800 drop-shadow-sm">
             {t('homepage.greeting')}
           </p>
 

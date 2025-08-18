@@ -130,7 +130,7 @@ const MeContent = () => {
           <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3">{t('content.me.sections.languages')}</h4>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {aboutData.languages.map((language, index) => (
-              <Pill key={index} color={language.color} searchContext={{ section: 'about', originalText: language.text, category: 'personal-info' }}>
+              <Pill key={index} color={language.color} flag={language.countryCode} searchContext={{ section: 'about', originalText: language.text, category: 'personal-info' }}>
                 {language.text}
               </Pill>
             ))}

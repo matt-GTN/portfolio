@@ -1,7 +1,9 @@
 import { motion } from 'motion/react';
 import InteractivePill from '@/components/InteractivePill';
 
-const Pill = ({ children, color, searchable = true, searchTerms, searchContext, className, size = 'default' }) => {
+import Flag from './Flag';
+
+const Pill = ({ children, color, searchable = true, searchTerms, searchContext, className, size = 'default', flag }) => {
   const hoverTransition = {
     duration: 0.2,
     ease: "easeOut"
@@ -24,6 +26,7 @@ const Pill = ({ children, color, searchable = true, searchTerms, searchContext, 
         transition={hoverTransition}
         className={`text-white transition-colors duration-300 flex items-center justify-center ${sizeStyles[size]} ${color} ${className}`}
       >
+        {flag && <Flag countryCode={flag} className="mr-2" />}
         {children}
       </motion.div>
     </InteractivePill>
