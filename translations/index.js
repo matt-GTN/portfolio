@@ -19,7 +19,7 @@ export const translations = {
     content: {
       me: {
         introduction: {
-          title: "De la gestion d'humains à l'entraînement de machines 🦾",
+          title: "Du management d'humains à l'entraînement de machines 🦾",
           subtitle: "5 ans à transformer des idées créatives en code, j'apprends maintenant à l'IA à être plus intelligente que moi"
         },
         values: [
