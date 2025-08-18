@@ -1,84 +1,11 @@
-// components/ProjectsContent.js
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 
-import Zenyth from '@/components/svg/Zenyth';
-import Birds from '@/components/svg/Birds';
 import GitHubButton from '@/components/GitHubButton';
-import InteractivePill from '@/components/InteractivePill';
+import Pill from '@/components/Pill';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-// A small component for the technology "pills" matching the skills section with search functionality
-const TechPill = ({ children, searchable = true, searchTerms }) => {
-  const hoverTransition = {
-    duration: 0.2,
-    ease: "easeOut"
-  };
-
-  return (
-    <InteractivePill
-      searchable={searchable}
-      searchTerms={searchTerms}
-      searchContext={{
-        section: 'projects',
-        originalText: children,
-        category: 'technology'
-      }}
-    >
-      <motion.div
-        whileHover={{ scale: 1.03, y: -2 }}
-        transition={hoverTransition}
-        className="text-white text-xs px-2.5 py-1 badge badge-lg badge-neutral font-bold"
-      >
-        {children}
-      </motion.div>
-    </InteractivePill>
-  );
-};
-
-// --- PROJECT DATA WITH STATIC ELEMENTS ---
-const getProjectsData = (t) => [
-  {
-    title: t('content.projects.items.0.title'),
-    category: t('content.projects.items.0.category'),
-    description: t('content.projects.items.0.description'),
-    technologies: ['Python', 'LangGraph', 'Streamlit', 'Groq', 'Docker', 'Pandas', 'Plotly', 'Scikit-learn'],
-    imageSrc: '/avatar_stella.png',
-    bgColor: 'bg-black/90',
-    link: 'https://trystella.app',
-    github: {
-      username: 'matt-GTN',
-      repository: 'stella'
-    }
-  },
-  {
-    title: t('content.projects.items.1.title'),
-    category: t('content.projects.items.1.category'),
-    description: t('content.projects.items.1.description'),
-    technologies: ['LangGraph', 'FastAPI', 'Next.js', 'Docker', 'Groq', 'Python', 'Nginx'],
-    imageSrc: <Zenyth />,
-    bgColor: 'bg-black/90',
-    link: 'https://tryzenyth.app',
-    github: {
-      username: 'matt-GTN',
-      repository: 'zenyth'
-    }
-  },
-  {
-    title: t('content.projects.items.2.title'),
-    category: t('content.projects.items.2.category'),
-    description: t('content.projects.items.2.description'),
-    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'Vanta.js', 'DaisyUI', 'Three.js'],
-    imageSrc: <Birds />,
-    bgColor: 'bg-black/90',
-    link: '#',
-    github: {
-      username: 'matt-GTN',
-      repository: 'portfolio'
-    }
-  },
-];
+import { getProjectsData } from '@/data/projects';
 
 const ProjectsContent = () => {
   const { t } = useLanguage();
@@ -161,7 +88,7 @@ const ProjectsContent = () => {
                 <h4 className="text-sm font-semibold text-black/60 uppercase tracking-wide">{t('content.projects.technologies')}</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {project.technologies.map((tech) => (
-                    <TechPill key={tech}>{tech}</TechPill>
+                    <Pill key={tech} color="badge-neutral" size="badge" searchContext={{ section: 'projects', originalText: tech, category: 'technology' }}>{tech}</Pill>
                   ))}
                 </div>
               </div>

@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { User, Briefcase, Zap, Sparkles, Mail } from 'lucide-react';
 import VantaBackground from '@/components/vanta/VantaBackground';
 import Navbar from "@/components/Navbar";
@@ -12,7 +12,6 @@ import GitHubButton from "@/components/GitHubButton";
 import CallToActionButton from "@/components/CallToActionButton";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
-import usePerformanceMonitor from "@/hooks/usePerformanceMonitor";
 
 // NEW: Import the content components from the content folder
 import MeContent from "@/components/content/MeContent";
@@ -80,8 +79,6 @@ export default function Home() {
   const [activeCard, setActiveCard] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Performance monitoring
-  const performanceMetrics = usePerformanceMonitor();
 
   // Mobile detection
   useEffect(() => {
@@ -93,13 +90,6 @@ export default function Home() {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  // Log performance warnings in development
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development' && performanceMetrics.suggestions.length > 0) {
-      console.warn('Performance suggestions:', performanceMetrics.suggestions);
-    }
-  }, [performanceMetrics.suggestions]);
 
   const handleItemClick = (itemName) => {
     setActiveCard(itemName);

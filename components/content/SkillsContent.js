@@ -1,72 +1,8 @@
 // components/SkillsContent.js
-import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Code2, Database, Bot, ChartLine, NotebookPen, Zap } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import InteractivePill from '@/components/InteractivePill';
-
-// Data for the skills section with icons
-const getSkillsData = (t) => [
-  {
-    category: Object.keys(t('content.skills.categories'))[0],
-    icon: <ChartLine size={22} className="text-purple-600" />,
-    pillColor: 'bg-purple-600 hover:bg-purple-700',
-    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[0]],
-  },
-  {
-    category: Object.keys(t('content.skills.categories'))[1],
-    icon: <Bot size={22} className="text-orange-600" />,
-    pillColor: 'bg-orange-600 hover:bg-orange-700',
-    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[1]],
-  },
-  {
-    category: Object.keys(t('content.skills.categories'))[2],
-    icon: <Database size={22} className="text-yellow-600" />,
-    pillColor: 'bg-yellow-600 hover:bg-yellow-700',
-    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[2]],
-  },
-  {
-    category: Object.keys(t('content.skills.categories'))[3],
-    icon: <Code2 size={22} className="text-cyan-600" />,
-    pillColor: 'bg-cyan-600 hover:bg-cyan-700',
-    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[3]],
-  },
-  {
-    category: Object.keys(t('content.skills.categories'))[4],
-    icon: <NotebookPen size={22} className="text-green-600" />,
-    pillColor: 'bg-green-600 hover:bg-green-700',
-    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[4]],
-  },
-];
-
-// Colored skill pill component with search functionality
-const SkillPill = ({ children, pillColor, searchable = true, searchTerms }) => {
-  const hoverTransition = {
-    duration: 0.2,
-    ease: "easeOut"
-  };
-
-  return (
-    <InteractivePill
-      searchable={searchable}
-      searchTerms={searchTerms}
-      searchContext={{
-        section: 'skills',
-        originalText: children,
-        category: 'technology'
-      }}
-    >
-      <motion.div 
-        whileHover={{ scale: 1.03, y: -2 }}
-        whileTap={{ scale: 0.97 }}
-        transition={hoverTransition}
-        className={`text-white text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-1.5 rounded-full transition-colors duration-300 min-h-[32px] flex items-center justify-center ${pillColor}`}
-      >
-        {children}
-      </motion.div>
-    </InteractivePill>
-  );
-};
+import { getSkillsData } from '@/data/skills';
+import Pill from '@/components/Pill';
 
 // The main content component for the skills card
 const SkillsContent = () => {
@@ -121,7 +57,7 @@ const SkillsContent = () => {
             </h3>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {section.skills.map((skill) => (
-                <SkillPill key={skill} pillColor={section.pillColor}>{skill}</SkillPill>
+                <Pill key={skill} color={section.pillColor} searchContext={{ section: 'skills', originalText: skill, category: 'technology' }}>{skill}</Pill>
               ))}
             </div>
           </motion.div>

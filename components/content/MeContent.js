@@ -2,97 +2,13 @@
 import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Lightbulb, Code, Users, Download, Linkedin, User } from 'lucide-react';
+import { Download, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import InteractivePill from '@/components/InteractivePill';
+import Pill from '@/components/Pill';
+import { getAboutData, getValuesData } from '@/data/me';
+import Section from '@/components/Section';
 
-// Function to calculate age with months as decimal
-const calculateAge = (birthDate) => {
-  const today = new Date();
-  const birth = new Date(birthDate);
 
-  let years = today.getFullYear() - birth.getFullYear();
-  let months = today.getMonth() - birth.getMonth();
-
-  // Adjust if we haven't reached the birth month this year
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  // Adjust if we haven't reached the birth day this month
-  if (today.getDate() < birth.getDate()) {
-    months--;
-    if (months < 0) {
-      years--;
-      months += 12;
-    }
-  }
-
-  // Return format v27.8 where 8 represents the 8th month (0-11)
-  return `v${years}.${months}`;
-};
-
-// Your birth date (25/12/1997)
-const BIRTH_DATE = '1997-12-25';
-
-// --- Core values with icons ---
-const getValuesData = (t) => [
-  {
-    icon: <Users size={24} className="text-blue-500" />,
-    title: t('content.me.values.0.title'),
-    description: t('content.me.values.0.description'),
-  },
-  {
-    icon: <Lightbulb size={24} className="text-violet-500" />,
-    title: t('content.me.values.1.title'),
-    description: t('content.me.values.1.description'),
-  },
-  {
-    icon: <Code size={24} className="text-amber-500" />,
-    title: t('content.me.values.2.title'),
-    description: t('content.me.values.2.description'),
-  },
-];
-
-// --- About data for pill layout with emojis and colors ---
-const getAboutData = (t) => ({
-  profile: [
-    ...t('content.me.profile').map(item => ({
-      text: item.text,
-      color: item.color
-    })),
-    { text: `🎂 ${calculateAge(BIRTH_DATE)}`, color: 'bg-purple-600 hover:bg-purple-700' }
-  ],
-  languages: t('content.me.languages')
-});
-
-// Info pill component with search functionality
-const InfoPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searchable = true, searchTerms }) => {
-  // Determine if this pill should be searchable based on content
-  const textContent = typeof children === 'string' ? children : '';
-  const isAge = /^🎂\s*v\d+\.\d+$/.test(textContent);
-  const shouldBeSearchable = searchable && !isAge;
-
-  return (
-    <InteractivePill
-      searchable={shouldBeSearchable}
-      searchTerms={searchTerms}
-      searchContext={{
-        section: 'about',
-        originalText: textContent,
-        category: 'personal-info'
-      }}
-    >
-      <motion.div
-        whileHover={{ scale: 1.03, y: -2 }}
-        className={`text-white text-sm font-normal px-3 py-1.5 rounded-full transition-colors duration-300 ${color}`}
-      >
-        {children}
-      </motion.div>
-    </InteractivePill>
-  );
-};
 
 const MeContent = () => {
   const { t } = useLanguage();
@@ -114,17 +30,6 @@ const MeContent = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2, // Stagger the animation of children by 0.2s
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
       },
     },
   };
@@ -154,46 +59,33 @@ const MeContent = () => {
       animate="visible" // Using animate instead of whileInView for immediate effect on card open
     >
       {/* --- SECTION 1: INTRODUCTION & AVATAR --- */}
-      <motion.div
-        className="p-4 sm:p-6 border border-white/10"
-        variants={itemVariants}
-        whileHover={{ x: 5 }}
-        transition={hoverTransition}
-      >
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
-          <motion.div
-            className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Image
-              // --- CUSTOMIZE: Update with the path to your avatar ---
-              src="/avatar.png" // Replace with your avatar image path
-              alt="Mathis's Avatar"
-              fill
-              className="rounded-full object-cover shadow-lg"
-              priority // Good for LCP if this card is opened first
-            />
-          </motion.div>
-          <div className="text-black/90 text-center sm:text-left">
-            <p className="text-xl sm:text-2xl mb-2 font-bold">
-              {t('content.me.introduction.title')}
-            </p>
-            <p className="text-sm sm:text-base text-black/70">
-              {t('content.me.introduction.subtitle')}
-            </p>
-          </div>
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
+        <motion.div
+          className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0"
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Image
+            // --- CUSTOMIZE: Update with the path to your avatar ---
+            src="/avatar.png" // Replace with your avatar image path
+            alt="Mathis's Avatar"
+            fill
+            className="rounded-full object-cover shadow-lg"
+            priority // Good for LCP if this card is opened first
+          />
+        </motion.div>
+        <div className="text-black/90 text-center sm:text-left">
+          <p className="text-xl sm:text-2xl mb-2 font-bold">
+            {t('content.me.introduction.title')}
+          </p>
+          <p className="text-sm sm:text-base text-black/70">
+            {t('content.me.introduction.subtitle')}
+          </p>
         </div>
-      </motion.div>
+      </div>
 
       {/* --- SECTION 2: CORE VALUES --- */}
-      <motion.div
-        className="p-4 sm:p-6 rounded-2xl border border-white/10"
-        variants={itemVariants}
-        whileHover={{ x: 5 }}
-        transition={hoverTransition}
-      >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.me.sections.coreValues')}</h3>
+      <Section title={t('content.me.sections.coreValues')}>
         <div className="flex flex-col gap-4 sm:gap-6">
           {valuesData.map((value, index) => (
             <motion.div
@@ -219,24 +111,17 @@ const MeContent = () => {
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </Section>
 
       {/* --- SECTION 3: PERSONAL INFO --- */}
-      <motion.div
-        className="p-4 sm:p-6 border border-white/10"
-        variants={itemVariants}
-        whileHover={{ x: 5 }}
-        transition={hoverTransition}
-      >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.me.sections.about')}</h3>
-
+      <Section title={t('content.me.sections.about')}>
         <div className="mb-4 sm:mb-6">
           <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3">{t('content.me.sections.profile')}</h4>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {aboutData.profile.map((item, index) => (
-              <InfoPill key={index} color={item.color}>
+              <Pill key={index} color={item.color} searchable={!/^🎂\s*v\d+\.\d+$/.test(item.text)} searchContext={{ section: 'about', originalText: item.text, category: 'personal-info' }}>
                 {item.text}
-              </InfoPill>
+              </Pill>
             ))}
           </div>
         </div>
@@ -245,22 +130,16 @@ const MeContent = () => {
           <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3">{t('content.me.sections.languages')}</h4>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {aboutData.languages.map((language, index) => (
-              <InfoPill key={index} color={language.color}>
+              <Pill key={index} color={language.color} searchContext={{ section: 'about', originalText: language.text, category: 'personal-info' }}>
                 {language.text}
-              </InfoPill>
+              </Pill>
             ))}
           </div>
         </div>
-      </motion.div>
+      </Section>
 
       {/* --- SECTION 4: CALLS TO ACTION --- */}
-      <motion.div
-        className="p-4 sm:p-6 border border-white/10"
-        variants={itemVariants}
-        whileHover={{ x: 5 }}
-        transition={hoverTransition}
-      >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.me.sections.connect')}</h3>
+      <Section title={t('content.me.sections.connect')}>
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
@@ -293,7 +172,7 @@ const MeContent = () => {
             </Link>
           </motion.div>
         </div>
-      </motion.div>
+      </Section>
     </motion.div>
   );
 };

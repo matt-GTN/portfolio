@@ -8,7 +8,7 @@ export const translations = {
       contact: "Contact"
     },
     homepage: {
-      greeting: "Hey, je suis Mathis 👋, je suis un",
+      greeting: "Hey, moi c'est Mathis 👋, je suis un",
       roles: [
         "Data Scientist",
         "Team Player",
@@ -125,7 +125,7 @@ export const translations = {
             { text: '📚 The Witcher', color: 'bg-amber-600 hover:bg-amber-700' },
             { text: '🐼 Panda Spin', color: 'bg-purple-600 hover:bg-purple-700' },
             { text: '🌱 Apprendre le Darija', color: 'bg-green-600 hover:bg-green-700' },
-            { text: '👻 Kiro Code', color: 'bg-blue-600 hover:bg-blue-700' },
+            { text: '📟 Gemini CLI', color: 'bg-blue-600 hover:bg-blue-700' },
             { text: '🍪 Pasticiotto al pistacchio', color: 'bg-orange-600 hover:bg-orange-700' }
           ]
         },
@@ -312,7 +312,7 @@ export const translations = {
             { text: '📚 The Witcher', color: 'bg-amber-600 hover:bg-amber-700' },
             { text: '🐼 Panda Spin', color: 'bg-purple-600 hover:bg-purple-700' },
             { text: '🌱 Learning Darija', color: 'bg-green-600 hover:bg-green-700' },
-            { text: '👻 Kiro Code', color: 'bg-blue-600 hover:bg-blue-700' },
+            { text: '📟 Gemini CLI', color: 'bg-blue-600 hover:bg-blue-700' },
             { text: '🍪 Pasticiotto al pistacchio', color: 'bg-orange-600 hover:bg-orange-700' }
           ]
         },
