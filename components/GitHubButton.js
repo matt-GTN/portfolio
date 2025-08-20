@@ -81,7 +81,7 @@ const GitHubButton = ({
         <motion.div
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
-          className="btn btn-neutral dark:bg-white/90 dark:text-neutral btn-sm gap-2 rounded-full shadow-lg transition-colors duration-300"
+          className="btn btn-neutral dark:bg-white/90 dark:text-neutral btn-sm gap-2 rounded-full shadow-lg"
         >
           <Github size={20} />
 

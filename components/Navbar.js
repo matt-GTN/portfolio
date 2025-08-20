@@ -53,7 +53,7 @@ export default function Navbar({ onItemClick, isCardActive }) {
           onClick={() => onItemClick(item.text)}
           className="cursor-pointer"
         >
-          <div className="flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-bold transition-all duration-300 bg-white/20 dark:bg-gray-800/20 backdrop-blur-xs border border-white/10 dark:border-gray-600/20 shadow-lg hover:shadow-xl hover:bg-white/30 dark:hover:bg-gray-700/30">
+          <div className="flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-bold bg-white/20 dark:bg-gray-800/20 backdrop-blur-xs border border-white/10 dark:border-gray-600/20 shadow-lg hover:shadow-xl hover:bg-white/30 dark:hover:bg-gray-700/30">
             <NavbarItem
               text={item.displayText}
               iconName={item.iconName}

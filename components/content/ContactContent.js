@@ -74,7 +74,7 @@ const ContactPill = ({ children, color, href, onClick, disabled = false }) => {
     >
       <Component
         {...props}
-        className={`inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-full text-white text-xs sm:text-sm font-medium transition-all duration-300 w-full sm:w-auto min-h-[44px] ${color} ${href || !disabled ? 'cursor-pointer' : 'cursor-default'} ${disabled ? 'opacity-75' : ''}`}
+        className={`inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-full text-white text-xs sm:text-sm font-medium w-full sm:w-auto min-h-[44px] ${color} ${href || !disabled ? 'cursor-pointer' : 'cursor-default'} ${disabled ? 'opacity-75' : ''}`}
       >
         {children}
       </Component>
@@ -245,8 +245,8 @@ const ContactContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl text-xl font-bold mb-3 sm:mb-4 text-black dark:text-white transition-colors duration-300">🔧 {t('content.contact.work_together')}</h3>
-        <p className="text-md sm:text-base text-black/70 dark:text-white/70 mb-4 sm:mb-6 transition-colors duration-300">
+        <h3 className="text-2xl sm:text-3xl text-xl font-bold mb-3 sm:mb-4 text-black dark:text-white">🔧 {t('content.contact.work_together')}</h3>
+        <p className="text-md sm:text-base text-black/70 dark:text-white/70 mb-4 sm:mb-6">
           {t('content.contact.subtitle')}
         </p>
         <motion.div
@@ -258,7 +258,7 @@ const ContactContent = () => {
         >
           <Link
             href={`mailto:${contactData.email}?subject=Let's work together!`}
-            className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:bg-black/90 dark:hover:bg-gray-100 transition-colors duration-300 w-full sm:w-auto min-h-[44px]"
+            className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:bg-black/90 dark:hover:bg-gray-100 w-full sm:w-auto min-h-[44px]"
           >
             <Send size={18} />
             {t('content.contact.message')}
@@ -271,12 +271,12 @@ const ContactContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{t('content.contact.infos')}</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white">{t('content.contact.infos')}</h3>
         <div className="flex flex-col gap-4 sm:gap-6">
           {contactMethods.map((method, index) => (
             <motion.div
               key={method.title}
-              className="flex flex-col sm:flex-row gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 transition-colors duration-300"
+              className="flex flex-col sm:flex-row gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5"
               variants={nestedItemVariants}
               initial="hidden"
               animate="visible"
@@ -292,8 +292,8 @@ const ContactContent = () => {
                   {method.icon}
                 </motion.div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-base sm:text-lg font-semibold text-black dark:text-white transition-colors duration-300">{method.title}</h4>
-                  <p className="text-sm sm:text-base text-black/70 dark:text-white/70 break-all sm:truncate transition-colors duration-300">{method.value}</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-black dark:text-white">{method.title}</h4>
+                  <p className="text-sm sm:text-base text-black/70 dark:text-white/70 break-all sm:truncate">{method.value}</p>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
@@ -331,7 +331,7 @@ const ContactContent = () => {
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{t('content.me.sections.connect')}</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white">{t('content.me.sections.connect')}</h3>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           {socialLinks.map((social, index) => (
             <motion.div
@@ -348,7 +348,7 @@ const ContactContent = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 rounded-lg font-medium transition-colors duration-300 text-white w-full sm:w-auto min-h-[44px] ${social.color}`}
+                className={`inline-flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 rounded-lg font-medium text-white w-full sm:w-auto min-h-[44px] ${social.color}`}
               >
                 {social.icon}
                 {social.name}

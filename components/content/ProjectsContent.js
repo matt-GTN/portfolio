@@ -96,7 +96,7 @@ const ProjectsContent = () => {
 
             {/* Description and GitHub Button - Full Width */}
             <div className="mt-4 px-1">
-              <div className="text-black/80 mb-4 leading-relaxed dark:text-white/80 transition-colors duration-300">
+              <div className="text-black/80 mb-4 leading-relaxed dark:text-white/80">
                 {project.description.split('. ').map((sentence, idx) => (
                   <p key={idx} className={`${idx === 0 ? 'text-base font-bold mb-2' : 'text-sm mb-1'}`}>
                     {sentence}{idx < project.description.split('. ').length - 1 ? '.' : ''}
