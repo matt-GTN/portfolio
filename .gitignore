@@ -12,7 +12,6 @@
 
 # settings
 /coverage
-/.kiro
 /.vscode
 
 
@@ -42,6 +41,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Gemini
-GEMINI.md
+WARP.md

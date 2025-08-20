@@ -74,11 +74,11 @@ const MeContent = () => {
             priority // Good for LCP if this card is opened first
           />
         </motion.div>
-        <div className="text-black/90 text-center sm:text-left">
+        <div className="text-black/90 dark:text-white/90 text-center sm:text-left transition-colors duration-300">
           <p className="text-xl sm:text-2xl mb-2 font-bold">
             {t('content.me.introduction.title')}
           </p>
-          <p className="text-sm sm:text-base text-black/70">
+          <p className="text-sm sm:text-base text-black/70 dark:text-white/70 transition-colors duration-300">
             {t('content.me.introduction.subtitle')}
           </p>
         </div>
@@ -105,8 +105,8 @@ const MeContent = () => {
                 {value.icon}
               </motion.div>
               <div>
-                <h4 className="text-base sm:text-lg font-semibold text-black">{value.title}</h4>
-                <p className="text-sm sm:text-md text-black/70 mt-1">{value.description}</p>
+                <h4 className="text-base sm:text-lg font-semibold text-black dark:text-white transition-colors duration-300">{value.title}</h4>
+                <p className="text-sm sm:text-md text-black/70 dark:text-white/70 mt-1 transition-colors duration-300">{value.description}</p>
               </div>
             </motion.div>
           ))}
@@ -116,7 +116,7 @@ const MeContent = () => {
       {/* --- SECTION 3: PERSONAL INFO --- */}
       <Section title={t('content.me.sections.about')}>
         <div className="mb-4 sm:mb-6">
-          <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3">{t('content.me.sections.profile')}</h4>
+          <h4 className="text-base sm:text-lg font-semibold text-black dark:text-white mb-2 sm:mb-3 transition-colors duration-300">{t('content.me.sections.profile')}</h4>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {aboutData.profile.map((item, index) => (
               <Pill key={index} color={item.color} searchable={!/^🎂\s*v\d+\.\d+$/.test(item.text)} searchContext={{ section: 'about', originalText: item.text, category: 'personal-info' }}>
@@ -127,7 +127,7 @@ const MeContent = () => {
         </div>
 
         <div>
-          <h4 className="text-base sm:text-lg font-semibold text-black mb-2 sm:mb-3">{t('content.me.sections.languages')}</h4>
+          <h4 className="text-base sm:text-lg font-semibold text-black dark:text-white mb-2 sm:mb-3 transition-colors duration-300">{t('content.me.sections.languages')}</h4>
           <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {aboutData.languages.map((language, index) => (
               <Pill key={index} color={language.color} flag={language.countryCode} searchContext={{ section: 'about', originalText: language.text, category: 'personal-info' }}>
@@ -150,7 +150,7 @@ const MeContent = () => {
               // --- CUSTOMIZE: Link to your resume PDF ---
               href="https://drive.usercontent.google.com/download?id=1dXmO2WGj3kjiB9lwjSc6cpa_rcqGCj3D&export=download&authuser=0&confirm=t"
               target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/90 transition-colors duration-300 w-full min-h-[44px]"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-black dark:bg-white text-white dark:text-black  rounded-lg font-medium hover:bg-black/90 transition-colors duration-300 w-full min-h-[44px]"
             >
               <Download size={18} />
               {t('content.me.cta.resume')}
@@ -165,7 +165,7 @@ const MeContent = () => {
               // --- CUSTOMIZE: Link to your LinkedIn profile ---
               href="https://www.linkedin.com/in/mathis-genthon-9908102b6/"
               target="_blank"
-              className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 border border-black/30 text-black rounded-lg font-medium hover:bg-black/10 transition-colors duration-300 w-full min-h-[44px]"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 border border-black/30 text-white rounded-lg font-medium bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 w-full min-h-[44px]"
             >
               <Linkedin size={18} />
               {t('content.me.cta.linkedin')}

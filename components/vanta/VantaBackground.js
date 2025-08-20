@@ -12,14 +12,9 @@ const VantaClient = dynamic(
     loading: ({ options }) => (
       // Optional: Show a placeholder background while loading on client
       <div
+        className="w-full h-screen absolute top-0 left-0 z-0 bg-white dark:bg-gray-900 transition-colors duration-300"
         style={{
-          width: '100%', // Use 100% to fill parent
-          height: '100vh', // Use 100vh to define the section height
-          backgroundColor: options?.backgroundColor ? `#${options.backgroundColor.toString(16).padStart(6, '0')}` : '#000000',
-          position: 'absolute', // Position absolute within the parent div
-          top: 0,
-          left: 0,
-          zIndex: 0, // Ensure it's behind content
+          backgroundColor: options?.backgroundColor ? `#${options.backgroundColor.toString(16).padStart(6, '0')}` : undefined,
         }}
       />
     ),

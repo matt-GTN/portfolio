@@ -9,7 +9,7 @@ export const getProjectsData = (t) => [
     description: t('content.projects.items.0.description'),
     technologies: ['Python', 'LangGraph', 'Streamlit', 'Groq', 'Docker', 'Pandas', 'Plotly', 'Scikit-learn'],
     imageSrc: '/avatar_stella.png',
-    bgColor: 'bg-black/90',
+    bgColor: 'bg-black/90 dark:bg-white/90',
     link: 'https://trystella.app',
     github: {
       username: 'matt-GTN',
@@ -22,7 +22,7 @@ export const getProjectsData = (t) => [
     description: t('content.projects.items.1.description'),
     technologies: ['LangGraph', 'FastAPI', 'Next.js', 'Docker', 'Groq', 'Python', 'Nginx'],
     imageSrc: <Zenyth />,
-    bgColor: 'bg-black/90',
+    bgColor: 'bg-black/90 dark:bg-white/90',
     link: 'https://tryzenyth.app',
     github: {
       username: 'matt-GTN',
@@ -35,7 +35,7 @@ export const getProjectsData = (t) => [
     description: t('content.projects.items.2.description'),
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'Vanta.js', 'DaisyUI', 'Three.js'],
     imageSrc: <Birds />,
-    bgColor: 'bg-black/90',
+    bgColor: 'bg-black/90 dark:bg-white/90',
     link: '#',
     github: {
       username: 'matt-GTN',

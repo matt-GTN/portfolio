@@ -60,7 +60,7 @@ const ProjectsContent = () => {
                   <motion.div
                     whileHover={{ scale: 1.03, y: -5 }}
                     transition={hoverTransition}
-                    className={`relative w-full h-64 rounded-2xl p-6 flex flex-col justify-start text-white overflow-hidden shadow-xl cursor-pointer ${project.bgColor}`}
+                    className={`relative w-full h-64 rounded-2xl p-6 flex flex-col justify-start text-white dark:text-black overflow-hidden shadow-xl cursor-pointer ${project.bgColor}`}
                   >
                     <div className="relative z-10">
                       <p className="font-light text-sm text-grey-900">{project.category}</p>
@@ -85,7 +85,7 @@ const ProjectsContent = () => {
 
               {/* Technology Pills - Right Side */}
               <div className="flex flex-col gap-3 lg:w-48 flex-shrink-0">
-                <h4 className="text-sm font-semibold text-black/60 uppercase tracking-wide">{t('content.projects.technologies')}</h4>
+                <h4 className="text-sm font-semibold text-black/60 dark:text-white/80 uppercase tracking-wide">{t('content.projects.technologies')}</h4>
                 <div className="flex flex-wrap gap-1.5">
                   {project.technologies.map((tech) => (
                     <Pill key={tech} color="badge-neutral" size="badge" searchContext={{ section: 'projects', originalText: tech, category: 'technology' }}>{tech}</Pill>
@@ -96,7 +96,7 @@ const ProjectsContent = () => {
 
             {/* Description and GitHub Button - Full Width */}
             <div className="mt-4 px-1">
-              <div className="text-black/80 mb-4 leading-relaxed">
+              <div className="text-black/80 mb-4 leading-relaxed dark:text-white/80 transition-colors duration-300">
                 {project.description.split('. ').map((sentence, idx) => (
                   <p key={idx} className={`${idx === 0 ? 'text-base font-bold mb-2' : 'text-sm mb-1'}`}>
                     {sentence}{idx < project.description.split('. ').length - 1 ? '.' : ''}

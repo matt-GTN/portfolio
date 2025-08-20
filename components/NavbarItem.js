@@ -21,7 +21,7 @@ const NavbarItem = ({
     return (
       <div className="flex items-center gap-2 pointer-events-none">
         {IconComponent && <IconComponent size={iconSize} color={iconColor} />}
-        <span className={textSizeClass} style={{ color: textColor }}>
+        <span className={`${textSizeClass} text-gray-800 dark:text-gray-200 transition-colors duration-300`}>
           {text}
         </span>
       </div>

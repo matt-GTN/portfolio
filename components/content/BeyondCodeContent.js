@@ -68,7 +68,7 @@ const ActivityPill = ({ children, color = 'bg-gray-600 hover:bg-gray-700', searc
         whileHover={{ scale: 1.03, y: -2 }}
         whileTap={{ scale: 0.97 }}
         transition={hoverTransition}
-        className={`text-white text-xs sm:text-sm font-normal px-2.5 sm:px-3 py-1.5 rounded-full transition-colors duration-300 min-h-[32px] flex items-center justify-center ${color}`}
+        className={`text-white  text-xs sm:text-sm font-normal px-2.5 sm:px-3 py-1.5 rounded-full transition-colors duration-300 min-h-[32px] flex items-center justify-center font-semibold ${color}`}
       >
         {flag && <Flag countryCode={flag} className="mr-2" />}
         {children}
@@ -137,30 +137,30 @@ const BeyondCodeContent = () => {
     >
       {/* --- SECTION 1: INTRODUCTION --- */}
       <motion.div
-        className="p-4 sm:p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-black">{t('content.beyondCode.introduction.title')}</h3>
-        <p className="text-sm sm:text-base text-black/70 mb-3 sm:mb-4">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-black dark:text-white transition-colors duration-300">{t('content.beyondCode.introduction.title')}</h3>
+        <p className="text-sm sm:text-base text-black/70 dark:text-white/70 mb-3 sm:mb-4 transition-colors duration-300">
           {t('content.beyondCode.introduction.content')}
         </p>
       </motion.div>
 
       {/* --- SECTION 2: MAIN HOBBIES --- */}
       <motion.div
-        className="p-4 sm:p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.beyondCode.hobbies.title')}</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{t('content.beyondCode.hobbies.title')}</h3>
         <div className="flex flex-col gap-4 sm:gap-6">
           {hobbiesData.map((hobby, index) => (
             <motion.div
               key={hobby.title}
-              className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-white/5 transition-colors duration-300"
+              className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 transition-colors duration-300"
               variants={nestedItemVariants}
               initial="hidden"
               animate="visible"
@@ -176,10 +176,10 @@ const BeyondCodeContent = () => {
               </motion.div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1 sm:mb-2">
-                  <h4 className="text-base sm:text-lg font-semibold text-black">{hobby.title}</h4>
+                  <h4 className="text-base sm:text-lg font-semibold text-black dark:text-white transition-colors duration-300">{hobby.title}</h4>
                   <span className="text-lg sm:text-xl">{hobby.emoji}</span>
                 </div>
-                <p className="text-sm sm:text-md text-black/70">{hobby.description}</p>
+                <p className="text-sm sm:text-md text-black/70 dark:text-white/70 transition-colors duration-300">{hobby.description}</p>
               </div>
             </motion.div>
           ))}
@@ -188,13 +188,13 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 3: CURRENT ACTIVITIES --- */}
       <motion.div
-        className="p-4 sm:p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.beyondCode.currentActivities.title')}</h3>
-        <p className="text-sm sm:text-base text-black/70 mb-3 sm:mb-4">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{t('content.beyondCode.currentActivities.title')}</h3>
+        <p className="text-sm sm:text-base text-black/70 dark:text-white/70 mb-3 sm:mb-4 transition-colors duration-300">
           {t('content.beyondCode.currentActivities.subtitle')}
         </p>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -208,13 +208,13 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 4: TRAVEL & EXPLORATION --- */}
       <motion.div
-        className="p-4 sm:p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.beyondCode.travel.title')}</h3>
-        <p className="text-sm sm:text-base text-black/70 mb-3 sm:mb-4">
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{t('content.beyondCode.travel.title')}</h3>
+        <p className="text-sm sm:text-base text-black/70 dark:text-white/70 mb-3 sm:mb-4 transition-colors duration-300">
           {t('content.beyondCode.travel.subtitle')}
         </p>
         <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
@@ -228,12 +228,12 @@ const BeyondCodeContent = () => {
 
       {/* --- SECTION 5: ACHIEVEMENT --- */}
       <motion.div
-        className="p-4 sm:p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.beyondCode.achievement.title')}</h3>
+        <h3 className="text-xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{t('content.beyondCode.achievement.title')}</h3>
 
         <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row items-start">
           {/* Vertical Carousel - responsive sizing */}
@@ -262,10 +262,10 @@ const BeyondCodeContent = () => {
 
           {/* Description - responsive text */}
           <div className="flex-1 space-y-3 sm:space-y-4 w-full">
-            <p className="text-black/80 text-sm sm:text-lg leading-relaxed">
+            <p className="text-black/80 dark:text-white/80 text-sm sm:text-lg leading-relaxed transition-colors duration-300">
               {t('content.beyondCode.achievement.description1')}
             </p>
-            <p className="text-black/80 text-sm sm:text-lg leading-relaxed font-medium">
+            <p className="text-black/80 dark:text-white/80 text-sm sm:text-lg leading-relaxed font-medium transition-colors duration-300">
               {t('content.beyondCode.achievement.description2')}
             </p>
           </div>

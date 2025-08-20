@@ -27,7 +27,7 @@ const CallToActionButton = ({
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        className="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl shadow-lg backdrop-blur-lg border border-white/10"
+        className="btn btn-primary gap-3 bg-gradient-to-r from-purple-600 to-pink-600 border-none rounded-2xl shadow-lg backdrop-blur-lg px-6 py-4 text-white hover:from-purple-700 hover:to-pink-700"
       >
         {/* Status indicator */}
         <div className="relative">

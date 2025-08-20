@@ -11,7 +11,9 @@ import Typewriter from "@/components/Typewriter";
 import GitHubButton from "@/components/GitHubButton";
 import CallToActionButton from "@/components/CallToActionButton";
 import LanguageToggle from "@/components/LanguageToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 // NEW: Import the content components from the content folder
 import MeContent from "@/components/content/MeContent";
@@ -74,6 +76,7 @@ const getRoles = (t) => t('homepage.roles');
 
 export default function Home() {
   const { t } = useLanguage();
+  const { isDark } = useTheme();
   const cardContent = getCardContent(t);
   const roles = getRoles(t);
   const [activeCard, setActiveCard] = useState(null);
@@ -100,9 +103,10 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen bg-white relative overflow-hidden overscroll-y-contain">
+    <main className="h-screen bg-white dark:bg-gray-900 relative overflow-hidden overscroll-y-contain transition-colors duration-300">
       <GitHubButton username="matt-GTN" repository="portfolio" isCardActive={!!activeCard} />
       <LanguageToggle isCardActive={!!activeCard} />
+      <ThemeToggle isCardActive={!!activeCard} />
       <Navbar onItemClick={handleItemClick} isCardActive={!!activeCard} />
 
       <AnimatePresence>
@@ -131,9 +135,9 @@ export default function Home() {
               minWidth: 200.00,
               scale: 1.00,
               scaleMobile: 1.00,
-              backgroundColor: 0xffffff,
-              color1: 0x10027a,
-              color2: 0xff0086,
+              backgroundColor: isDark ? 0x1a1a1a : 0xffffff,
+              color1: isDark ? 0x4c1d95 : 0x10027a,
+              color2: isDark ? 0xc2185b : 0xff0086,
               colorMode: "varianceGradient",
               wingSpan: isMobile ? 15.0 : 20.0,
               speedLimit: 5.0,
@@ -148,44 +152,44 @@ export default function Home() {
         {/* Mobile blur overlay on all 4 sides */}
         <div className="lg:hidden absolute inset-0 pointer-events-none z-10">
           {/* Top blur */}
-          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/60 to-transparent"></div>
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
           {/* Bottom blur */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/60 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
           {/* Left blur */}
-          <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white via-white/60 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
           {/* Right blur */}
-          <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white via-white/60 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
 
           {/* Corner blurs for smoother transitions */}
-          <div className="absolute top-0 left-0 w-8 h-8 bg-gradient-to-br from-white via-white/80 to-transparent"></div>
-          <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-white via-white/80 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 w-8 h-8 bg-gradient-to-tr from-white via-white/80 to-transparent"></div>
-          <div className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-tl from-white via-white/80 to-transparent"></div>
+          <div className="absolute top-0 left-0 w-8 h-8 bg-gradient-to-br from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
+          <div className="absolute bottom-0 left-0 w-8 h-8 bg-gradient-to-tr from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-tl from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
         </div>
 
         {/* Desktop blur overlay on all 4 sides */}
         <div className="hidden lg:block absolute inset-0 pointer-events-none z-10">
           {/* Top blur */}
-          <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-white via-white/80 to-transparent"></div>
+          <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
           {/* Bottom blur */}
-          <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
           {/* Left blur */}
-          <div className="absolute top-0 bottom-0 left-0 w-60 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-60 bg-gradient-to-r from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
           {/* Right blur */}
-          <div className="absolute top-0 bottom-0 right-0 w-60 bg-gradient-to-l from-white via-white/80 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-60 bg-gradient-to-l from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
 
           {/* Corner blurs for smoother transitions */}
-          <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-white via-white/60 to-transparent"></div>
-          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white via-white/60 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-white via-white/60 to-transparent"></div>
-          <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-white via-white/60 to-transparent"></div>
+          <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
+          <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
+          <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
         </div>
       </div>
 
       {/* Main content area - full width with proper z-index */}
       <div className="relative z-20 h-screen flex flex-col">
         <div className="p-8 text-left max-w-4xl w-full mt-20 flex-shrink-0">
-          <p className="text-md sm:text-xl text-gray-800 drop-shadow-sm">
+          <p className="text-md sm:text-xl text-gray-800 dark:text-gray-200 drop-shadow-sm transition-colors duration-300">
             {t('homepage.greeting')}
           </p>
 

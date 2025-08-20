@@ -10,8 +10,8 @@ const Pill = ({ children, color, searchable = true, searchTerms, searchContext, 
   };
 
   const sizeStyles = {
-    default: 'text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-1.5 rounded-full min-h-[32px]',
-    badge: 'text-xs px-2.5 py-1 badge badge-lg font-bold'
+    default: 'text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-1.5 rounded-full min-h-[32px]',
+    badge: 'text-xs px-2.5 py-1 badge badge-lg font-bold dark:bg-white/100 dark:text-neutral',
   };
 
   return (

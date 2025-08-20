@@ -19,12 +19,12 @@ const Section = ({ title, children }) => {
 
   return (
     <motion.div
-      className="p-4 sm:p-6 border border-white/10"
+      className="p-4 sm:p-6"
       variants={itemVariants}
       whileHover={{ x: 5 }}
       transition={hoverTransition}
     >
-      <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{title}</h3>
+      <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{title}</h3>
       {children}
     </motion.div>
   );

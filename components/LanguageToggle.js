@@ -52,10 +52,10 @@ const LanguageToggle = ({ className = "", isCardActive = false }) => {
       }}
     >
       <motion.label 
-        className="swap swap-rotate btn btn-circle btn-ghost bg-white/20 backdrop-blur-xs border border-white/10 shadow-lg hover:bg-white/30 cursor-pointer"
+        className="swap swap-rotate p-3 rounded-full backdrop-blur-xs border shadow-lg cursor-pointer bg-white/20 dark:bg-gray-800/20 border-white/10 dark:border-gray-600/20 hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300 w-12 h-12"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        transition={hoverTransition}
+        transition={{ duration: 0.2, ease: "easeOut" }}
       >
         {/* Hidden checkbox that controls the swap state */}
         <input 

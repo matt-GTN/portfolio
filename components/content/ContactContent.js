@@ -51,7 +51,7 @@ const getSocialLinks = (t) => [
     icon: <Linkedin size={20} />,
     name: t('content.contact.methods.1.label'),
     href: `https://www.linkedin.com/in/${t('content.contact.methods.1.value')}`,
-    color: 'bg-blue-600 hover:bg-blue-700'
+    color: 'text-white rounded-lg font-medium bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 '
   }
 ];
 
@@ -240,13 +240,13 @@ const ContactContent = () => {
       animate="visible"
     >
       <motion.div
-        className="p-4 sm:p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl text-xl font-bold mb-3 sm:mb-4 text-black">🔧 {t('content.contact.work_together')}</h3>
-        <p className="text-md sm:text-base text-black/70 mb-4 sm:mb-6">
+        <h3 className="text-2xl sm:text-3xl text-xl font-bold mb-3 sm:mb-4 text-black dark:text-white transition-colors duration-300">🔧 {t('content.contact.work_together')}</h3>
+        <p className="text-md sm:text-base text-black/70 dark:text-white/70 mb-4 sm:mb-6 transition-colors duration-300">
           {t('content.contact.subtitle')}
         </p>
         <motion.div
@@ -258,7 +258,7 @@ const ContactContent = () => {
         >
           <Link
             href={`mailto:${contactData.email}?subject=Let's work together!`}
-            className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-black/90 transition-colors duration-300 w-full sm:w-auto min-h-[44px] btn"
+            className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-lg font-medium hover:bg-black/90 dark:hover:bg-gray-100 transition-colors duration-300 w-full sm:w-auto min-h-[44px]"
           >
             <Send size={18} />
             {t('content.contact.message')}
@@ -266,17 +266,17 @@ const ContactContent = () => {
         </motion.div>
       </motion.div>
       <motion.div
-        className="p-4 sm:p-6 rounded-2xl border border-white/10"
+        className="p-4 sm:p-6 rounded-2xl"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.contact.infos')}</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{t('content.contact.infos')}</h3>
         <div className="flex flex-col gap-4 sm:gap-6">
           {contactMethods.map((method, index) => (
             <motion.div
               key={method.title}
-              className="flex flex-col sm:flex-row gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors duration-300"
+              className="flex flex-col sm:flex-row gap-3 p-3 rounded-lg hover:bg-white/5 dark:hover:bg-white/5 transition-colors duration-300"
               variants={nestedItemVariants}
               initial="hidden"
               animate="visible"
@@ -292,8 +292,8 @@ const ContactContent = () => {
                   {method.icon}
                 </motion.div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-base sm:text-lg font-semibold text-black">{method.title}</h4>
-                  <p className="text-sm sm:text-base text-black/70 break-all sm:truncate">{method.value}</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-black dark:text-white transition-colors duration-300">{method.title}</h4>
+                  <p className="text-sm sm:text-base text-black/70 dark:text-white/70 break-all sm:truncate transition-colors duration-300">{method.value}</p>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
@@ -326,12 +326,12 @@ const ContactContent = () => {
 
       {/* --- SECTION 2: SOCIAL LINKS --- */}
       <motion.div
-        className="p-4 sm:p-6 border border-white/10"
+        className="p-4 sm:p-6"
         variants={itemVariants}
         whileHover={{ x: 5 }}
         transition={hoverTransition}
       >
-        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black">{t('content.me.sections.connect')}</h3>
+        <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{t('content.me.sections.connect')}</h3>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           {socialLinks.map((social, index) => (
             <motion.div

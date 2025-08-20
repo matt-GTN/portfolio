@@ -81,13 +81,13 @@ const GitHubButton = ({
         <motion.div
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-4 py-2 bg-black/80 text-white rounded-full shadow-lg border border-white/10 hover:bg-black/90 transition-colors duration-300"
+          className="btn btn-neutral dark:bg-white/90 dark:text-neutral btn-sm gap-2 rounded-full shadow-lg transition-colors duration-300"
         >
           <Github size={20} />
 
           {loading ? (
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+              <div className="w-4 h-4 border-2 border-white/30 dark:border-black/30 border-t-white dark:border-t-black rounded-full animate-spin"></div>
               <span className="text-sm font-medium">Loading...</span>
             </div>
           ) : error ? (
