@@ -66,7 +66,7 @@ export const translations = {
           {
             title: 'Stella',
             category: 'Agent de Gestion de risques Financiers',
-            description: 'Agent analyste financier intelligent alimenté par LangGraph et Streamlit. Dispose de 12 outils spécialisés pour l\'analyse d\'actions, l\'évaluation des risques et la recherche de marché. Construit comme projet de fin d\'études en Data Science pour apporter notre modèle d\'apprentissage surpervisé en analyse financière fondamentale (et plus) à des utilisateurs non techniques.'
+            description: 'Agent analyste financier intelligent alimenté par LangGraph, FastAPI et Next.js. Dispose de 12 outils spécialisés pour l\'analyse d\'actions, l\'évaluation des risques et la recherche de marché. Construit comme projet de fin d\'études en Data Science pour apporter notre modèle d\'apprentissage surpervisé en analyse financière fondamentale (et plus) à des utilisateurs non techniques.'
           },
           {
             title: 'Zenyth',
@@ -253,7 +253,7 @@ export const translations = {
           {
             title: 'Stella',
             category: 'Agentic Financial Assistant',
-            description: 'Intelligent financial analyst agent powered by LangGraph and Streamlit. Features 12 specialized tools for stock analysis, risk assessment, and market research. Built as a Data Science capstone project to bring our supervised learning model of fundamental financial analysis to non-technical users.'
+            description: 'Intelligent financial analyst agent powered by LangGraph, FastAPI and Next.js. Features 12 specialized tools for stock analysis, risk assessment, and market research. Built as a Data Science capstone project to bring our supervised learning model of fundamental financial analysis to non-technical users.'
           },
           {
             title: 'Zenyth',

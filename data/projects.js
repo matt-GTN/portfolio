@@ -7,13 +7,13 @@ export const getProjectsData = (t) => [
     title: t('content.projects.items.0.title'),
     category: t('content.projects.items.0.category'),
     description: t('content.projects.items.0.description'),
-    technologies: ['Python', 'LangGraph', 'Streamlit', 'Groq', 'Docker', 'Pandas', 'Plotly', 'Scikit-learn'],
+    technologies: ['Python', 'LangGraph', 'Next.js', 'Gemini API', 'Docker', 'Pandas', 'Plotly', 'Scikit-learn', 'FastAPI'],
     imageSrc: '/avatar_stella.png',
     bgColor: 'bg-black/90 dark:bg-white/90',
     link: 'https://trystella.app',
     github: {
       username: 'matt-GTN',
-      repository: 'stella'
+      repository: 'stella-next'
     }
   },
   {
