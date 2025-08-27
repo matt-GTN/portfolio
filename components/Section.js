@@ -24,7 +24,7 @@ const Section = ({ title, children }) => {
       whileHover={{ x: 5 }}
       transition={hoverTransition}
     >
-      <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">{title}</h3>
+      <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white">{title}</h3>
       {children}
     </motion.div>
   );

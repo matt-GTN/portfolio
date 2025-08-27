@@ -47,7 +47,7 @@ const ThemeToggle = ({ isCardActive = false }) => {
         onClick={toggleTheme}
         className={`
           p-3 rounded-full backdrop-blur-xs border shadow-lg cursor-pointer
-          transition-all duration-300 w-12 h-12 flex items-center justify-center
+          w-12 h-12 flex items-center justify-center
           ${isDark 
             ? 'bg-gray-800/20 border-gray-600/20 text-white-600 hover:bg-gray-700/30' 
             : 'bg-white/20 border-white/10 text-yellow-400 hover:bg-white/30'

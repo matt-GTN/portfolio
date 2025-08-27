@@ -103,7 +103,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen bg-white dark:bg-gray-900 relative overflow-hidden overscroll-y-contain transition-colors duration-300">
+    <main className="h-screen bg-white dark:bg-gray-900 relative overflow-hidden overscroll-y-contain">
       <GitHubButton username="matt-GTN" repository="portfolio" isCardActive={!!activeCard} />
       <LanguageToggle isCardActive={!!activeCard} />
       <ThemeToggle isCardActive={!!activeCard} />
@@ -152,44 +152,44 @@ export default function Home() {
         {/* Mobile blur overlay on all 4 sides */}
         <div className="lg:hidden absolute inset-0 pointer-events-none z-10">
           {/* Top blur */}
-          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent"></div>
           {/* Bottom blur */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent"></div>
           {/* Left blur */}
-          <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent"></div>
           {/* Right blur */}
-          <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent"></div>
 
           {/* Corner blurs for smoother transitions */}
-          <div className="absolute top-0 left-0 w-8 h-8 bg-gradient-to-br from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
-          <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
-          <div className="absolute bottom-0 left-0 w-8 h-8 bg-gradient-to-tr from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
-          <div className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-tl from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 left-0 w-8 h-8 bg-gradient-to-br from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
+          <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-8 h-8 bg-gradient-to-tr from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 bg-gradient-to-tl from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
         </div>
 
         {/* Desktop blur overlay on all 4 sides */}
         <div className="hidden lg:block absolute inset-0 pointer-events-none z-10">
           {/* Top blur */}
-          <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
           {/* Bottom blur */}
-          <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
           {/* Left blur */}
-          <div className="absolute top-0 bottom-0 left-0 w-60 bg-gradient-to-r from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-60 bg-gradient-to-r from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
           {/* Right blur */}
-          <div className="absolute top-0 bottom-0 right-0 w-60 bg-gradient-to-l from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-60 bg-gradient-to-l from-white dark:from-gray-900 via-white/80 dark:via-gray-900/80 to-transparent"></div>
 
           {/* Corner blurs for smoother transitions */}
-          <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
-          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
-          <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
-          <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent transition-colors duration-300"></div>
+          <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent"></div>
+          <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent"></div>
+          <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-white dark:from-gray-900 via-white/60 dark:via-gray-900/60 to-transparent"></div>
         </div>
       </div>
 
       {/* Main content area - full width with proper z-index */}
       <div className="relative z-20 h-screen flex flex-col">
         <div className="p-8 text-left max-w-4xl w-full mt-20 flex-shrink-0">
-          <p className="text-md sm:text-xl text-gray-800 dark:text-gray-200 drop-shadow-sm transition-colors duration-300">
+          <p className="text-md sm:text-xl text-gray-800 dark:text-gray-200 drop-shadow-sm">
             {t('homepage.greeting')}
           </p>
 

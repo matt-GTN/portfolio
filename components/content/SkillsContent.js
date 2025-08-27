@@ -48,10 +48,10 @@ const SkillsContent = () => {
             key={section.category}
             className="p-4 sm:p-6 rounded-2xl"
           >
-            <h3 className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-black dark:text-white transition-colors duration-300">
+            <h3 className="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-black dark:text-white">
               <span className="flex-shrink-0">{section.icon}</span>
               <span className="flex-1 min-w-0 text-sm lg:text-xl">{section.category}</span>
-              <span className="text-xs sm:text-sm font-normal text-black/60 dark:text-white/60 flex-shrink-0 transition-colors duration-300">
+              <span className="text-xs sm:text-sm font-normal text-black/60 dark:text-white/60 flex-shrink-0">
                 {section.skills.length} skills
               </span>
             </h3>

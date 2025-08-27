@@ -13,14 +13,14 @@ const DetailCard = ({ title, children, onClose }) => {
                  max-w-3xl p-8 z-40 rounded-4xl
                  bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg shadow-xl shadow-black/30 dark:shadow-black/50
                  border border-white/30 dark:border-gray-600/30 text-black dark:text-white lg:right-6 lg:top-8 lg:bottom-8 lg:left-auto inset-4 lg overflow-y-auto
-                 transition-colors duration-300"
+                "
       initial={{ x: "100%", opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: "100%", opacity: 0 }}
       transition={{ type: "spring", stiffness: 200, damping: 25 }}
     >
       <motion.button
-        className="absolute top-4 right-4 text-black/70 dark:text-white/70 z-10 transition-colors duration-300" // Added z-index to ensure it's on top
+        className="absolute top-4 right-4 text-black/70 dark:text-white/70 z-10" // Added z-index to ensure it's on top
         onClick={onClose}
         whileHover={{ scale: 1.2, rotate: 90 }}
       >
@@ -31,7 +31,7 @@ const DetailCard = ({ title, children, onClose }) => {
       <h2 className="lg:text-4xl text-lg font-bold mb-8">{title}</h2>
       
       {/* MODIFIED: Renders the children passed to the component. */}
-      <div className="text-lg text-black/80 dark:text-white/80 transition-colors duration-300">
+      <div className="text-lg text-black/80 dark:text-white/80">
         {children}
       </div>
     </motion.div>

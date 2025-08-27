@@ -12,7 +12,7 @@ const VantaClient = dynamic(
     loading: ({ options }) => (
       // Optional: Show a placeholder background while loading on client
       <div
-        className="w-full h-screen absolute top-0 left-0 z-0 bg-white dark:bg-gray-900 transition-colors duration-300"
+        className="w-full h-screen absolute top-0 left-0 z-0 bg-white dark:bg-gray-900"
         style={{
           backgroundColor: options?.backgroundColor ? `#${options.backgroundColor.toString(16).padStart(6, '0')}` : undefined,
         }}

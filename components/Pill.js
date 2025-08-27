@@ -24,7 +24,7 @@ const Pill = ({ children, color, searchable = true, searchTerms, searchContext, 
         whileHover={{ scale: 1.03, y: -2 }}
         whileTap={{ scale: 0.97 }}
         transition={hoverTransition}
-        className={`text-white transition-colors duration-300 flex items-center justify-center ${sizeStyles[size]} ${color} ${className}`}
+        className={`text-white flex items-center justify-center ${sizeStyles[size]} ${color} ${className}`}
       >
         {flag && <Flag countryCode={flag} className="mr-2" />}
         {children}
