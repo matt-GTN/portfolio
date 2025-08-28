@@ -67,7 +67,7 @@ const MeContent = () => {
         >
           <Image
             // --- CUSTOMIZE: Update with the path to your avatar ---
-            src="/avatar.png" // Replace with your avatar image path
+            src="/photo_cv.jpg" // Replace with your avatar image path
             alt="Mathis's Avatar"
             fill
             className="rounded-full object-cover shadow-lg"
