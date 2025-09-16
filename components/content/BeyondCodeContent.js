@@ -225,52 +225,6 @@ const BeyondCodeContent = () => {
           ))}
         </div>
       </motion.div>
-
-      {/* --- SECTION 5: ACHIEVEMENT --- */}
-      <motion.div
-        className="p-4 sm:p-6 rounded-2xl"
-        variants={itemVariants}
-        whileHover={{ x: 5 }}
-        transition={hoverTransition}
-      >
-        <h3 className="text-xl sm:text-3xl font-bold mb-4 sm:mb-6 text-black dark:text-white">{t('content.beyondCode.achievement.title')}</h3>
-
-        <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row items-start">
-          {/* Vertical Carousel - responsive sizing */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="carousel carousel-vertical rounded-xl p-2 sm:p-3 h-64 sm:h-80 w-full sm:w-64 mx-auto lg:mx-0">
-            <div className="carousel-item h-64 sm:h-80">
-              <img
-                src="/sevilla_1.jpg"
-                alt="Hitchhiking adventure to Sevilla - Photo 1"
-                className="w-full object-cover rounded-lg shadow-md" />
-            </div>
-            <div className="carousel-item h-64 sm:h-80">
-              <img
-                src="/sevilla_2.jpg"
-                alt="Hitchhiking adventure to Sevilla - Photo 2"
-                className="w-full object-cover rounded-lg shadow-md" />
-            </div>
-            <div className="carousel-item h-64 sm:h-80">
-              <img
-                src="/sevilla_3.jpg"
-                alt="Hitchhiking adventure to Sevilla - Photo 3"
-                className="w-full object-cover rounded-lg shadow-md" />
-            </div>
-          </motion.div>
-
-          {/* Description - responsive text */}
-          <div className="flex-1 space-y-3 sm:space-y-4 w-full">
-            <p className="text-black/80 dark:text-white/80 text-sm sm:text-lg leading-relaxed">
-              {t('content.beyondCode.achievement.description1')}
-            </p>
-            <p className="text-black/80 dark:text-white/80 text-sm sm:text-lg leading-relaxed font-medium">
-              {t('content.beyondCode.achievement.description2')}
-            </p>
-          </div>
-        </div>
-      </motion.div>
     </motion.div>
   );
 };
