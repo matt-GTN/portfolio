@@ -56,6 +56,7 @@ export const translations = {
         },
         cta: {
           resume: "Télécharger le CV",
+          resumeUrl: "https://drive.usercontent.google.com/download?id=1J6MHnSw1Z0oHaaPZY74uVdGxOBAUzoBd&export=download&authuser=0&confirm=t",
           linkedin: "LinkedIn"
         }
       },
@@ -243,6 +244,7 @@ export const translations = {
         },
         cta: {
           resume: "Download Resume",
+          resumeUrl: "https://drive.usercontent.google.com/download?id=1osNI79ue7tDyQPgqzR4sU62ix6lD28oH&export=download&authuser=0&confirm=t",
           linkedin: "LinkedIn"
         }
       },

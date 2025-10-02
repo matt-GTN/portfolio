@@ -147,7 +147,7 @@ const MeContent = () => {
             className="flex-1"
           >
             <Link
-              href="https://drive.usercontent.google.com/download?id=1ZXUIgVA6BiYJt7Ovy4ZfN7bNSvRlDhxn&export=download&authuser=0&confirm=t"
+              href={t('content.me.cta.resumeUrl')}
               target="_blank"
               className="inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-black dark:bg-white text-white dark:text-black  rounded-lg font-medium hover:bg-black/90 w-full min-h-[44px]"
             >
