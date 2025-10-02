@@ -85,9 +85,9 @@ export const translations = {
         categories: {
           "Data Science & Analyse": ['Pandas', 'Numpy', 'Jupyter', 'Plotly', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Keras', 'XGBoost', 'SciPy.stats', 'Statsmodels', 'SHAP', 'OpenCV', 'NLTK', 'Systèmes de recommandation', 'Imblearn', 'Prophet', 'TPOT'],
           "IA Agentique & Automation": ['LLMs', 'RAG', 'MCP', 'OpenRouter', 'Groq', 'LangChain', 'LangGraph', 'LangSmith', 'Context Engineering'],
-          "Backend & Systèmes": ['SQL', 'Unix', 'C++', 'Python', 'Git', 'GitHub', 'Docker', 'FastAPI', 'Nginx', 'MLFlow', 'MongoDB', 'SQLAlchemy', 'IoT'],
+          "Backend & Systèmes": ['SQL', 'Unix', 'C++', 'Python', 'Git', 'GitHub', 'Docker', 'FastAPI', 'Nginx', 'MLFlow', 'IoT'],
           "Frontend & Prototypage": ['HTML', 'CSS', 'JavaScript', 'Next.js', 'React', 'Streamlit', 'Tailwind CSS', 'DaisyUI', 'Framer Motion'],
-          "En cours d'apprentissage": ['AWS Cloud', 'PySpark', 'Tests unitaires', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Bases de données vectorielles']
+          "En cours d'apprentissage": ['AWS Cloud', 'PySpark', 'Tests unitaires', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Bases de données vectorielles', 'Ray', 'Kubernetes', 'PostgreSQL', 'Snowflake', 'MongoDB', 'Airbyte', 'Apache Airflow', 'Gym', 'Evidently AI']
         }
       },
       beyondCode: {
@@ -272,9 +272,9 @@ export const translations = {
         categories: {
           "Data Science & Analytics": ['Pandas', 'Numpy', 'Jupyter', 'Plotly', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Keras', 'XGBoost', 'SciPy.stats', 'Statsmodels', 'SHAP', 'OpenCV', 'NLTK', 'Recommender Systems', 'Imblearn', 'Prophet', 'TPOT'],
           "Agentic AI & Automation": ['LLMs', 'RAG', 'MCP', 'OpenRouter', 'Groq', 'LangChain', 'LangGraph', 'LangSmith', 'Context Engineering'],
-          "Backend & Systems": ['SQL', 'Unix', 'C++', 'Python', 'Git', 'GitHub', 'Docker', 'FastAPI', 'Nginx', 'MLFlow', 'MongoDB', 'SQLAlchemy', 'IoT'],
+          "Backend & Systems": ['SQL', 'Unix', 'C++', 'Python', 'Git', 'GitHub', 'Docker', 'FastAPI', 'Nginx', 'MLFlow', 'IoT'],
           "Frontend & Prototyping": ['HTML', 'CSS', 'JavaScript', 'Next.js', 'React', 'Streamlit', 'Tailwind CSS', 'DaisyUI', 'Framer Motion'],
-          "Currently Learning": ['AWS Cloud', 'PySpark', 'Unit Tests', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Vector Databases']
+          "Currently Learning": ['AWS Cloud', 'PySpark', 'Unit Tests', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Vector Databases', , 'Ray', 'Kubernetes', 'PostgreSQL', 'Snowflake', 'MongoDB', 'Airbyte', 'Apache Airflow', 'Gym', 'Evidently AI']
         }
       },
       beyondCode: {
