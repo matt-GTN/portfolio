@@ -12,7 +12,7 @@ export const translations = {
       roles: [
         "Data Scientist",
         "Team Player",
-        "Dev IA Agentique",
+        "AI Engineer",
         "Learning Enthusiast"
       ]
     },
@@ -84,11 +84,12 @@ export const translations = {
       skills: {
         title: "Compétences & Expertise",
         categories: {
-          "Data Science & Analyse": ['Pandas', 'Numpy', 'Jupyter', 'Plotly', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Keras', 'XGBoost', 'SciPy.stats', 'Statsmodels', 'SHAP', 'OpenCV', 'NLTK', 'Systèmes de recommandation', 'Imblearn', 'Prophet', 'TPOT'],
+          "Data Science & Analyse": ['Pandas', 'Numpy', 'Jupyter', 'Plotly', 'Matplotlib', 'Seaborn', 'Beautiful Soup', 'Scikit-learn', 'Clustering', 'Keras', 'XGBoost', 'SciPy.stats', 'Statsmodels', 'SHAP', 'OpenCV', 'NLTK', 'Systèmes de recommandation', 'Imblearn', 'Prophet', 'TPOT'],
           "IA Agentique & Automation": ['LLMs', 'RAG', 'MCP', 'OpenRouter', 'Groq', 'LangChain', 'LangGraph', 'LangSmith', 'Context Engineering'],
-          "Backend & Systèmes": ['SQL', 'Unix', 'C++', 'Python', 'Git', 'GitHub', 'Docker', 'FastAPI', 'Nginx', 'MLFlow', 'IoT'],
+          "Backend & Systèmes": ['SQL', 'Unix', 'Windows', 'Mac', 'AD Directory', 'C++', 'Python', 'Docker', 'FastAPI', 'Nginx', 'Mécanismes IoT'],
           "Frontend & Prototypage": ['HTML', 'CSS', 'JavaScript', 'Next.js', 'React', 'Streamlit', 'Tailwind CSS', 'DaisyUI', 'Framer Motion'],
-          "En cours d'apprentissage": ['AWS Cloud', 'PySpark', 'Tests unitaires', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Bases de données vectorielles', 'Ray', 'Kubernetes', 'PostgreSQL', 'Snowflake', 'MongoDB', 'Airbyte', 'Apache Airflow', 'Gym', 'Evidently AI']
+          "Collaboration & Principes de développement": ['Git', 'GitHub', 'MLFlow', 'Programmation Orientée Objet', 'Tests Unitaires', 'TDD', 'Collaboration Agile'],
+          "En cours d'apprentissage": ['n8n', 'AWS Cloud', 'PySpark', 'A/B Testing', 'Reinforcement Learning', 'NetworkX', 'TensorFlow', 'PyTorch', 'Bases de données vectorielles', 'Ray', 'Kubernetes', 'PostgreSQL', 'Snowflake', 'MongoDB', 'Airbyte', 'Apache Airflow', 'Gym', 'Evidently AI']
         }
       },
       beyondCode: {
@@ -120,7 +121,7 @@ export const translations = {
         },
         currentActivities: {
           title: "Mes dernières trouvailles",
-          subtitle: "Des choses que je poursuis activement ou que j'ai récemment découvertes :",
+          subtitle: "Des choses que j'adore en ce moment ou simplement récemment découvertes :",
           items: [
             { text: '🎾 Padel', color: 'bg-red-500 hover:bg-red-600' },
             { text: '📚 The Witcher', color: 'bg-amber-600 hover:bg-amber-700' },
@@ -200,7 +201,7 @@ export const translations = {
       roles: [
         "Data Scientist",
         "Team Player",
-        "Agentic AI Dev",
+        "AI Engineer",
         "Learning Enthusiast"
       ]
     },
@@ -272,11 +273,12 @@ export const translations = {
       skills: {
         title: "Skills & Expertise",
         categories: {
-          "Data Science & Analytics": ['Pandas', 'Numpy', 'Jupyter', 'Plotly', 'Matplotlib', 'Seaborn', 'Scikit-learn', 'Keras', 'XGBoost', 'SciPy.stats', 'Statsmodels', 'SHAP', 'OpenCV', 'NLTK', 'Recommender Systems', 'Imblearn', 'Prophet', 'TPOT'],
-          "Agentic AI & Automation": ['LLMs', 'RAG', 'MCP', 'OpenRouter', 'Groq', 'LangChain', 'LangGraph', 'LangSmith', 'Context Engineering'],
-          "Backend & Systems": ['SQL', 'Unix', 'C++', 'Python', 'Git', 'GitHub', 'Docker', 'FastAPI', 'Nginx', 'MLFlow', 'IoT'],
-          "Frontend & Prototyping": ['HTML', 'CSS', 'JavaScript', 'Next.js', 'React', 'Streamlit', 'Tailwind CSS', 'DaisyUI', 'Framer Motion'],
-          "Currently Learning": ['AWS Cloud', 'PySpark', 'Unit Tests', 'Clustering', 'Reinforcement Learning', 'Beautiful Soup', 'NetworkX', 'TensorFlow', 'PyTorch', 'Vector Databases', , 'Ray', 'Kubernetes', 'PostgreSQL', 'Snowflake', 'MongoDB', 'Airbyte', 'Apache Airflow', 'Gym', 'Evidently AI']
+        "Data Science & Analysis": ['Pandas', 'Numpy', 'Jupyter', 'Plotly', 'Matplotlib', 'Seaborn', 'Beautiful Soup', 'Scikit-learn', 'Clustering', 'Keras', 'XGBoost', 'SciPy.stats', 'Statsmodels', 'SHAP', 'OpenCV', 'NLTK', 'Recommendation Systems', 'Imblearn', 'Prophet', 'TPOT'],
+        "Agentic AI & Automation": ['LLMs', 'RAG', 'MCP', 'OpenRouter', 'Groq', 'LangChain', 'LangGraph', 'LangSmith', 'Context Engineering'],
+        "Backend & Systems": ['SQL', 'Unix', 'Windows', 'Mac', 'AD Directory', 'C++', 'Python', 'Docker', 'FastAPI', 'Nginx', 'IoT Mechanisms'],
+        "Frontend & Prototyping": ['HTML', 'CSS', 'JavaScript', 'Next.js', 'React', 'Streamlit', 'Tailwind CSS', 'DaisyUI', 'Framer Motion'],
+        "Collaboration & Development Principles": ['Git', 'GitHub', 'MLFlow', 'Object-Oriented Programming', 'Unit Testing', 'TDD', 'Agile Collaboration'],
+        "Currently Learning": ['n8n', 'AWS Cloud', 'PySpark', 'A/B Testing', 'Reinforcement Learning', 'NetworkX', 'TensorFlow', 'PyTorch', 'Vector Databases', 'Ray', 'Kubernetes', 'PostgreSQL', 'Snowflake', 'MongoDB', 'Airbyte', 'Apache Airflow', 'Gym', 'Evidently AI']
         }
       },
       beyondCode: {

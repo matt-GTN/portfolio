@@ -1,4 +1,4 @@
-import { Code2, Database, Bot, ChartLine, NotebookPen } from 'lucide-react';
+import { Code2, Database, Bot, ChartLine, NotebookPen, ScrollText } from 'lucide-react';
 
 export const getSkillsData = (t) => [
   {
@@ -27,8 +27,14 @@ export const getSkillsData = (t) => [
   },
   {
     category: Object.keys(t('content.skills.categories'))[4],
+    icon: <ScrollText size={22} className="text-red-600" />,
+    pillColor: 'bg-red-600 hover:bg-red-700',
+    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[4]],
+  },
+  {
+    category: Object.keys(t('content.skills.categories'))[5],
     icon: <NotebookPen size={22} className="text-green-600" />,
     pillColor: 'bg-green-600 hover:bg-green-700',
-    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[4]],
+    skills: t('content.skills.categories')[Object.keys(t('content.skills.categories'))[5]],
   },
 ];
